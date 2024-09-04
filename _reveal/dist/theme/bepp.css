@@ -319,6 +319,7 @@ body {
   color: #586e75;
   position: fixed;
   text-align: center;
+  width: 100%;
   left:50%;
   transform: translate(-50%, 0%); 
   bottom: 1%;
@@ -335,5 +336,13 @@ li:first-child {
 .image-row {
   display: flex;
   justify-content: space-between; /* this will add equal space between each image */
+}
+
+.icon {
+  position: fixed;
+  right: 0%;
+  top: 50%;
+  width: 100%;
+  opacity: .1;
 }
 

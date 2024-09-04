@@ -76,6 +76,147 @@
 			</section>			
 
 
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Signals</h1>
+					<h3>Reading: Introductory chapter</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>What is a signal?</h1>
+				<h3>A signal is...</h3>
+				<ul>
+					<li class="fragment fade-in-then-semi-out">
+						<p>An indicator, such as a gesture or colored light, that serves as a means of communication</p>
+						<div class="image-row">
+							<img src="pics/lecture_01_signs.png" style="width:30%; margin: auto;">
+							<img src="pics/lecture_01_space.jpg" style="width:30%; margin: auto;">
+						</div>
+					</li>
+					<li class="fragment fade-in-then-semi-out">An impulse or a fluctuating electric quantify, such as voltage, corrent, or electric field strength, whose variations represent coded information.</li>
+					<li class="fragment fade-in-then-semi-out">The <b>sound</b>, image, or message transmitted or received in telegraphy, telephony, radio, television, or radar.</li>
+				</ul>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Examples of signals</h1>
+				<div class="image-row" style="height: 20vh; max-height: 25%;">
+					<img src="pics/lecture_01_signal_finite.png" style="size: auto; max-height: 90%; height: auto; margin:auto;">
+					<img src="pics/lecture_01_time_spectrum_Vuvuzela.png" style="size: auto; max-height: 90%;height: auto; margin: auto;">
+				</div>
+				<div class="image-row">
+					<audio controls src="wav/lecture_01_railroad.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_01_vuvuzela.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+				</div>
+				<div class="image-row" style="padding-top: 3%; height: 20vh; max-height: 25%;">
+					<img src="pics/lecture_01_specgram.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_01_specgram_noisy.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_01_specgram_denoised.png" style="size: auto; max-width: 30%; margin:auto;">
+				</div>
+				<div class="image-row">
+					<audio controls src="wav/lecture_01_mini-me_short.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_11_noisy_signal.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_11_sig_denoised_3.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+				</div>
+				<div>
+					<p class="bottomline">In time, frequency, time-frequency, manipulated...</p>
+				</div>
+			</section>			
+			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Classification of signals</h1> 
+				<img style="width: 95%;" src="pics/lecture_01_signal_classification.svg">
+				<p class="bottomline">...we will deal with discrete-time, discrete-amplitude signals...</p>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h1>Description of signals</h1>
+				<p>In mathematical terms as a sum of sinusoids</p>
+					\[x_a(t) = \sum_{k=0}^\infty A_k \cdot \cos(2\pi k F_0 t + \Theta _k) \]
+				<p>Or as a complex exponentials</p>
+					\[ 
+						x_a(t) = \sum_{k=0}^\infty c_k e^{j 2 \pi k F_0 t + \Theta _k}
+					\]
+				<p class="bottomline">Check out the screencast on DTU LEARN</p>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Description of signals</h1>
+				<p>Complex exponentials </p>
+				\[ 
+					x_a(t) = \sum_{k=0}^\infty c_k e^{j 2 \pi k F_0 t + \Theta _k}
+				\]
+				<img src="pics/lecture_01_some_signal.gif" style="width: 30%;">
+				<p>Signals are periodic with period $$ 1/F_0 $$</p>
+			</section>			
+
+
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Sampling</h1>
+					<h3>SUBTITLE</h3>
+				</div>
+			</section>
+
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Aliasing</h1>
+					<h3>SUBTITLE</h3>
+				</div>
+			</section>
+
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Some practical considerations</h1>
+					<h3>SUBTITLE</h3>
+				</div>
+			</section>
+
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Hands-on for today</h1>
+					<h3>SUBTITLE</h3>
+				</div>
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Summary and take-home</h1>
+					<h3>SUBTITLE</h3>
+				</div>
+			</section>
+
+
+
+
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h1>H1</h1>
