@@ -335,7 +335,8 @@ li:first-child {
 
 .image-row {
   display: flex;
-  justify-content: space-between; /* this will add equal space between each image */
+  justify-content: space-between; /* this will add equal space between each image */;
+  padding: 0px;
 }
 
 .icon {
