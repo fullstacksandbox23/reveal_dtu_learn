@@ -3,7 +3,7 @@ clear all;
 clc
 
 % signal from wav file
-[sig1, fs1] = audioread(['..' filesep 'sounds' filesep 'Railroad.wav']);
+[sig1, fs1] = audioread(['..' filesep 'wav' filesep 'lecture_01_railroad.wav']);
 T1 = length(sig1)/fs1;
 t1 = (0:1:length(sig1)-1)/fs1;
 
@@ -33,11 +33,11 @@ ylim(1.1*[-max(sig1) max(sig1)])
 xlabel('time / s')
 ylabel('amplitude / a.u.')
 
-%filename = '../pics/lecture4_signal_finite.eps';
+%filename = '../pics/lecture_04_signal_finite.eps';
 %save2pdf_and_crop(filename);
 
-filename = '../pics/lecture4_signal_finite.png';
-saveas(gcf, '-dpngalpha', filename, 'png')
+filename = '../pics/lecture_04_signal_finite.svg';
+saveas(gcf, filename, 'svg')
 
 
 
@@ -54,10 +54,10 @@ ylim(1.1*[-max(sig2) max(sig2)])
 xlabel('time / s')
 ylabel('amplitude / a.u.')
 
-%filename = '../pics/lecture4_signal_infinite.eps';
+%filename = '../pics/lecture_04_signal_infinite.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite.svg';
+saveas(gcf, filename, 'svg')
 
 
 %% fft of sig 2
@@ -90,10 +90,10 @@ legend('full','cut')
 
 set([hfull hpart ],'Linewidth',line_width,'MArkersize',marker_size)
 
-%filename = '../pics/lecture4_signal_infinite_cut.eps';
+%filename = '../pics/lecture_04_signal_infinite_cut.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite_cut.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite_cut.svg';
+saveas(gcf, filename, 'svg')
 
 
 
@@ -115,10 +115,10 @@ legend('cut','window')
 
 set([hfull hwin hpart],'Linewidth',line_width,'MArkersize',marker_size)
 
-%filename = '../pics/lecture4_signal_infinite_cut_window.eps';
+%filename = '../pics/lecture_04_signal_infinite_cut_window.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite_cut_window.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite_cut_window.svg';
+saveas(gcf, filename, 'svg')
 
 
 % spectra
@@ -138,10 +138,10 @@ ylabel('amplitude / a.u.')
 
 xlim([0 24])
 
-%filename = '../pics/lecture4_signal_infinite_spectrum.eps';
+%filename = '../pics/lecture_04_signal_infinite_spectrum.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite_spectrum.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite_spectrum.svg';
+saveas(gcf, filename, 'svg')
 
 
 % --- zero padding ---
@@ -177,10 +177,10 @@ legend('cut')
 xlabel('frequency / Hz')
 ylabel('amplitude / a.u.')
 
-%filename = '../pics/lecture4_signal_infinite_spectrum_cut.eps';
+%filename = '../pics/lecture_04_signal_infinite_spectrum_cut.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite_spectrum_cut.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite_spectrum_cut.svg';
+saveas(gcf, filename, 'svg')
 
 
 
@@ -198,8 +198,8 @@ legend('zero-pad','cut')
 xlabel('frequency / Hz')
 ylabel('amplitude / a.u.')
 
-%filename = '../pics/lecture4_signal_infinite_spectrum_cut_padded.eps';
+%filename = '../pics/lecture_04_signal_infinite_spectrum_cut_padded.eps';
 %save2pdf_and_crop(filename);
-filename = '../pics/lecture4_signal_infinite_spectrum_cut_padded.png';
-saveas(gcf, filename, 'png')
+filename = '../pics/lecture_04_signal_infinite_spectrum_cut_padded.svg';
+saveas(gcf, filename, 'svg')
 

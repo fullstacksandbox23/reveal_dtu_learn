@@ -56,8 +56,9 @@ ylabel('amplitude (normalized)')
 set([ht1 ht2 hY],'Linewidth',2,'Markersize',6)
 
 %saving
-filename = '../pics/lecture3_running_sum_tf.eps';
-save2pdf_and_crop(filename);
+filename = '../pics/lecture3_running_sum_tf.png';
+saveas(gcf, filename,'png')
+%save2pdf_and_crop(filename);
 %savefig('../pics/lecture3_running_sum_tf', 'pdf');
 
 
@@ -86,8 +87,9 @@ ylabel('angle / \pi')
 set([hY hm],'Linewidth',2,'Markersize',6)
 
 %saving
-filename = '../pics/lecture3_running_sum_tf_mag_phase.eps';
-save2pdf_and_crop(filename);
+filename = '../pics/lecture3_running_sum_tf_mag_phase.png';
+saveas(gcf, filename,'png')
+%save2pdf_and_crop(filename);
 %savefig('../pics/lecture3_running_sum_tf_mag_phase', 'pdf');
 
 %%%%%%%%%%%% order 10
@@ -136,8 +138,9 @@ ylabel('amplitude (normalized)')
 set([ht1 ht2 hY],'Linewidth',2,'Markersize',6)
 
 %saving
-filename = '../pics/lecture3_running_sum_tf10.eps';
-save2pdf_and_crop(filename);
+filename = '../pics/lecture3_running_sum_tf10.png';
+saveas(gcf, filename,'png')
+%save2pdf_and_crop(filename);
 
 %savefig('../pics/lecture3_running_sum_tf10', 'pdf');
 
@@ -166,6 +169,7 @@ ylabel('angle / \pi')
 set([hY hm],'Linewidth',2,'Markersize',6)
 
 %saving
-filename = '../pics/lecture3_running_sum_tf10_mag_phase.eps';
-save2pdf_and_crop(filename);
+filename = '../pics/lecture3_running_sum_tf10_mag_phase.png';
+saveas(gcf, filename,'png')
+%save2pdf_and_crop(filename);
 %savefig('../pics/lecture3_running_sum_tf10_mag_phase', 'pdf');
