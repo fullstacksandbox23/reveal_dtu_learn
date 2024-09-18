@@ -104,7 +104,153 @@
                 </div> 
 			</section>	
 
+            <!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Important properties</h2>
+				<h6>Sampling in frequency makes time periodic</h6>
+				<p>From the DTFT to the DFT</p>
+				<img src="pics/lecture_03_sampling_time_frequency_discrete.svg" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+				<ul>
+					<li>Increasing the periodicity N0 will lead to infinitely dense components in the spectrum</li>
+					<li>In the limit a continuous spectrum with spectral density $X(\Omega)$ is built up</li>
+					\[   
+					x(n) = \frac{1}{2 \pi} \int_{2 \pi} X(\Omega) e^{j \Omega n} d \Omega
+					\]  
+					<li style="list-style-type: '&#8658' ;">The DFT is a sampled version of the DTFT</li>
+				</ul>
+				<p></p>> 
+			</section>
 
+            <!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>(Frequency) Transfer function</h2>
+				<h6>Length of IT and width of TF are closely related</h6>
+				<p>Some properties of the transfer function</p>
+				<div>
+					<img src="pics/lecture_03_running_sum_tf.png"style="height:380px; background-color: rgba(255, 255, 255, 0.4);">
+					<img src="pics/lecture_03_running_sum_tf10.png"style="height: 380px; background-color: rgba(255, 255, 255, 0.4);">
+				</div>
+				<ul>
+					<li>Transfer function consists of magnitude AND phase</li>
+					<li>Low-pass characteristics in magnitude</li>
+					<li>Linear phase variation</li>
+					<li>Transfer function width changes with length of impulse response (inversely)</li>
+				</ul>
+				<p class="bottomline">Longer (shorter) impulse response leads to narrower (wieder) transfer function</p> 
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 4?</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 5%;"> 
+					<ul>
+						<li>Windowing</li>
+							<ul style="padding-top: 3%;">
+								<li>Truncation in time</li>
+								<li>Implicit assumtions behind DFT</li>
+								<li>Wiggle wiggle in time</li>
+							</ul>
+						<li style="padding-top: 5%;">Windowing</li>
+							<ul style="padding-top: 3%;">
+								<li>Linear and circular convolution</li>
+								<li>Filtering in practice</li>
+							</ul>
+						<li>Block processing</li>
+					</ul>	
+				</div>
+				<p class="bottomline">Small-group discussions!</p>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Truncation of signals in the time domain</h2>
+				<h6>Infinitely long is too long</h6>
+				<div>
+					<img src="pics/lecture_04_signal_infinite_cut.svg" style="height: 400px; fill-opacity: .4;">
+					<img src="pics/lecture_04_signal_infinite_spectrum_cut.svg" style="height: 400px; fill-opacity: .4;">
+			   </div> 
+				<ul style="padding-top: 5%;">
+					<li>Truncating of signal equal to multiplication with a square wave</li>
+					<li>Cutting leads to oscillation in spectrum (Gibb’s phenomenon)</li>
+				</ul>
+				</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Linear and circular convolution</h2>
+				<h6>Different length means different frequency resolution</h6>
+				<p>Equivalence if “compatible for multiplication”: Convolution in time is multiplication in
+					frequency domain (e.g. impulse response)
+				\[ 
+					y(n) = x_1(n) \ast x_2(n) \Rightarrow Y(\omega) = X_1(\omega) \cdot X_2(\omega)
+ 				\]
+				But only if (!) frequency bins match up!
+				</p>
+				<div>
+					<img src="pics/lecture_04_signal_infinite_cut.svg" style="height: 400px; fill-opacity: .4;">
+					<img src="pics/lecture_04_signal_infinite_spectrum_cut.svg" style="height: 400px; fill-opacity: .4;">
+				</div>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<p></p>> 
+			</section>
+
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			  <h2></h2>
+			  <h6></h6>
+			  <p></p>
+			  <div>
+				<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+				<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+			 </div> 
+			  <ul>
+				  <li></li>
+				  <li></li>
+				  <li></li>
+				  <li></li>
+			  </ul>
+			  <p></p>> 
+		  	</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2></h2>
+				<h6></h6>
+				<p></p>
+				<div>
+					<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+					<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+				</div> 
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<p></p>> 
+			</section>
+				
            <!-- SECTION SLIDE -->
 			<section data-transition="slide">
 				<div style="padding-top: 30%;">	
@@ -134,42 +280,6 @@
 				</ul>
 				</div>
 			</section>	
-
-
-
-			<!-- SECTION SLIDE -->
-			<section data-transition="slide">
-				<div style="padding-top: 30%;">	
-					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 4?</h2>
-					<h3>...let's dig deeper...</h3>
-				</div>
-			</section>
-
-
-			<!-- standard slide -->
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2>What is going to happen today</h2>
-				<div style="padding-top: 5%;"> 
-					<ul>
-						<li>Windowing</li>
-							<ul style="padding-top: 3%;">
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						<li style="padding-top: 5%;">Windowing</li>
-							<ul style="padding-top: 3%;">
-								<li></li>
-								<li></li>
-							</ul>
-						<li>Block processing</li>
-					</ul>	
-				</div>
-				<p class="bottomline">Small-group discussions!</p>
-			</section>	
-
-
-
 
 			<!-- BACKCOVER -->
 			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_microgekko.png">
@@ -214,3 +324,24 @@
 		</script>
 	</body>
 </html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->
