@@ -54,9 +54,9 @@ legend('x_1(n)\astx_2(n)','x_2(n)','x_1(n)')
 
 set([ht1 ht2 ht12],'Linewidth',lw,'Markersize',ms);
 
-filenamet = ['..' filesep 'pics' filesep ...
-                'lecture_04_convolution_nonmatching_t.pdf'];
-save2pdf_and_crop(filenamet);
+%filenamet = ['..' filesep 'pics' filesep ...
+%                'lecture_04_convolution_nonmatching_t.pdf'];
+%save2pdf_and_crop(filenamet);
 
 filenamet_svg = ['..' filesep 'pics' filesep ...
                 'lecture_04_convolution_nonmatching_t.svg'];
@@ -78,9 +78,9 @@ xlim([0 10])
 
 % cosmetics and saving
 set([hf1 hf2 hf12],'Linewidth',lw,'Markersize',ms);
-filenamef = ['..' filesep 'pics' filesep ...
-                'lecture_04_convolution_nonmatching_f.pdf'];            
-save2pdf_and_crop(filenamef);
+%filenamef = ['..' filesep 'pics' filesep ...
+%                'lecture_04_convolution_nonmatching_f.pdf'];            
+%save2pdf_and_crop(filenamef);
 
 filenamef_svg = ['..' filesep 'pics' filesep ...
                 'lecture_04_convolution_nonmatching_f.svg'];           
@@ -119,9 +119,9 @@ legend('x_1(n)\astx_2(n)','x_2(n) pad','x_1(n) pad')
 
 set([ht1 ht2 ht12],'Linewidth',lw,'Markersize',ms);
 
-filenamet = ['..' filesep 'pics' filesep ...
-                'lecture_04_convolution_matching_t.pdf'];
-save2pdf_and_crop(filenamet);
+%filenamet = ['..' filesep 'pics' filesep ...
+%                'lecture_04_convolution_matching_t.pdf'];
+%save2pdf_and_crop(filenamet);
 
 filenamet_svg = ['..' filesep 'pics' filesep ...
                 'lecture_04_convolution_matching_t.svg'];
@@ -143,9 +143,9 @@ xlim([0 10])
 
 % cosmetics and saving
 set([hf1 hf2 hf12],'Linewidth',lw,'Markersize',ms);
-filenamef = ['..' filesep 'pics' filesep ...
-                'lecture_04_convolution_matching_f.pdf'];            
-save2pdf_and_crop(filenamef);
+%filenamef = ['..' filesep 'pics' filesep ...
+%                'lecture_04_convolution_matching_f.pdf'];            %
+% save2pdf_and_crop(filenamef);
 
 filenamef_svg = ['..' filesep 'pics' filesep ...
                 'lecture_04_convolution_matching_f.svg']; 

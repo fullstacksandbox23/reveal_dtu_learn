@@ -64,7 +64,9 @@ plot(t(1:length(sig)),filter(h,1,sig*.25),'Color',[.4 .4 .7],'Linewidth',lw);
 plot(t,conv(h,sig)*.25,'Color',[.7 .4 .4],'Linewidth',.7*lw);
 
 % export into a file
-fname = [path2pics, 'lecture_04_overlap_add_real.pdf'];
-save2pdf_and_crop(fname);
+%fname = [path2pics, 'lecture_04_overlap_add_real.pdf'];
+%save2pdf_and_crop(fname);
 %saveas(gcf,fname,'pdf')
 
+fname = [path2pics, 'lecture_04_overlap_add_real.svg'];
+saveas(gcf,fname,'svg')
