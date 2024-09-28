@@ -96,8 +96,8 @@
 				<h2>Fourier transforms - how do you get the phase?</h2>
 				<h6>Let's have a look into the mechanics</h6>
 				<p>
-					\[ \mathcal{F}\bigl( x(t) \bigr) = X(\omega ) = \int_{-\infty}^\infty x(t) e^{-j \Omega t} dt
-					= \int_{-\infty}^\infty x(t) \bigl( \textcolor{red}{\cos (\Omega t)} + \textcolor{blue}{j \sin (\Omega t)} \bigr)  dt  \]  
+					\[ \mathcal{F}\bigl( x(t) \bigr) = X(\omega ) = \int_{-\infty}^\infty x(t) e^{-j \omega t} dt
+					= \int_{-\infty}^\infty x(t) \bigl( \textcolor{red}{\cos (\omega t)} + \textcolor{blue}{j \sin (\omega t)} \bigr)  dt  \]  
 				</p>
                 <div style="padding-top: 0%;">
                     <img src="pics/lecture_03_animation_Fourier.gif" style="width: 60%;">
@@ -261,7 +261,7 @@
 					<li class="fragment" data-fragment-index="1">Under which condition are circular and linear convolution of x(n) and h(n) identical?</li>
 					<p class="fragment" data-fragment-index="5" style="color: #820000;" >They are identical if the spectra of $x(n)$ and $h(n)$ both have length $[length(x(n)) +
 						length(h(n)) -1]$ (length as the resulting signal after linear convolution in the time domain).</p>
-					<li class="fragment" data-fragment-index="1">Why are spectra of real-valued signals point-symmetric to the origin of the spectrum?</li>
+					<li class="fragment" data-fragment-index="1">Why are spectra of real-valued signals symmetric?</li>
 					<p class="fragment" data-fragment-index="6" style="color: #820000;" >In order to be real-valued, the imaginary parts of the Fourier coefficients need to cancel
 						each other: <br> $\cos(\omega t) = \frac{1}{2} \bigl(e^{j \omega t} + e^{-j \omega t} \bigr)$ </p>
 				</ul>
