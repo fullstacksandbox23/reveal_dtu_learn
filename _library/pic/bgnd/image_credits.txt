@@ -29,3 +29,11 @@ DESCHANDOL_microgekko.png
 Microgecko (Tropiocolotes) latifi (?)
 https://www.flickr.com/photos/frank-deschandol/42116895964/in/album-72157645500443585
 
+cochlea_surface_SickKids.jpg
+High magnification image of outer hair cells at the apex of the (chinchilla) cochlea. 
+https://lab.research.sickkids.ca/harrison/electron-microscopy/
+
+
+cochlea_turn_SickKids.jpg
+Part of the mid-turn of the chinchilla cochlea revealing the orderly rows of inner and outer hair cells.
+https://lab.research.sickkids.ca/harrison/electron-microscopy/

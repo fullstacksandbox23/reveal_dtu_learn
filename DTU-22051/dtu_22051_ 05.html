@@ -41,9 +41,9 @@
 			<div class="slides">
 <!-- ---------------------START HERE------------------------- -->
 			<!-- COVER SLIDE -->
-			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_walking_dead.png">
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/cochlea_turn_SickKids.jpg">
 				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
-				<p class="source" style="color: #d80000f4;">Curculionoidea parasitized by Ophiocordyceps curculionum (Iquitos, Peru) </p>
+				<p class="source" style="color: #d80000f4;">Part of the mid-turn of the chinchilla cochlea revealing the orderly rows of inner and outer hair cells. Source: Sick Kids Hospital, CAN </p>
 			</section>
 
 			<!-- TITLE SLIDE -->
@@ -141,7 +141,7 @@
 			<!-- SECTION SLIDE -->
 			<section data-transition="slide">
 				<div style="padding-top: 30%;">	
-					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session #?</h2>
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 5?</h2>
 					<h3>...let's dig deeper...</h3>
 				</div>
 			</section>
@@ -190,17 +190,18 @@
                 <h6>
                     Generalization of the Fourier space
 				</h6>
-					<p>Bilateral z-transform pair</p>
+				<p class="fragment">Bilateral z-transform pair
 				\[ 
-					X(z) = \sum_{n=-\infty}^{-\infty} \qquad  x(n) = \frac{1}{2\pi j} \oint X(z) z^{n-1} dz 
+					X(z) = \sum_{n=-\infty}^{\infty} x(n) z^{-n} \qquad  x(n) = \frac{1}{2\pi j} \oint X(z) z^{n-1} dz 
 				\]
+				</p>
 				<ul>
-					<li>Components are now exponentially growing/decaying harmonic functions</li>
-					<li>With the special case being
+					<li class="fragment">Components are now exponentially growing/decaying harmonic functions</li>
+					<li class="fragment">With the special case being
 						\[z = e^{\sigma + j \Omega} \qquad \sigma=0 \Rightarrow z|_{\sigma =0} = e^{j\Omega} \]
 					</li>
-					<li>The frequency space lives on the unit circle in the z-plane!</li>
-					<li>Linear transform (as Discrete Fourier Transform - DFT)</li>
+					<li class="fragment">The frequency space lives on the unit circle in the z-plane!</li>
+					<li class="fragment">Linear transform (as Discrete Fourier Transform - DFT)</li>
 				</ul>
 			</section>
 
@@ -211,9 +212,21 @@
                 <p>
                     The running sum as a system
 				</p>
-				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				<ul>
+					<li>General description (for $N$ feed-forward and $M$ feedback elements) 
+						\[\frac{Y(z)}{X(z)} = H(z) = \frac{b_0 z^0 + b_1 z^{-1} + \dots + b_N z^{-N}}{a_0 z^0 + a_1 z^{-1} + \dots + a_M z^{-M} } \]
+					</li>
+					<li>Transfer function of the running sum filter
+						\[ 
+							H(z) = z^0 + z^{-1} + z^{-2} = \frac{z^2 + z + 1}{z^2}
+						\]
+					</li>
+					<li> Special case of difference equation with coefficients {$b_0, b_1, b_2, a_0$} = 1 and {$a_1, a_2$} = 0
+						
+					</li>
+				</ul>
 				
-				<p class="bottomline">Bottomline</p>
+				<p class="bottomline">We can directly link coefficients to filter structure!</p>
 			</section>
 
 
@@ -232,24 +245,19 @@
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>Transfer function and z-plane</h2>
-                <p>
-                    SUBTITLE
-				</p>
-				<img src="pics/lecture_02_dotproduct.png" height="350px">
-				
-				<p class="bottomline">Bottomline</p>
+				<img src="pics/lecture_05_poles_zeros_zplane.svg" height="800px">
 			</section>
 
 
 			<!-- standard slide -->
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/lecture_05_animation_zplane.gif">
 				<h2>a visual approach</h2>
                 <p>
                     What if the z-plane was a rubber membrane...
 				</p>
-				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				<img  height="350px">
 				
-				<p class="bottomline">Bottomline</p>
+				<p class="bottomline">Poles amplify, zeros attenaute...</p>
 			</section>
 
 
@@ -293,9 +301,9 @@
 			</section>	
 
 			<!-- BACKCOVER -->
-			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_microgekko.png">
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/cochlea_surface_SickKids.jpg">
 				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
-				<p class="source" style="color: #fff;">Microgecko (Tropiocolotes) latifi (?)</p>
+				<p class="source" style="color: #fff;">High magnification image of outer hair cells at the apex of the (chinchilla) cochlea. Source: Sick Kids Hospital, CAN</p>
 			</section>
 
 		
