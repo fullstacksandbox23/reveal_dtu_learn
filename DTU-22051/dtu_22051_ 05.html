@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_walking_dead.png">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">Curculionoidea parasitized by Ophiocordyceps curculionum (Iquitos, Peru) </p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 5</h3>
+					<h4>Reframing: Circles and spaces of circles</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>Windowing of signals and the effect on the spectrum</li>
+						<li>Linear vs. circular convolution</li>
+						<li>Block processing</li>
+						<li>From frequency to z</li>
+					</ul>
+				</div>
+			</section>			
+				
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Truncation of signals in the time domain</h2>
+				<h6>Infinitely long is too long</h6>
+				<div>
+					<img src="pics/lecture_04_signal_infinite_cut.svg" style="height: 400px; fill-opacity: .4;">
+					<img src="pics/lecture_04_signal_infinite_spectrum.svg" style="height: 400px; fill-opacity: .4;">
+			   </div> 
+				<ul style="padding-top: 5%;">
+					<li>Truncating of signal equal to multiplication with a square wave</li>
+					<li>Cutting leads to oscillation in spectrum (Gibb’s phenomenon)</li>
+				</ul>
+				</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Linear and circular convolution</h2>
+				<h6>Different length means different frequency resolution</h6>
+				<p>Equivalence if “compatible for multiplication”: Convolution in time is multiplication in
+					frequency domain (e.g. impulse response)
+				\[ 
+					y(n) = x_1(n) \ast x_2(n) \Rightarrow Y(\omega) = X_1(\omega) \cdot X_2(\omega)
+ 				\]
+				But only if (!) frequency bins match up!
+				</p>
+				<div>
+					<img src="pics/lecture_04_convolution_nonmatching_t.svg" style="height: 400px; fill-opacity: .4;">
+					<img src="pics/lecture_04_convolution_nonmatching_f.svg" style="height: 400px; fill-opacity: .4;">
+				</div>
+			</section>
+
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			  <h2>Filteringin the frequency domain</h2>
+			  <h6>Same length means same spectral resolution</h6>
+			  <p>Matching and non-matching frequency bins</p>
+			  <div>
+				<img src="pics/lecture_04_convolution_matching_t.svg" style="height: 400px; background-color: rgba(255, 255, 255, 0.4);">
+				<img src="pics/lecture_04_convolution_matching_f.svg" style="height: 400px; background-color: rgba(255, 255, 255, 0.4);">
+			 </div> 
+			  <ul>
+				  <li>Point-wise multiplication of frequency-bins</li>
+				  <li>Convolved signal has same length as initial signals</li>
+				  <li style="list-style-type: '?';"> What can this be useful for? And why?</li>
+			  </ul>
+			  <p></p> 
+		  	</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Processing of signal chunks</h2>
+				<h6>This is one way of doing it</h6>
+				<p>With real signals!</p>
+				<div>
+					<img src="pics/lecture_04_overlap_add_real.svg" style="height: 700px; background-color: rgba(255, 255, 255, 0.4); box-shadow: 3px 3px 3px #000000;">
+				</div> 
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session #?</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 5%;"> 
+					<ul>
+						<li>The z-domain and the transfer function</li>
+							<ul style="padding-top: 3%;">
+								<li>Geometrical interpretation of the z-plane</li>
+							</ul>
+					</ul>	
+				</div>
+				<p class="bottomline">Small-group discussions!</p>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let’s do the math: From frequency to z-space</h2>
+                <h6>
+                    Generalization of the Fourier space
+				</h6>
+					<p>Introduce a new variable $z \in \mathbb{C}$</p>
+				<p>
+					\[ 
+					z = e^{\sigma + j \Omega} \quad \ln(z) = \sigma + j \Omega \quad \frac{1}{z} dz = j d\Omega
+					\]
+				</p>
+				<img src="pics/lecture_05_zplane.svg" style="height: 500px; background-color: rgba(255, 255, 255, 0.4);">
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>	
+				<h2>Let’s do the math: From frequency to z-space</h2>
+                <h6>
+                    Generalization of the Fourier space
+				</h6>
+					<p>Bilateral z-transform pair</p>
+				\[ 
+					X(z) = \sum_{n=-\infty}^{-\infty} \qquad  x(n) = \frac{1}{2\pi j} \oint X(z) z^{n-1} dz 
+				\]
+				<ul>
+					<li>Components are now exponentially growing/decaying harmonic functions</li>
+					<li>With the special case being
+						\[z = e^{\sigma + j \Omega} \qquad \sigma=0 \Rightarrow z|_{\sigma =0} = e^{j\Omega} \]
+					</li>
+					<li>The frequency space lives on the unit circle in the z-plane!</li>
+					<li>Linear transform (as Discrete Fourier Transform - DFT)</li>
+				</ul>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>System equations describe systems</h2>
+                <p>
+                    The running sum as a system
+				</p>
+				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				
+				<p class="bottomline">Bottomline</p>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>From z-space to frequency</h2>
+                <p>
+                    “Estimating” the frequency response from the z-transform: Relevant for filter design
+				</p>
+				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				
+				<p class="bottomline">Bottomline</p>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Transfer function and z-plane</h2>
+                <p>
+                    SUBTITLE
+				</p>
+				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				
+				<p class="bottomline">Bottomline</p>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>a visual approach</h2>
+                <p>
+                    What if the z-plane was a rubber membrane...
+				</p>
+				<img src="pics/lecture_02_dotproduct.png" height="350px">
+				
+				<p class="bottomline">Bottomline</p>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Quickie Nr 4</h2>
+				<h5>Take a few minutes to answer the following questions:</h5>
+				<div>
+				<ul style="font-size: 32px;">
+					<li class="fragment" data-fragment-index="1">
+						Under which condition are circular and linear convolution of x(n) and h(n) identical?
+					</li>
+					<p class="fragment" data-fragment-index="2" style="color: #820000;" > 
+						They are identical if the spectra of x(n) and h(n) both have length [length(x(n)) +
+						length(h(n)) -1], ie, the same length as the resulting signal after linear convolution in
+						the time domain.	
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						Why is a signal synthesized from the Fourier domain always periodic?
+					</li>
+					<p class="fragment" data-fragment-index="3" style="color: #820000;" >
+						The elements in the Fourier domain are harmonic oscillations. The Fourier transform
+						analyzes/synthesizes signals using these elements. Since each element is periodic, is the
+						sum of such elements also periodic.
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						Where can the Fourier domain be found in the z-domain?
+					</li>
+					<p class="fragment" data-fragment-index="4" style="color: #820000;" >
+						The Fourier domain is obtained from the z-domain by replacing z → e jΩ (unit circle).
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						Which are the “elements” used in the z-transform and how do they differ from the
+						“elements” used in the Fourier transform?
+					</li>
+					<p class="fragment" data-fragment-index="5" style="color: #820000;" >
+						The elements in the z-transform are exponentially growing or decaying oscillations. The
+						elements of the Fourier transform are a subset of these with an infinitely slow decay.
+					</p>
+				</ul>
+				</div>
+			</section>	
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_microgekko.png">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">Microgecko (Tropiocolotes) latifi (?)</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->
