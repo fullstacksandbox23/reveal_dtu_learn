@@ -37,3 +37,12 @@ https://lab.research.sickkids.ca/harrison/electron-microscopy/
 cochlea_turn_SickKids.jpg
 Part of the mid-turn of the chinchilla cochlea revealing the orderly rows of inner and outer hair cells.
 https://lab.research.sickkids.ca/harrison/electron-microscopy/
+
+
+SCIENCE_Shapson-Coe_etal_2024_cortex.jpg
+A range of histological features in 1 mm3 of human brain were rendered, including neuropil (A) and its segmentation (B) at nanometer resolution, annotated synapses (C), excitatory neurons (D), inhibitory neurons (E), astrocytes (F), oligodendrocytes (G), myelin (H), and blood vessels (I). A previously unrecognized neuronal class (J) and multisynaptic connections (K) were also identified.
+https://www.science.org/doi/full/10.1126/science.adk4858
+
+SCIENCE_Shapson-Coe_etal_2024_separated.jpg
+White lines indicate layer boundaries based on cell clustering. (A) All 49,080 cell bodies of neurons and glia in the sample colored by soma volume. (B) Blood vessels and the nuclei of the 8136 associated cells; 3D renderings of all blood vessels can be viewed in Neuroglancer (https://h01-dot-neuroglancer-demo.appspot.com/#!gs://h01-release/assets/neuroglancer_states/20240424/fig4b.json). Inset shows a magnified view of the location of the individual cell types. (C) Spiny neurons (n = 10531; putatively excitatory) colored by soma volume. (D) Interneurons (n = 4688; few spines, putatively inhibitory) colored by soma volume. (E) Astrocytes (n = 5474). (F) Most of the oligodendrocytes (n = 20,139) in the volume. (G) Cell bodies (n = 6702) of microglia and OPCs. (H) Myelinated axons in the volume color coded by topological orientation. Most axons in white matter run in the perpendicular direction. Images and scale bar are without correction for ultrathin sectioning compression.
+https://www.science.org/doi/full/10.1126/science.adk4858
