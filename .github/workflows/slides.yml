@@ -87,10 +87,10 @@ jobs:
       - name: Tag and push with latest and commit hash
         run: |
           docker tag \
-            ${{github.event.repository.name}}-slides:latest \
+            slides_prod-slides:latest \
             ${{env.REGISTRY}}/${{github.repository}}-slides:latest
           docker tag \
-            ${{github.event.repository.name}}-slides:latest \
+            slides_prod-slides:latest \
             ${{env.REGISTRY}}/${{github.repository}}-slides:$COMMIT_SHA
           docker push \
             ${{env.REGISTRY}}/${{github.repository}}-slides:latest
