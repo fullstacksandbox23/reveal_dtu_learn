@@ -37,14 +37,14 @@ resource "azurerm_container_app" "RevealSlides" {
       name  = "revreveal-slides"
       image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
       # Increase if the container side or CPU demands increase!
-      cpu    = 0.25 # 0.5
+      cpu    = 0.25    # 0.5
       memory = "0.5Gi" # "1Gi"
     }
   }
 
   ingress {
-    target_port      = 80
-    external_enabled = true
+    target_port                = 80
+    external_enabled           = true
     allow_insecure_connections = false # consider adding this
     traffic_weight {
       percentage = 100

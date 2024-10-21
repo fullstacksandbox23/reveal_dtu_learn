@@ -11,13 +11,19 @@ resource "azurerm_user_assigned_identity" "GithubActionsManagedIdentity" {
   }
 }
 
+resource "azurerm_role_assignment" "GithubActionsManagedIdentityRoleResourceGroup" {
+  scope                = azurerm_resource_group.resourceGroup.id
+  role_definition_name = "Contributor"
+  principal_id         = azurerm_user_assigned_identity.GithubActionsManagedIdentity.principal_id
+}
+
 resource "azurerm_federated_identity_credential" "GithubActionsManagedIdentityFederatedCredential" {
-  parent_id = azurerm_user_assigned_identity.GithubActionsManagedIdentity.id
-  name = "${var.project_name}-githubActionsFederatedIdentityCredentials-${terraform.workspace}"
+  parent_id           = azurerm_user_assigned_identity.GithubActionsManagedIdentity.id
+  name                = "${var.project_name}-githubActionsFederatedIdentityCredentials-${terraform.workspace}"
   resource_group_name = azurerm_resource_group.resourceGroup.name
-  audience = [ "api://AzureADTokenExchange" ]
-  issuer = "https://token.actions.githubusercontent.com"
-  subject = "repo:fullstacksandbox23/reveal_dtu_learn:environment:${terraform.workspace}"
+  audience            = ["api://AzureADTokenExchange"]
+  issuer              = "https://token.actions.githubusercontent.com"
+  subject             = "repo:fullstacksandbox23/reveal_dtu_learn:environment:${terraform.workspace}"
 }
 
 
