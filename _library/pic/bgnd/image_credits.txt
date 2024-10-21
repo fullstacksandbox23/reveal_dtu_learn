@@ -46,3 +46,11 @@ https://www.science.org/doi/full/10.1126/science.adk4858
 SCIENCE_Shapson-Coe_etal_2024_separated.jpg
 White lines indicate layer boundaries based on cell clustering. (A) All 49,080 cell bodies of neurons and glia in the sample colored by soma volume. (B) Blood vessels and the nuclei of the 8136 associated cells; 3D renderings of all blood vessels can be viewed in Neuroglancer (https://h01-dot-neuroglancer-demo.appspot.com/#!gs://h01-release/assets/neuroglancer_states/20240424/fig4b.json). Inset shows a magnified view of the location of the individual cell types. (C) Spiny neurons (n = 10531; putatively excitatory) colored by soma volume. (D) Interneurons (n = 4688; few spines, putatively inhibitory) colored by soma volume. (E) Astrocytes (n = 5474). (F) Most of the oligodendrocytes (n = 20,139) in the volume. (G) Cell bodies (n = 6702) of microglia and OPCs. (H) Myelinated axons in the volume color coded by topological orientation. Most axons in white matter run in the perpendicular direction. Images and scale bar are without correction for ultrathin sectioning compression.
 https://www.science.org/doi/full/10.1126/science.adk4858
+
+UWO_sugar.jpg
+Crystals of white sugar, imaged with 50x in the FIB-SEM. Kindly provided by Todd Simpson, UWO Nanofabrication Facility nanofab.uwo.ca/
+https://www.flickr.com/photos/zeissmicro/12791798123/in/photostream/
+
+UWO_salt.jpg
+Crystals of fine salt, imaged with 150x in the FIB-SEM. Kindly provided by Todd Simpson, UWO Nanofabrication Facility nanofab.uwo.ca/
+https://www.flickr.com/photos/zeissmicro/12791798223/in/photostream/
