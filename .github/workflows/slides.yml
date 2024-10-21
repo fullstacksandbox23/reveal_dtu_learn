@@ -13,6 +13,8 @@ on:
     paths:
       - 'slides/**'
       - '.github/workflows/slides.yml'
+      - 'scripts/run_slides_test.sh'
+      - 'scripts/build_slides.sh'
       
 env:
   REGISTRY: ghcr.io
