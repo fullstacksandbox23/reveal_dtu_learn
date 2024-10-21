@@ -1,0 +1,21 @@
+name: slides_dev
+
+services:
+    slides:
+        build:
+            target: dev
+        ports:
+            - "8000:8000"
+            - "35729:35729"
+        volumes:
+            - ./slides:/app
+            - slides_node_modules:/app/node_modules
+        restart: unless-stopped
+        networks:
+            - slides_dev
+
+volumes:
+    slides_node_modules:
+
+networks:
+    slides_dev:

@@ -1,0 +1,19 @@
+name: slides_test
+
+services:
+    slides:
+        build:
+            target: test
+        ports:
+            - "8009:8009"
+        volumes:
+            - ./slides:/app
+            - slides_test_node_modules:/app/node_modules
+        networks:
+            - slides_test
+
+volumes:
+    slides_test_node_modules:
+
+networks:
+    slides_test:
