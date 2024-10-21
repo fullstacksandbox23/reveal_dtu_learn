@@ -1,0 +1,6 @@
+name: slides_prod
+
+services:
+    slides:
+        ports:
+            - "80:80"
