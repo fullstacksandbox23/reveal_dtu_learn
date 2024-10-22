@@ -85,17 +85,16 @@
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>What do poles do to the frequency transfer function?</h2>
-                <p>
-                    ANIM moving_poles
-				</p>
-				<img src="pics/lecture_02_dotproduct.png" height="350px">
-				
+				<div style="box-shadow: 5px 5px 3px #000000; background: #fff " >
+					<video src="vid/lecture_07_animation_moving_pole.mp4" autoplay controls loop> </video>
+				</div>
 				<p class="bottomline">One circle spans one period of the spectrum</p>
 			</section>	
 
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>How to get a digitial filter from an analogue one?</h2>
+				<div class="fragment">
 				<h6>Impulse invariance</h6>
 					<ul>
 						<li>Match the digital and analogue impulse response</li>
@@ -103,6 +102,8 @@
 						<li>Suitable for LP filters only due to aliasing at higher frequencies (or high sampling rates
 							required)</li>
 					</ul>
+				</div>
+				<div class="fragment">
 				<h6 style="padding-top: 3%;">Bilinear transformation</h6>
 				<ul>
 					<li>Match the digital and analogue transfer function</li>
@@ -110,6 +111,7 @@
 					<li>Frequency prewarping compensates for frequency shift</li>
 					<li>Suitable for all types of filters due to lack of aliasing (lower sampling rates possible)</li>
 				</ul>
+				</div>	
 			</section>	
 
 			<!-- SECTION SLIDE -->
@@ -138,12 +140,11 @@
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>Starting point: Low pass (LP) filters</h2>
-                <p>
-                    ANIM LP z - mag - IR
-				</p>
-				<img src="pics/lecture_02_dotproduct.png" height="350px">
-				
-				<p class="bottomline">Same but different...</p>
+                <h6>The order tells us something...</h6>
+				<div style="box-shadow: 5px 5px 3px #000000; background: #fff " >
+					<video src="vid/lecture_07_animation_LP_order.mp4" autoplay controls loop> </video>
+				</div>
+				<p class="bottomline">Sharper in frequency, longer in time...</p>
 			</section>	
 
 			<!-- standard slide -->
