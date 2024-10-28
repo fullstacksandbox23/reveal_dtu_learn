@@ -1,4 +1,4 @@
-name: RevealJS
+name: Svelte-RevealJS
 
 on:
   workflow_dispatch:
@@ -28,8 +28,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # - name: Run reveal.js test in Docker
-      #   run: ./scripts/run_svelte_revealjs_test.sh
+  #     - name: Run reveal.js test in Docker
+  #       run: ./scripts/run_svelte_revealjs_test.sh
 
   check_for_infrastructure_change:
     runs-on: ubuntu-24.04

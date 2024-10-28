@@ -7,8 +7,8 @@ RUN npm install -g npm@10.9.0 && \
 COPY . .
 RUN npm run build
 # Debugging: List contents of /app after build
-RUN echo "Contents of /app after build:" && ls -la /app
-RUN ls -la /app/build
+# RUN echo "Contents of /app after build:" && ls -la /app
+# RUN ls -la /app/build
 
 FROM build AS dev
 WORKDIR /app
