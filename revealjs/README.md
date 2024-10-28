@@ -17,6 +17,19 @@ Want to create reveal.js presentation in a graphical editor? Try <https://slides
 
 ---
 
+# A web application for creating slide based presentations
+
+Trying out [RevealJS](https://revealjs.com/) in [Svelte](https://svelte.dev/)
+
+## Run the app
+
+```bash
+docker compose build
+docker compose up
+```
+
+will start the app on [localhost:5173](http://localhost:5173) in development mode.
+
 ### Reference
 
 This directory is a clone from

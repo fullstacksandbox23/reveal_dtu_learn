@@ -1,21 +1,33 @@
 name: slides_dev
 
 services:
-    slides:
+    revealjs:
         build:
             target: dev
         ports:
             - "8000:8000"
             - "35729:35729"
         volumes:
-            - ./slides:/app
-            - slides_node_modules:/app/node_modules
+            - ./revealjs:/app
+            - revealjs_node_modules:/app/node_modules
         restart: unless-stopped
         networks:
             - slides_dev
 
+    svelte-revealjs:
+        build:
+            target: dev
+        ports:
+            - "5173:80"
+        volumes:
+            - ./svelte_revealjs:/app
+            - svelte_revealjs_node_modules:/app/node_modules
+        networks:
+            - slides_dev
+
 volumes:
-    slides_node_modules:
+    revealjs_node_modules:
+    svelte_revealjs_node_modules:
 
 networks:
     slides_dev:

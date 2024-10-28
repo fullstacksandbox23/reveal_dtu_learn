@@ -11,6 +11,32 @@ resource "azurerm_user_assigned_identity" "GithubActionsManagedIdentity" {
   }
 }
 
+resource "azurerm_role_assignment" "GithubActionsManagedIdentityRoleResourceGroup" {
+  scope                = azurerm_resource_group.resourceGroup.id
+  role_definition_name = "Contributor"
+  principal_id         = azurerm_user_assigned_identity.GithubActionsManagedIdentity.principal_id
+}
+
+resource "azurerm_federated_identity_credential" "GithubActionsManagedIdentityFederatedCredential" {
+  parent_id           = azurerm_user_assigned_identity.GithubActionsManagedIdentity.id
+  name                = "${var.project_name}-githubActionsFederatedIdentityCredentials-${terraform.workspace}"
+  resource_group_name = azurerm_resource_group.resourceGroup.name
+  audience            = ["api://AzureADTokenExchange"]
+  issuer              = "https://token.actions.githubusercontent.com"
+  subject             = "repo:fullstacksandbox23/reveal_dtu_learn:environment:${terraform.workspace}"
+}
+
+
+
+# {
+#   identity_id = azurerm_user_assigned_identity.GithubActionsManagedIdentity.id
+#   name        = "${var.project_name}-githubActionsManagedIdentityFederatedCredential-${terraform.workspace}"
+#   resource_group_name = azurerm_resource_group.resourceGroup.name
+#   audience    = "api://AzureADTokenExchange"
+#   issuer      = "https://token.actions.githubusercontent.com"
+#   subject     = "repo:${var.project_name}:branch:${terraform.workspace}"
+# }
+
 # Manual configurations - either in Azure Portal or with azure CLI:
 # https://github.com/Azure/login
 # https://learn.microsoft.com/da-dk/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity

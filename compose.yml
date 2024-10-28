@@ -1,3 +1,6 @@
 services:
-    slides:
-        build: ./slides
+    revealjs:
+        build: ./revealjs
+
+    svelte-revealjs:
+        build: ./svelte_revealjs
