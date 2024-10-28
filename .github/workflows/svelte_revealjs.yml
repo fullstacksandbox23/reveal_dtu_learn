@@ -153,7 +153,7 @@ jobs:
           az containerapp update \
             --name ${{ vars.AZURE_CONTAINERAPP_SVELTE_REVEALJS }} \
             --resource-group ${{vars.AZURE_RESOURCE_GROUP}} \
-            --image ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
+            --image ${{env.REGISTRY}}/${{github.repository}}-svelte-revealjs:$COMMIT_SHA
 
       - name: Logout from Azure
         uses: azure/CLI@v2
