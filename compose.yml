@@ -1,3 +1,6 @@
 services:
     revealjs:
         build: ./revealjs
+
+    svelte-revealjs:
+        build: ./svelte_revealjs

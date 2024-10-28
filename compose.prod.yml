@@ -4,3 +4,7 @@ services:
     revealjs:
         ports:
             - "80:80"
+
+    svelte-revealjs:
+        ports:
+            - "80:80"
