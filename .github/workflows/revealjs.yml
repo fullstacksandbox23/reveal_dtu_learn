@@ -28,8 +28,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run slidess test in Docker
-        run: ./scripts/run_slides_test.sh
+      - name: Run reveal.js test in Docker
+        run: ./scripts/run_revealjs_test.sh
 
   check_for_infrastructure_change:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build for production
-        run: ./scripts/build_slides.sh
+        run: ./scripts/build_revealjs.sh
 
       - name: Show images
         run: docker image list
@@ -87,15 +87,15 @@ jobs:
       - name: Tag and push with latest and commit hash
         run: |
           docker tag \
-            slides_prod-slides:latest \
-            ${{env.REGISTRY}}/${{github.repository}}-slides:latest
+            slides_prod-revealjs:latest \
+            ${{env.REGISTRY}}/${{github.repository}}-revealjs:latest
           docker tag \
-            slides_prod-slides:latest \
-            ${{env.REGISTRY}}/${{github.repository}}-slides:$COMMIT_SHA
+            slides_prod-revealjs:latest \
+            ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
           docker push \
-            ${{env.REGISTRY}}/${{github.repository}}-slides:latest
+            ${{env.REGISTRY}}/${{github.repository}}-revealjs:latest
           docker push \
-            ${{env.REGISTRY}}/${{github.repository}}-slides:$COMMIT_SHA
+            ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
 
   deploy:
     needs: build
@@ -117,7 +117,7 @@ jobs:
 
       - name: Echo environment
         run: |
-          echo "AZURE_CONTAINERAPP_SLIDES: ${{ vars.AZURE_CONTAINERAPP_SLIDES }}"
+          echo "AZURE_CONTAINERAPP_REVEALJS: ${{ vars.AZURE_CONTAINERAPP_REVEALJS }}"
           echo "AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}"
 
       - name: Login to GitHub Container Registry
@@ -151,9 +151,9 @@ jobs:
       - name: Deploy
         run: |
           az containerapp update \
-            --name ${{ vars.AZURE_CONTAINERAPP_SLIDES }} \
+            --name ${{ vars.AZURE_CONTAINERAPP_REVEALJS }} \
             --resource-group ${{vars.AZURE_RESOURCE_GROUP}} \
-            --image ${{env.REGISTRY}}/${{github.repository}}-slides:$COMMIT_SHA
+            --image ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
 
       - name: Logout from Azure
         uses: azure/CLI@v2
@@ -163,44 +163,3 @@ jobs:
             az cache purge
             az account clear
 
-
-# name: tests
-
-# on:
-#   - push
-
-# permissions:
-#   contents: read
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     defaults:
-#       run:
-#         working-directory: slides
-
-#     strategy:
-#       matrix:
-#         node-version:
-#           - 18
-#           - 20
-
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v4
-
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: ${{ matrix.node-version }}
-
-#       - name: Install dependencies
-#         run: npm install
-
-#       - name: Build website
-#         run: npm run build --if-present
-
-#       - name: Run tests
-#         run: npm test
-#         env:
-#           CI: true
