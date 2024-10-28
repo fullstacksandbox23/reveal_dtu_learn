@@ -87,15 +87,15 @@ jobs:
       - name: Tag and push with latest and commit hash
         run: |
           docker tag \
-            slides_prod-revealjs:latest \
-            ${{env.REGISTRY}}/${{github.repository}}-revealjs:latest
+            slides_prod-svelte-revealjs:latest \
+            ${{env.REGISTRY}}/${{github.repository}}-svelte-revealjs:latest
           docker tag \
-            slides_prod-revealjs:latest \
-            ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
+            slides_prod-svelte-revealjs:latest \
+            ${{env.REGISTRY}}/${{github.repository}}-svelte-revealjs:$COMMIT_SHA
           docker push \
-            ${{env.REGISTRY}}/${{github.repository}}-revealjs:latest
+            ${{env.REGISTRY}}/${{github.repository}}-svelte-revealjs:latest
           docker push \
-            ${{env.REGISTRY}}/${{github.repository}}-revealjs:$COMMIT_SHA
+            ${{env.REGISTRY}}/${{github.repository}}-svelte-revealjs:$COMMIT_SHA
 
   deploy:
     needs: build
