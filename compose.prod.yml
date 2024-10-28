@@ -1,6 +1,6 @@
 name: slides_prod
 
 services:
-    slides:
+    revealjs:
         ports:
             - "80:80"

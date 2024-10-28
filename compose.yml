@@ -1,3 +1,3 @@
 services:
-    slides:
-        build: ./slides
+    revealjs:
+        build: ./revealjs

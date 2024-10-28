@@ -1,4 +1,4 @@
-name: Slides
+name: RevealJS
 
 on:
   workflow_dispatch:
@@ -11,10 +11,10 @@ on:
       - main
   push:
     paths:
-      - 'slides/**'
-      - '.github/workflows/slides.yml'
-      - 'scripts/run_slides_test.sh'
-      - 'scripts/build_slides.sh'
+      - 'revealjs/**'
+      - '.github/workflows/revealjs.yml'
+      - 'scripts/run_revealjs_test.sh'
+      - 'scripts/build_revealjs.sh'
       
 env:
   REGISTRY: ghcr.io

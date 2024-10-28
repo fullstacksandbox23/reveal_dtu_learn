@@ -19,7 +19,7 @@ resource "azurerm_container_app_environment" "ContainerEnvironment" {
 }
 
 resource "azurerm_container_app" "RevealSlides" {
-  name                         = "${var.project_short_name}-reveal-slides-${terraform.workspace}"
+  name                         = "${var.project_short_name}-revealjs-${terraform.workspace}"
   container_app_environment_id = azurerm_container_app_environment.ContainerEnvironment.id
   resource_group_name          = azurerm_resource_group.resourceGroup.name
   # TBD: needs to change to single for now - but multiple is required for this script to run, otherwise time-out!
@@ -34,7 +34,7 @@ resource "azurerm_container_app" "RevealSlides" {
 
   template {
     container {
-      name  = "revreveal-slides"
+      name  = "revealjs"
       image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
       # Increase if the container side or CPU demands increase!
       cpu    = 0.25    # 0.5
