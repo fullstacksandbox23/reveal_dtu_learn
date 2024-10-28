@@ -11,22 +11,22 @@ n = 2;              % order of filter
 
 % passband specs
 w_p = .3;           % normalized frequency
-G_p = -8;           % Min -8 dB gain in passband (or at most 8 dB attenuation)
+G_p = -10;           % Min -8 dB gain in passband (or at most 8 dB attenuation)
 
 % stopband specs
 w_s = .35;           % stopband frequency
 G_s = -40;          % at most -80 dB (or at least 80 dB attenutation)
 
 % acceptable ripples
-R_p = 15;            % rippple height in passband
-R_s = 20;           % minimum ripple attenuation
+R_p = 9;            % rippple height in passband
+R_s = 30;           % minimum ripple attenuation
 
 % signals
-fs = 22051;
-T = 4;
+fs = 8000;
+T = 10;
 t = 0:1/fs:T-1/fs;
 
-sweep  = chirp(t, 100, T, 8000, 'linear')/sqrt(2);
+sweep  = chirp(t, 50, T, 0.9*fs/2, 'linear')/sqrt(2);
 noise = randn(1,fs*T);
 noise = noise/sqrt(mean(noise.^2));
 
@@ -87,21 +87,32 @@ sweep_cheb1_LP = filter(B_cheb1, A_cheb1, sweep);
 noise_cheb1_LP = filter(B_cheb1, A_cheb1, noise);
 sweep_cheb2_LP = filter(B_cheb2, A_cheb2, sweep);
 noise_cheb2_LP = filter(B_cheb2, A_cheb2, noise);
-sweep_ellip_BP = filter(B_ellip, A_ellip, sweep);
-noise_ellip_BP = filter(B_ellip, A_ellip, noise);
+sweep_ellip_LP = filter(B_ellip, A_ellip, sweep);
+noise_ellip_LP = filter(B_ellip, A_ellip, noise);
 
 
 audiowrite('../wav/lecture_07_demo_sweep_BW_LP.wav', norm2wav(sweep_BW_LP), fs);
-audiowrite('../wav/lecture_07_demo_sweep_cheb1_LP.wav', norm2wav(sweep_BW_LP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_cheb2_LP.wav', norm2wav(sweep_BW_LP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_ellip_LP.wav', norm2wav(sweep_BW_LP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb1_LP.wav', norm2wav(sweep_cheb1_LP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb2_LP.wav', norm2wav(sweep_cheb2_LP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_ellip_LP.wav', norm2wav(sweep_ellip_LP), fs)
 audiowrite('../wav/lecture_07_demo_noise_BW_LP.wav', norm2wav(noise_BW_LP), fs);
-audiowrite('../wav/lecture_07_demo_noise_cheb1_LP.wav', norm2wav(noise_BW_LP), fs)
-audiowrite('../wav/lecture_07_demo_noise_cheb2_LP.wav', norm2wav(noise_BW_LP), fs)
-audiowrite('../wav/lecture_07_demo_noise_ellip_LP.wav', norm2wav(noise_BW_LP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb1_LP.wav', norm2wav(noise_cheb1_LP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb2_LP.wav', norm2wav(noise_cheb2_LP), fs)
+audiowrite('../wav/lecture_07_demo_noise_ellip_LP.wav', norm2wav(noise_ellip_LP), fs)
+
+prepare_figure_scale(5,5)
+fnorm = (0:length(H_butt_LP)-1)/(length(H_butt_LP));
+plot(fnorm, 20*log10(abs(H_butt_LP)), 'LineWidth',3); hold on
+plot(fnorm, 20*log10(abs(H_cheb1_LP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_cheb2_LP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_ellip_LP)), 'LineWidth',3)
+xlabel('Frequency (normalized)')
+ylabel('Gain (dB)')
+ylim([-82, 5])
 
 
-
+saveas(gcf,['..', filesep, 'pics', filesep, 'lecture_07_demo_filter_approximations_compare_LP.svg'],'svg')
+close(gcf)
 
 %% HP 
 % Some parameters
@@ -177,14 +188,31 @@ sweep_ellip_HP = filter(B_ellip_HP, A_ellip_HP, sweep);
 noise_ellip_HP = filter(B_ellip_HP, A_ellip_HP, noise);
 
 
+prepare_figure_scale(5,5)
+fnorm = (0:length(H_butt_HP)-1)/(length(H_butt_HP));
+plot(fnorm, 20*log10(abs(H_butt_HP)), 'LineWidth',3); hold on
+plot(fnorm, 20*log10(abs(H_cheb1_HP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_cheb2_HP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_ellip_HP)), 'LineWidth',3)
+xlabel('Frequency (normalized)')
+ylabel('Gain (dB)')
+ylim([-82, 5])
+
+
+saveas(gcf,['..', filesep, 'pics', filesep, 'lecture_07_demo_filter_approximations_compare_HP.svg'],'svg')
+close(gcf)
+
+
+
+
 audiowrite('../wav/lecture_07_demo_sweep_BW_HP.wav', norm2wav(sweep_BW_HP), fs);
-audiowrite('../wav/lecture_07_demo_sweep_cheb1_HP.wav',norm2wav( sweep_BW_HP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_cheb2_HP.wav', norm2wav(sweep_BW_HP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_ellip_HP.wav', norm2wav(sweep_BW_HP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb1_HP.wav',norm2wav( sweep_cheb1_HP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb2_HP.wav', norm2wav(sweep_cheb2_HP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_ellip_HP.wav', norm2wav(sweep_ellip_HP), fs)
 audiowrite('../wav/lecture_07_demo_noise_BW_HP.wav', norm2wav(noise_BW_HP), fs);
-audiowrite('../wav/lecture_07_demo_noise_cheb1_HP.wav', norm2wav(noise_BW_HP), fs)
-audiowrite('../wav/lecture_07_demo_noise_cheb2_HP.wav', norm2wav(noise_BW_HP), fs)
-audiowrite('../wav/lecture_07_demo_noise_ellip_HP.wav', norm2wav(noise_BW_HP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb1_HP.wav', norm2wav(noise_cheb1_HP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb2_HP.wav', norm2wav(noise_cheb2_HP), fs)
+audiowrite('../wav/lecture_07_demo_noise_ellip_HP.wav', norm2wav(noise_ellip_HP), fs)
 
 
 %% BP
@@ -263,14 +291,33 @@ sweep_ellip_BP = filter(B_ellip_BP, A_ellip_BP, sweep);
 noise_ellip_BP = filter(B_ellip_BP, A_ellip_BP, noise);
 
 
+
+prepare_figure_scale(5,5)
+fnorm = (0:length(H_butt_HP)-1)/(length(H_butt_HP));
+plot(fnorm, 20*log10(abs(H_butt_BP)), 'LineWidth',3); hold on
+plot(fnorm, 20*log10(abs(H_cheb1_BP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_cheb2_BP)), 'LineWidth',3)
+plot(fnorm, 20*log10(abs(H_ellip_BP)), 'LineWidth',3)
+xlabel('Frequency (normalized)')
+ylabel('Gain (dB)')
+ylim([-82, 5])
+
+
+saveas(gcf,['..', filesep, 'pics', filesep, 'lecture_07_demo_filter_approximations_compare_BP.svg'],'svg')
+close(gcf)
+
+
+
+
+
 audiowrite('../wav/lecture_07_demo_sweep_BW_BP.wav', norm2wav(sweep_BW_BP), fs);
-audiowrite('../wav/lecture_07_demo_sweep_cheb1_BP.wav',norm2wav( sweep_BW_BP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_cheb2_BP.wav',norm2wav( sweep_BW_BP), fs)
-audiowrite('../wav/lecture_07_demo_sweep_ellip_BP.wav', norm2wav(sweep_BW_BP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb1_BP.wav',norm2wav( sweep_cheb1_BP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_cheb2_BP.wav',norm2wav( sweep_cheb2_BP), fs)
+audiowrite('../wav/lecture_07_demo_sweep_ellip_BP.wav', norm2wav(sweep_ellip_BP), fs)
 audiowrite('../wav/lecture_07_demo_noise_BW_BP.wav', norm2wav(noise_BW_BP), fs);
-audiowrite('../wav/lecture_07_demo_noise_cheb1_BP.wav', norm2wav(noise_BW_BP), fs)
-audiowrite('../wav/lecture_07_demo_noise_cheb2_BP.wav', norm2wav(noise_BW_BP), fs)
-audiowrite('../wav/lecture_07_demo_noise_ellip_BP.wav', norm2wav(noise_BW_BP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb1_BP.wav', norm2wav(noise_cheb1_BP), fs)
+audiowrite('../wav/lecture_07_demo_noise_cheb2_BP.wav', norm2wav(noise_cheb2_BP), fs)
+audiowrite('../wav/lecture_07_demo_noise_ellip_BP.wav', norm2wav(noise_ellip_BP), fs)
 
 %% Plotting
 
@@ -278,15 +325,15 @@ audiowrite('../wav/lecture_07_demo_noise_ellip_BP.wav', norm2wav(noise_BW_BP), f
 
 
 
-line([0 w_p],[G_p G_p],'Linewidth',3,'Color','k')
-line([w_p w_p],[G_p -100],'Linewidth',3,'Color','k')
-
-line([w_s 1],[G_s G_s],'Linewidth',3,'Color','k')
-line([w_s w_s],[G_s G_s+100],'Linewidth',3,'Color','k')
-
-line([0 w_p],[-R_p -R_p],'Linewidth',1,'Color','k','Linestyle','--')
-
-ylim([G_s-20 10])
+% line([0 w_p],[G_p G_p],'Linewidth',3,'Color','k')
+% line([w_p w_p],[G_p -100],'Linewidth',3,'Color','k')
+% 
+% line([w_s 1],[G_s G_s],'Linewidth',3,'Color','k')
+% line([w_s w_s],[G_s G_s+100],'Linewidth',3,'Color','k')
+% 
+% line([0 w_p],[-R_p -R_p],'Linewidth',1,'Color','k','Linestyle','--')
+% 
+% ylim([G_s-20 10])
 % 
 % %%%%%%%%%%% BASED ON ORDER (FIXED) %%%%%%%%%%%%%%
 % figure()
