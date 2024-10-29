@@ -69,7 +69,7 @@
 	<div class="slides">
 		<section>
 			<h2>{partner.join(' + ')} = <span class="heart">&#x2764</span></h2>
-			<p class="text-pink-300">Lets have fun -updated!</p>
+			<p class="text-pink-300">Lets have fun!</p>
 		</section>
 		<section>
 			<h2>Slide 2</h2>
