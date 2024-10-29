@@ -1,8 +1,0 @@
-.DS_Store
-Dockerfile
-.dockerignore
-.git
-.gitignore
-README.md
-**/node_modules
-**/.env
