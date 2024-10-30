@@ -16,6 +16,7 @@ EXPOSE 5173
 CMD ["npm", "run", "dev"]
 
 FROM node:22.10.0-alpine3.20
+WORKDIR /app
 ENV PORT=80
 COPY --from=build /app/build /app/
 COPY --from=build /app/package*.json /app/
