@@ -21,7 +21,7 @@ ENV PORT=80
 COPY --from=build /app/build /app/
 COPY --from=build /app/package*.json /app/
 RUN npm ci --omit=dev
-RUN chown -R node:node /app
+# RUN chown -R node:node /app
 EXPOSE 80
-USER node
+# USER node
 CMD ["node", "/app/index.js"]
