@@ -82,8 +82,8 @@
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>Symmetry of impulse response</h2>
                 <h6>Symmetric in one way...</h6>
-				<div style="box-shadow: 5px 5px 3px #000000; background: #fff " >
-					<img src="pics/lecture_08_rs_symmetric.svg">
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_even.svg" width="80%">
 				</div>
 				<p class="bottomline">...linear phase...</p>
 			</section>	
@@ -92,8 +92,8 @@
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>Symmetry of impulse response</h2>
 				<h6>Symmetric in another way...</h6>
-				<div style="box-shadow: 5px 5px 3px #000000; background: #fff " >
-					<img src="pics/lecture_08_rs_pointsymmetric.svg">
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_odd.svg" width="80%">
 				</div>
 				<p class="bottomline">...linear phase...</p>
 			</section>	
@@ -102,19 +102,38 @@
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>Symmetry of impulse response</h2>
                 <h6>Non-symmetric...</h6>
-				<div style="box-shadow: 5px 5px 3px #000000; background: #fff " >
-					<img src="pics/lecture_08_rs_unsymmetric.svg">
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_asym.svg" width="80%">
 				</div>
 				<p class="bottomline">...not linear phase...</p>
 			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>How to reduce oscillations caused by windowing?</h2>
+				<h6>Common window functions</h6>
+				<div>
+					<img src="pics/lecture_08_windows.svg" width="60%">
+				</div>
+				<div>
+					<p>Characteristics are...</p>
+					<ul>
+						<li>Main lobe width</li>
+						<li>Main-to-sidelobe ratio</li>
+						<li>Roll-off rate</li>
+					</ul>
+				</div>
+			</section>	
+
 
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>FIR filter design</h2>
                 <h6>Cooking recipe</h6>
 				<ul>
-					<li>Define desired filter in the frequency domain</li>
-					<li>Transform into time domain</li>
+					<li>Define desired filter in the frequency domain (continuous or discrete)</li>
+					<li>Transform into time domain (and possible sample)</li>
 					<li>Truncate (window)</li>
 					<li>Shift in time to make causal</li>
 				</ul>
@@ -127,7 +146,7 @@
 				<p class="bottomline">...step by step...</p>
 			</section>	
 
-
+			
 
 
 
