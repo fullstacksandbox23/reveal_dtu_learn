@@ -147,11 +147,25 @@
 			</section>	
 
 			
-
-
-
-
-
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Filter design in a nut shell</h2>
+				<ul style="font-size: 35px;">
+                <p><b>Starting from s (IIR)</b></p>
+					<li>Laplace to continuous time to discrete time to z-domain: Impulse invariance method</li>
+					\[ s \Rightarrow t \Rightarrow n \Rightarrow z \]
+					<li>Laplace to z-domain: Bilinear transformation (TF equivalence method)</li>
+					\[ s \Rightarrow z \]
+					<p style="font-size: 30px;"></p>
+				
+				<p><b>Starting from frequency (FIR)</b></p>
+				
+					<li>Frequency to continuous time to discrete time (to z-domain): Impulse invariance method with windowing</li>
+					\[ \Omega \Rightarrow t \Rightarrow n \Rightarrow z \]
+					<li>Continuous frequency to discrete frequency to discrete time (to z-domain): Frequency domain equivalence</li>
+					\[ \Omega \Rightarrow \omega \Rightarrow n \Rightarrow z \]
+				</ul>
+			</section>
 
 			<!-- SECTION SLIDE -->
 			<section data-transition="slide">
@@ -159,6 +173,26 @@
 					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session #9</h2>
 					<h3>...let's dig deeper...</h3>
 				</div>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/bgnd_car_simulator_wiki.png" data-background-opacity=".2">
+				<h2>Quickie Nr 6</h2>
+				<h5>Take a few minutes to answer the following question:</h5>
+				You get in charge of a car simulator platform that consists of:
+				<ul style="padding-top: 4%; padding-bottom: 4%;">
+					<li>electrodynamic shakers that simulate car vibration</li>
+					<li>a number of loudspeakers that simulate car acoustic</li>
+					<li>a screen showing a simulated visual scene</li>
+				</ul>
+				<p>
+				A car manufacturer comes and wants to use the platform.  He/she comes with own recordings
+of the newest prototype and want to playback their sounds through your simulator using a
+playback device directly connected to your system.  The problem is however that their
+recordings require that the frequency response of your transducers is completely flat (which is
+not the case by default)
+</p>
+	<p class="fragment" style="font-style: italic; padding-top: 2%; color: #ad0b0b;">The representative from the car manufacturer gets a phone call. You have 8 minutes to design
+		a solution that solves this problem</p>
 			</section>
 
 
