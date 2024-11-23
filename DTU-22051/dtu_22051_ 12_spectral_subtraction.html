@@ -1,0 +1,441 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+	<!-- ---------------------TITLE OF THE PRESENTATION------------------------- -->
+	<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+	<link rel="stylesheet" href="../_reveal/dist/reset.css">
+	<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+	<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+	<style>
+		figure {
+			border: 0px #cccccc solid;
+			padding: 4px;
+			margin: auto;
+		}
+
+		figcaption {
+			background-color: white;
+			color: gray;
+			font-style: italic;
+			font-size: .7em;
+			padding: 2px;
+			text-align: center;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+		<div class="slides">
+			<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_bat.png">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png"
+					style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">Myotis nattereri above the water (France)</p>
+			</section>
+
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div
+					style="position: absolute; height: 50%; width: 60%; top: 30%; right: 10%; box-shadow: 3px 10px 8px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 200px; font-size: 20px; text-align: right; border-radius: 100%;">
+					<h1 style="color: #fff;">22051</h2>
+						<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+						<h3>Lecture 12</h3>
+						<h4>Reframing: Desert and cheese</h4>
+						<br>
+						<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>
+			</section>
+
+
+<!-- 
+			!-- TITLE SLIDE --
+			<section data-transition="slide">
+				<div
+					style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+						<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+						<h3>Lecture 12</h3>
+						<h4>Reframing: Desert and cheese</h4>
+						<br>
+						<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>
+			</section>
+-->
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>A closer look on frequency analysis</li>
+						<li>Short-time Fourier Analysis (STFT)</li>
+						<li>Time-frequency representation of signals</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6 style="color: #ff9500;">Time AND frequency</h6>
+				<video src="vid/lecture_10_animation_windowed_signal_spectrum.mp4" controls loop
+					style="box-shadow: 5px 5px 5px #ff9500;"></video>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6 style="color: #ff9500;">Time AND frequency</h6>
+				<div style="width: 100%;" class="fragment">
+					<p style="color: #ff9500;">Pure tone</p>
+					<audio src="wav/lecture_10_tone.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_tone_specgram.svg" width="80%"
+						style="box-shadow: 8px 8px 8px #ff9500;">
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6 style="color: #ff9500;">Time AND frequency</h6>
+				<div style="width: 100%;">
+					<p style="color: #ff9500;">Sweep upwards</p>
+					<audio src="wav/lecture_10_upward_sweep.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_sweep_up_specgram.svg" width="80%"
+						style="box-shadow: 8px 8px 8px #ff9500;">
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6 style="color: #ff9500;">Time AND frequency</h6>
+				<div style="width: 100%;">
+					<p style="color: #ff9500;">Sweep downwards</p>
+					<audio src="wav/lecture_10_downward_sweep.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_sweep_down_specgram.svg" width="80%"
+						style="box-shadow: 8px 8px 8px #ff9500;">
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6 style="color: #ff9500;">Time AND frequency</h6>
+				<div style="width: 100%;">
+					<p style="color: #ff9500;">Speech signal</p>
+					<audio src="wav/lecture_01_railroad.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_wav_specgram.svg" width="80%"
+						style="box-shadow: 8px 8px 8px #ff9500;">
+				</div>
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 12?</h2>
+						<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 5%;">
+					<ul>
+						<li>Quickies!</li>
+						<li>Deterministic vs. stochastic signals</li>
+						<li>Terminology</li>
+						<li>Correlation measures in time and frequency domain</li>
+						<li>Spectral subtraction as a noise-removal tool</li>
+					</ul>
+				</div>
+				<p class="bottomline">Small-group discussions!</p>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Quickie Nr #8</h2>
+				<h5>Take a few minutes to answer the following questions:</h5>
+				<div>
+					<ul style="font-size: 32px;">
+						<li class="fragment" data-fragment-index="1">
+							How long is the resulting signal: $a[n] ∗ b[n]$?
+						</li>
+						<p class="fragment" data-fragment-index="2" style="color: #820000;">
+							length(a)+length(b)-1.
+						</p>
+						<li class="fragment" data-fragment-index="1">
+							What does the spectrum of a sinusoid multiplied with a rect window/Hann window look
+							like?
+						</li>
+						<p class="fragment" data-fragment-index="3" style="color: #820000;">
+							It is the Fourier transform of a rect/Hann window centered at the frequency of the sinusoid.
+						</p>
+						<li class="fragment" data-fragment-index="1">
+							What is a prerequisite that a filter can be applied to a signal by multiplication in the
+							frequency domain?
+						</li>
+						<p class="fragment" data-fragment-index="4" style="color: #820000;">
+							The signal and the impulse response must have the same length - preferrably
+							length(signal)+length(IR)-1.
+						</p>
+						<li class="fragment" data-fragment-index="1">
+							How do you judge if a system is stable or not??
+						</li>
+						<p class="fragment" data-fragment-index="5" style="color: #820000;">
+							The poles of the transfer function (in z) need to be inside the unit circle.
+						</p>
+						<li class="fragment" data-fragment-index="1">
+							What is a potential issue when designing a digital filter from a analogue filter using the
+							impulse-invariance method?
+						</li>
+						<p class="fragment" data-fragment-index="6" style="color: #820000;">
+							This method is prone to aliasing.
+						</p>
+					</ul>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;"
+				data-background-image="../_library/pic/bgnd/digital_corridor.jpg">
+				<h2 style="color: antiquewhite; text-shadow: 3px 3px 3px #000;">A quick overview of what else is there
+				</h2>
+				<h6 style="color: antiquewhite; text-shadow: 3px 3px 3px #000;">Let's knock on some doors...</h6>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Stochastics: from () to []</h2>
+				<h6>From continuous to discrete</h6>
+				<div style="font-size: 30px;">
+					<ul>
+						<li class="fragment">Probability density function → probability mass function</li>
+						<li class="fragment">Expected value
+							\[
+							\mu = \mathcal{E}[x] = \sum_{n=0}^{L-1} x[n] \cdot p(x[n])
+							\]
+						</li>
+						<li class="fragment">Variance
+							\[
+							\sigma^2 = \mathcal{V}[x] = \mathcal{E}[(x[n]-\mu)^2]
+							\]
+						</li>
+						<li class="fragment">Autocorrelation sequence
+							\[
+							\gamma_{xx}[m] = \frac{1}{L} \sum_{n=0}^{L-1} x[n+m]x[n] = x[n] \ast x[-n]
+							\]
+						</li>
+						<li class="fragment">Crosscorrelation sequence
+							\[
+							\gamma_{xy}[m] = \frac{1}{L} \sum_{n=0}^{L-1} x[n+m]x[y] = x[n] \ast y[-n]
+							\]
+						</li>
+					</ul>
+				</div>
+			</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<p><b>De-noising of a signal by thresholding</b>
+				<ul>
+					<li>Estimation of noise in time and frequency</li>
+					<li>Superposition principle allows estimation of noise</li>
+				</ul>
+				</p>
+				<div style="padding-top: 5%;">
+					<p>Noisy signal is a superposition of a signal and noise</p>
+					\[ \mathcal{SN} = \{ \mathcal{S} + \mathcal{N} \} \]
+				</div>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+
+				<div>
+					<audio src="wav/lecture_01_mini-me_short.wav" controls></audio> <br>
+					<img src="pics/lecture_12_spectral_subtraction_org_combined.svg" width="1200px">
+				</div>
+
+			</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+
+				<div>
+					<audio src="wav/lecture_12_spectral_subtraction_0.wav" controls></audio> <br>
+					<img src="pics/lecture_12_spectral_subtraction_0_combined.svg" width="1200px">
+				</div>
+
+			</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+
+				<div>
+					<audio src="wav/lecture_12_spectral_subtraction_1.wav" controls></audio> <br>
+					<img src="pics/lecture_12_spectral_subtraction_1_combined.svg" width="1200px">
+				</div>
+
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+				<div>
+					<audio src="wav/lecture_12_spectral_subtraction_2.wav" controls></audio> <br>
+					<img src="pics/lecture_12_spectral_subtraction_2_combined.svg" width="1200px">
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Random DSP: De-noising of signals</h2>
+				<h6>Spectral subtraction</h6>
+				<div>
+					<p>Signal estimate is the noisy singal minus noise estimate</p>
+					\[ \mathcal{\hat{S}} \approx \{ \mathcal{S} + \mathcal{N} \} - \alpha \mathcal{\hat{N}} \]
+				</div>
+
+				<div>
+					<audio src="wav/lecture_12_spectral_subtraction_3.wav" controls></audio> <br>
+					<img src="pics/lecture_12_spectral_subtraction_3_combined.svg" width="1200px">
+				</div>
+
+			</section>
+
+
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/DESCHANDOL_owl_with_prey.png">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png"
+					style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">Athene noctua in flight with a prey (Lissotriton vulgaris)</p>
+			</section>
+
+
+			<!-- ---------------------FOOTER------------------------- -->
+
+			<script src="../_reveal/dist/reveal.js"></script>
+			<script src="../_reveal/plugin/zoom/zoom.js"></script>
+			<script src="../_reveal/plugin/notes/notes.js"></script>
+			<script src="../_reveal/plugin/search/search.js"></script>
+			<script src="../_reveal/plugin/markdown/markdown.js"></script>
+			<script src="../_reveal/plugin/highlight/highlight.js"></script>
+			<script src="../_reveal/plugin/math/math.js"></script>
+			<script>
+
+				// Also available as an ES module, see:
+				// https://revealjs.com/initialization/
+				Reveal.initialize({
+					margin: 0.0,
+					height: 1000,
+					width: 1600,
+					disableLayout: false,
+					controls: true,
+					progress: true,
+					center: false,
+					hash: true,
+					parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+					parallaxBackgroundSize: 'scale',
+					transition: 'fade',
+					//parallaxBackgroundRepeat: 'no-repeat',
+					parallaxBackgroundPosition: 'center',
+					parallaxBackgroundHorizontal: 20,
+					parallaxBackgroundVertical: 50,
+
+					// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX]
+				});
+			</script>
+</body>
+
+</html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->
