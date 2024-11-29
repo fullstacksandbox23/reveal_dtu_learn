@@ -21,6 +21,7 @@ services:
             - "5173:80"
         volumes:
             - ./svelte_revealjs:/app
+            # - /app/node_modules
             - svelte_revealjs_node_modules:/app/node_modules
         networks:
             - slides_dev
