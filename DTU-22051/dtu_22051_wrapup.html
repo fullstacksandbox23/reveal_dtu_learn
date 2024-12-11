@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-video="../_library/vids/oil_film.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">Filtering - same but different. [ROYALTY FREE] </p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 13</h3>
+					<h4>Wrap-up! </h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>		
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>One more thing...</h2>
+				<div style="padding-top: 20%;">
+					<h6>...livescript image processing...</h6>
+				</div>
+			</section>			
+				
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Looking back</h2>
+					<h3>...what happened...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>General aspects</h2>
+				<div  class="fragment" style="padding-top: 2%;"> 
+                <h6> Level of understanding </h6>
+					<p>Increasing quality of argumentation and presentation</p>
+				</div>
+				<div  class="fragment" style="padding-top: 2%;"> 
+					<h6> Feedback </h6>
+					<p>Very helpful comments during weekly class</p>
+				</div>
+				<div  class="fragment" style="padding-top: 2%;"> 
+					<h6> Participation in class </h6>
+					<p>Not everybody was active (fine). Level of activity was steadily increasing.</p>
+				</div>
+				<div  class="fragment" style="padding-top: 2%;"> 
+					<h6> Hands-on </h6>
+					<p>Good progress in hands-on session. Increased use of LEARN. Good interaction with TAs -
+						but also challenges</p>
+				</div>
+			</section>	
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Evaluations</h2>
+					<h3>...the principal components...</h3>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Midterm evaluation</h2>
+				<div  class="fragment" style="padding-top: 2%;"> 
+                <h6> Group discussions </h6>
+					<p>Great discussions on weekly basis - thanks! Plenty of things were implemented!</p>
+				</div>
+				<div  class="fragment" style="padding-top: 2%;"> 
+					<h6>Mid-term evaluation (24 answered)</h6>
+					<p>Helped to rectify things on the way</p>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Midterm evaluation</h2>
+				<div> 
+                <h6> Some things that came up </h6>
+					<p class="fragment current-visible">Some glitches in the videos (mono sound)</p>
+					<p class="fragment current-visible">I really enjoy that I can watch the lectures at my own pace. I also learn more by doing the assignments, so not having a long lecture in the afternoon is great</p>
+					<p class="fragment current-visible">Also it would be nice to have the ''results'' in the form of plots</p>
+					<p class="fragment current-visible">I have struggled with Matlab since the beginning and only after the first assignment did my Matlab understanding improve somewhat...</p>
+					<p class="fragment current-visible">It is impossible to explain so complex concepts in a 5-minute video...</p>
+					<p class="fragment current-visible">I don't like the way we learn through matlab i find i need some more foundational exercises related to the math behind would be great.</p>
+					<p class="fragment current-visible">The worst part is the chat server. It does seem like a good way communicate, but it is on a seperate platform that I don't use for anything else so I rarely check it for updates.</p>
+					<p class="fragment current-visible">The assigment. Unclear what is expected of me and what I am to do.</p>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Final evaluation</h2>
+				<div> 
+                <h6> Some of the (many constructive!) qualitative comments </h6>
+					<p class="fragment current-visible">...maybe make a 101 how to find the resources video or document...</p>
+					<p class="fragment current-visible">... I felt that the hands-on sheets didn't provide enough guidance in the more complicated system implementations because the lectures are much more focused on intuitive/theoretical understanding...</p>
+					<p class="fragment current-visible">The construction of the course was clearly made for smaller amounts of students. </p>
+					<p class="fragment current-visible">However i think the decision to not give any formal guidelines for the assignments are alittle anoying. </p>
+					<p class="fragment current-visible">Also, the number of videos to watch combined with the reading in the book, the hands-on and the different lecture formats are a lot to manage.</p>
+					<p class="fragment current-visible">Flere hjælpelærere ville være godt. Det var generelt meget svært at få hjælp.</p>
+					<p class="fragment current-visible">The feedback in this class is unclear. It is frustrating not having answers to any of the hands on tasks. </p>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Looking back and forward</h2>
+				<div> 
+                <h6> Some additional questions to you: </h6>
+					<p class="fragment current-visible">The level of activity in class was good - how can we improve that even further?</p>
+					<p class="fragment current-visible">How can we get people to ask if they are stuck and don’t get any further?</p>
+					<p class="fragment current-visible">How can we make the lectures shorter? Different? More time for discussions?</p>
+				</div>
+			</section>
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Questions from your side?</h2>
+					<h3>...anything left in your mind?</h3>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Want more?</h2>
+				<div class="fragment"> 
+                <h6> Relevant follow-up courses </h6>
+					<p>02471: Time series analysis, 5 ECTS (DTU Compute) </p>
+					<p>02462: Signals and data, 5 ECTS project (DTU Compute) </p>
+					<p>22052: Applied Signal Processing, 10 ECTS (SUND HEA) </p>
+					<p>22003: Auditory Signal Processing and perception, 10 ECTS (DTU SUND, HEA) </p>
+					<p>22053: Principals of brain-computer interfaces, 10 ECTS (DTU SUND)</p>
+					<p>22001: Acoustic signal processing, 5 ECTS (DTU SUND, HEA) </p>
+				</div>
+				<div class="fragment"> 
+					<h6> ...like audio signals, acoustics, and hearing? </h6>
+						<p>MSc programm “Engineering Acoustics”, (D)SP as tool </p>
+						<p>Electroacoustics, audio signal processing, physiological acoustics, biopotentials, physical
+							acoustics, structural acoustics, ... </p>
+						<p>Institute of Health Technology with closely related topics!</p>
+					</div>
+
+			</section>
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/WEB_the_end_DOORS_piano.webp" data-background-opacity=".4">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Thank - YOU!</h2>
+					<h3 style="color: #ff9500;">...it was a pleasure working with you!</h3>
+				</div>
+			</section>
+			
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-video="../_library/vids/psychodelic_oil_medium.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">YEAH OH YEAH [royalty free]</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->
