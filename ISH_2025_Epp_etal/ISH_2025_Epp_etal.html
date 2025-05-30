@@ -92,9 +92,9 @@
 
 
 			<!-- section slide -->
-			<section  data-transition="slide">
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
 				<div style="margin-top: 40%;" >
-					<h1 style="color: #ff9500;"> The what and the why </h1>
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 3px #ffffff;"> The what and the why </h1>
 				</div>
 			</section>
 
@@ -105,6 +105,7 @@
 				</div>
 			</section>
 
+<!--			
 			<section data-transition="fade">
 				<div style="margin: auto; margin-top: 20%; width: 50%;">
 					<p class="r-fit-text" style="color: #ffffff;">Can mechanisms unique to </p>
@@ -113,15 +114,21 @@
 					<p class="r-fit-text" style="color: #ff9500;"> hearing-related phenomena?</p>
 				</div>
 			</section>
+-->
+
 
 			<section data-transition="fade">
-				<div style="margin: auto; margin-top: 10%; width: 70%;">
-					<div style="max-height: 40%;">
-						<h3>Current models of hearing:</h3>
-						<p style="color: #ffffff; font-size: 100pt;"> $\pi \approx 3$ </p>
+				<div style="margin: auto; margin-top: 00%; width: 70%;">
+					<div>
+						<p style="color: #ffffff66; font-size: 100pt;"> $\pi \approx 3$ </p>
 					</div>
-					<div style="padding-top: 10%;">
-						<h3 style="color: #ff9500;"> Potential refinement based on non-linear dynamics:</h3>
+					<div style="margin: auto; margin-top: 0%; width: 80%;">
+					<p class="r-fit-text" style="color: #ffffff;">Can mechanisms unique to </p>
+					<p class="r-fit-text" style="color: #ff9500;">non-linear dynamic behaviour</p>
+					<p class="r-fit-text" style="color: #ffffff;"> provide a "common base" for a broad variety of </p>
+					<p class="r-fit-text" style="color: #ff9500;"> hearing-related phenomena?</p>
+					</div>
+					<div>
 						<p style="color: #ffffff; font-size: 100pt;"> $\pi \approx 3.14$ </p>
 					</div>
 				</div>
@@ -180,6 +187,18 @@
 				</div>
 				<p class="source">Lenk et al. (2023); Barral (2018); Levy et al. (2016)</p>
 			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4>Entrainment as phenomenon</h4>
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 50%;">
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 50%;"> 
+				</div>
+			</section>	
+
+
+
 
 			<section data-transition="fade">
 				<div style="margin: auto; margin-top: 10%; width: 50%;">
@@ -341,12 +360,42 @@
 
 
 
+			<!-- section slide -->
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene_nh.jpg" data-background-size="contain">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500;"> What does that mean? </h1>
+				</div>
+			</section>
 
 
+			<!-- section slide -->
+			<section data-background="#ffffff" data-transition="slide" data-background-video="vids/VD_coupling_100-2000_Ext_1_amp_5.mp4" data-background-size="contain" data-background-video-loop="true">
+				<h4 style="color: rgba(93, 0, 0, 1); text-shadow: 3px 3px 3px #fff; ">Discussion and conclusion</h4>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 10%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+					<h2 style="color: #fff;">What we found</h2>
+					<p>Entrainment and clustering pheonmena affect the "collective response" of the system</p>
+					<p>Interaction with driving force affects the system as a whole</p>
+					<p>Behaviour is similar for high driving force amplitudes across oscillator types</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 38%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+						<h2 style="color: #fff;">(Some) cornerstones of hearing models</h2>
+						<p>Systems of coupled nonlinear oscillators show collective pheonema compatible with hearing</p>
+						<p>Interaction with extrnal stimuli "plausible" with respect to data</p>
+						<p>Same basic behaviour for both investigated oscillator types</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 64%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+					<h2 style="color: #fff;">WIP - the neural domain</h2>
+					<p>Oscillators coupled to hair cell model provide spike trains</p>
+					<p>Established metrics allow comparison to data</p>
+					<p>Access to all oscillators allows development of novel sensitive metrics</p>
+				</div>
+			</section>
 
-
-
-
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-video="../_library/vids/psychodelic_oil_medium.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">YEAH OH YEAH [royalty free]</p>
+			</section>
 
 
 
