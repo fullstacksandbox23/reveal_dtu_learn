@@ -1,0 +1,547 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" >
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 1</h3>
+					<h4>Terminology, classification, and discretization of signals</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>Some examples of signals</li>
+						<li>Signals as sums of sinusoids (real- and complex valued)</li>
+						<li>Signal periodicity</li>
+						<li>Basic system</li>
+						<li>Continuous versus discrete-time signals</li>
+						<li>Analogue-digital / digital-analogue (AD/DA) conversion</li>
+						<li>Aliasing</li>
+					</ul>
+				</div>
+			</section>			
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Signals</h2>
+					<h3>Reading: Introductory chapter</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is a signal?</h2>
+				<h3>A signal is...</h3>
+				<ul>
+					<li class="fragment fade-in-then-semi-out">
+						<p>An indicator, such as a gesture or colored light, that serves as a means of communication</p>
+						<div class="image-row">
+							<img src="pics/lecture_01_signs.png" style="width:30%; margin: auto;">
+							<img src="pics/lecture_01_space.jpg" style="width:30%; margin: auto;">
+						</div>
+					</li>
+					<li class="fragment fade-in-then-semi-out">An impulse or a fluctuating electric quantify, such as voltage, corrent, or electric field strength, whose variations represent coded information.</li>
+					<li class="fragment fade-in-then-semi-out">The <b>sound</b>, image, or message transmitted or received in telegraphy, telephony, radio, television, or radar.</li>
+				</ul>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Examples of signals</h2>
+				<div class="image-row" style="height: 20vh; max-height: 25%;">
+					<img src="pics/lecture_01_signal_finite.png" style="size: auto; max-height: 90%; height: auto; margin:auto;">
+					<img src="pics/lecture_01_time_spectrum_Vuvuzela.png" style="size: auto; max-height: 90%;height: auto; margin: auto;">
+				</div>
+				<div class="image-row">
+					<audio controls src="wav/lecture_01_railroad.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_01_vuvuzela.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+				</div>
+				<div class="image-row" style="padding-top: 3%; height: 20vh; max-height: 25%;">
+					<img src="pics/lecture_01_specgram.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_01_specgram_noisy.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_01_specgram_denoised.png" style="size: auto; max-width: 30%; margin:auto;">
+				</div>
+				<div class="image-row">
+					<audio controls src="wav/lecture_01_mini-me_short.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_11_noisy_signal.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_11_sig_denoised_3.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+				</div>
+				<div>
+					<p class="bottomline">In time, frequency, time-frequency, manipulated...</p>
+				</div>
+			</section>			
+			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Classification of signals</h2> 
+				<img style="width: 95%;" src="pics/lecture_01_signal_classification.svg">
+				<p class="bottomline">...we will deal with discrete-time, discrete-amplitude signals...</p>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Description of signals</h2>
+				<img src="pics/lecture_01_signal_finite.png" style="width: 20%;">
+				<p>In mathematical terms as a sum of sinusoids</p>
+					\[x_a(t) = \sum_{k=0}^\infty A_k \cdot \cos(2\pi k F_0 t + \Theta _k) \]
+				<p>Or as a complex exponentials</p>
+					\[ 
+						x_a(t) = \sum_{k=0}^\infty c_k e^{j 2 \pi k F_0 t + \Theta _k}
+					\]
+				<p class="bottomline">Check out the screencast on DTU LEARN</p>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Description of signals</h2>
+				<p>Complex exponentials </p>
+				\[ 
+					x_a(t) = \sum_{k=0}^\infty c_k e^{j 2 \pi k F_0 t + \Theta _k}
+				\]
+				<img src="pics/lecture_01_some_signal.gif" style="width: 30%;">
+				<p>Signals are periodic with period $$ 1/F_0 $$</p>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>A signal and a system</h2>
+				<h4>It's all about processing some signal thorugh some system</h4>
+				<p>The most general description of what happens in signal processing</p>
+				<img src="pics/lecture_02_lti_blank.svg" style="width: 80%;">
+				
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>A signal and a system</h2>
+				<h4>It's all about processing some signal thorugh some system</h4>
+				<img src="pics/lecture_02_ltic.svg" style="width:50%;"> <br>
+				<img src="pics/lecture_02_ltid.svg" style="width:50%;">
+				<p class="bottomline">...more on that in lecture 2!</p>
+			</section>			
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Sampling</h2>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What do we do when we "sample" a signal?</h2>
+					<img src="pics/lecture_01_signal_classification.svg" style="width: 100%;">
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)"  data-background-image="pics/lecture_01_sampling_ballerina.jpg" data-background-opacity="0.8" style="color: #000;">
+				<h2 style="color: #ff9500;">What do we do when we "sample" a signal?</h2>
+				<div class="fragment">
+					<h6 style="padding-bottom: 1%; text-shadow: 1px 1px 1px #000; color: #ff9500;">Formal definition</h6>
+					<blockquote style="box-shadow: 5px 5px 30px #ff9500; background-color: #313131; color: #ff9500;">
+						Discretization of a continuous signal along one (or more) dimensions by taking a defined
+number of observations along the sampling dimensions.
+					</blockquote>
+				</div>	
+				<div class="fragment" style="padding-top: 5%;">
+					<h6 style="padding-bottom: 1%; text-shadow: 1px 1px 1px #000; color: #ff9500;">A more comprehensive definition</h6>
+					<blockquote style="box-shadow: 5px 5px 30px #ff9500; background-color: #313131; color: #ff9500;">
+						Discretization of a continuous signal by picking single values at defined values of the
+						sampling dimension. This could be time (audio signal), space (geophysics) or temperature
+						(meterology).
+					</blockquote>
+				</div>
+				<p class="source"><a href="https://www.freepik.com/free-photo/sensual-emotional-dance-beautiful-ballerina_13517420.htm">Image by master1305 on Freepik</a></p>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What do we do when we "sample" a signal?</h2>
+				<h6 style="padding-bottom: 1%; text-shadow: 1px 1px 1px #000;">A more comprehensive definition</h6>
+				<blockquote style="box-shadow: 5px 5px 30px #000;">
+					Discretization of a continuous signal by picking single values at defined values of the
+					sampling dimension. This could be time (audio signal), space (geophysics) or temperature
+					(meterology).
+				</blockquote>
+				<video src="vid/lecture_01_Stroboscope_sampling.webm" controls style="width: fit-content; padding-top: 5%;" >
+				</video>
+			</section>	
+	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Sampling along one dimension</h2>
+				<h6>Temporal sampling</h6>
+				<ul>
+					<li>Definition of a sampling rate (or sampling frequency, e.g., in 1/s = Hz)</li>
+					<li>Samples are taken at equal intervals (sampling period)</li>
+				</ul>
+				<div class="r-stack" style="padding-top: 5%;">
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_1.png" style="width: 50%;">
+
+					
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_2.png" style="width: 50%;">
+
+
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_3.png" style="width: 50%;">
+
+
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_4.png" style="width: 50%;">
+
+	
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_all.png" style="width: 50%;">
+
+				</div>
+				<p class="bottomline">How low should we go to capture the signal?</p>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>How many samples to use?</h2>
+				<h6>The Nyquist frequency</h6>
+				<blockquote>
+					The frequency limit of a discrete signal with a given sampling rate $(f_s)$ is called the Nyquist frequency $(f_N)$:
+					\[ f_s = 2 \cdot f_N \]
+				or
+					\[ f_s/2 = f_N \]	
+				</blockquote>
+				<h6 style="padding-top: 2%;">Implications for sampling of continuous signals</h6>
+				<blockquote>
+					A frequency of $f_{sig}$ to be sampled with a sampling frequency of $f_s$ must be smaller than the Nyquist frequency:
+					\[ f_{sig} < f_N  \leftrightarrow f_s > 2 \cdot f_{signal}  \]
+				</blockquote>
+				
+			</section>		
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let's do the math! Sampling!</h2>
+				<div class="fragment fade-in-then-semi-out">
+					<p>The time-continuous signal $x(t)$ with the Fourier transform $X(\Omega)$</p>
+					<p> 
+						\[X(\omega) = 0 \ \ for \ \ |\Omega| > 2 \pi B \]				
+					</p>
+				</div>
+				<div class="fragment fade-in-then-semi-out">
+					<p>Sampling of $x(t)$ by multiplication with a delta-pulse train $\delta_T(t)$</p>
+					<p> 
+						\[ \delta_T(t) = \sum_n \delta(t-nT) \ \ with \ \ T= 1/f_s, n \in \mathbb{Z} \]				
+					</p>
+				</div>
+				<div class="fragment fade-in-then-semi-out">
+					<p>Yields the sampled function $\overline{x}(t)$</p>
+					<p> 
+						\[ \overline{x}(t) = x(t) \cdot \delta_(t) \]				
+					</p>
+				</div>
+				<div class="fragment fade-in-then-semi-out">
+					<p>Or as sum of discrete values at intervals $nT$ (all others are 0)</p>
+					<p> 
+						\[ \overline{x}(t) = x(t) \cdot \delta_T(t) = \sum_n x(nT)\delta (t-nT) \ n \in \mathbb{Z} \]				
+					</p>
+				</div>
+			</section>		
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let's do the math! Sampling!</h2>
+				<div class="fragment">
+					<p>Rewritten as a Fourier series:</p>
+					<p> 
+						\[ \overline{x}(t) = x(t) \cdot \delta_T(t) = x(t) \cdot \frac{1}{T} [1 + 2\cos (\omega_s t) + 2 \cos (2 \Omega_s t) + \dots ] \]
+						<p>...and re-organized for improved readability</p>
+						\[
+						\overline{x}(t) = \frac{1}{T} [x(t) + \sum_{n=1}^\infty x(t) \cdot 2 \cos (n\Omega_s t)]	
+						\]
+					</p>
+				</div>
+				<div class="fragment current-visible">
+					<img src="pics/lecture_01-pulsetrain.gif" style="width: 30%; box-shadow: 3px 3px 3px #000;">
+				</div>
+			</section>
+			
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let's do the math! Sampling!</h2>
+				<div>
+					<p> 
+						\[
+						\overline{x}(t) = (t) \cdot \delta_T(t) 
+						\]
+					</p>
+					<h6 style="padding-top: 0%;">In the light of the Fourier transform</h6>
+					<p> 
+						\[\begin{aligned}  \overline{X}(\Omega)  &amp; = X(\Omega) \ast \mathcal{F}(\delta_T(t)) \\		 
+				&amp;		= \frac{1}{T} [ \sum_{n=-\infty}^\infty X(\Omega - n \Omega_s) ]
+				\end{aligned}
+				\]	
+					</p>
+				</div>
+				<img src="pics/lecture_01_sampling_t_omega.svg" style="width: 30%;">
+				<p class="bottomline">...this means that digital spectra are periodic!</p>
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Aliasing</h2>
+					<h3>...frequencies that are (not) there... </h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Frequencies that are (not) there: Aliasing</h2>
+				<ul>
+					<li> At a given sampling frequency $F_s$, the Nyquist frequency $F_N$ is $F_s/2$ </li>
+					<li> Any component $[-F_s/2, F_s/2]$ gets 'folded back' into the interval $[-F_s/2, F_s/2]$</li>
+				</ul>
+				<p>&#8680; The frequency outside the interval gets identified as a lower frequency - it gets an 'alias'</p>
+				<img src="pics/lecture_01_aliasing.svg" style="width: 90%; padding-top: 3%;">
+				<p></p>
+			</section>		
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Frequencies that are (not) there: Aliasing</h2>
+				<div>
+				<video src="vid/lecture_01_Aliasing_propeller_1.webm" controls style="width: 40%;"> </video>
+				<video src="vid/lecture_01_Aliasing_water_speaker.webm" controls style="width: 40%;"> </video>
+			</div>
+			<div>
+				<p>	Or in the audio domain </p> 
+				<img src="pics/lecture_01_aliasing.svg" style="width: 30%;"> <br>
+				<audio src="wav/lecture_01_demo_aliasing.wav" controls> 
+					
+				</audio>
+			</div>
+			</section>		
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Reconstruction (ideal)</h2>
+				<p>How to get back to the "analogue" signal once we sampled?</p>
+				<img src="pics/lecture_01_sampling_reconstruction.svg" style="width: 80%; padding-top: 5%;">
+				<p class="bottomline">...just get rid of what we don't want (filtering!)</p>
+			</section>		
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-size="80%" data-background-opacity=".2" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let’s do the math: Reconstruction (ideal)</h2>
+				<p class="fragment fade-in-then-semi-out">
+					Frequency domain: Ideal low pass (LP) with gain $T$ and bandwidth $B$ 
+					\[  H(\omega) = T \cdot rect \left( \frac{\Omega}{4\pi B} \right) \]
+				</p>
+				<p class="fragment fade-in-then-semi-out">
+					This look in the time domain like a sinc with amplitude $2BT$ and zeros at $\pm \frac{n}{2B}$ 
+					\[ h(t) = 2BT \cdot sinc (2\pi B t) \ \ T = \frac{1}{f_s} \]
+				</p>
+				<p class="fragment fade-in-then-semi-out">
+					In the ideal world where we can chose the sampling frequency equal to the bandwidth  
+					\[ f_s = 2B \Rightarrow h(t) = sinc (2\pi B t) \]
+				</p>
+				<p class="bottomline">..so basically every "pulse" gets a sinc on top and the signal will reconstruct!</p>
+			</section>		
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Some practical considerations</h2>
+					<h3>...the world is not ideal...</h3>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Some practical considerations</h2>
+				<div style="padding-top: 5%;">
+					<ul>
+					<h6>Bandwidth and minimum sampling rate</h6>
+						<li>Neither perfect $\delta$ pulse nor ideal LP filter exist in reality</li>
+						<li>Save to increase 'margin' to Nyquist frequency by 'oversampling'</li>
+						<li>Chose sampling frequency to be (much) larger than twice the bandwidth</li>
+		
+					<h6 style="padding-top: 5%;">Aliasing</h6>
+						<li>Signals might include frequencies the definitely violate the sampling theorem (aliasing)</li>
+						<li>Remove frequency components before (!) sampling of the signal</li>
+						<li>Anti-aliasing filter s your friend (e.g. in EEG applications)</li>
+					</ul>
+				</div>
+			</section>		
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Hands-on for today</h2>
+					<h3>...what you will discover today...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2 style="padding-bottom: 5%;">Hands-on for today</h2>
+				<ul>
+					<li> Signal generation and sampling</li>
+					<li> Visualization of signals</li>
+					<li> Sound in- and output from -wav files</li>
+					<li> Resampling of signals using built-in routines</li>
+				</ul>
+				<div style="padding-top: 5%;">
+					<img src="pics/lecture_01_signal_finite.png" style="width: 40%;">
+				</div>
+			</section>		
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Summary and take-home</h2>
+					<h3>...to take with you from here...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What just happened</h2>
+				<div style="padding-top: 5%;">
+					<ul>
+						<li class="fragment fade-in-then-semi-out">The maximum frequency that can be represented in a sampled signal corresponds to half
+							the sampling frequency (Nyquist frequency)</li>
+						<li class="fragment fade-in-then-semi-out">A bandlimited function can be perfectly reconstructed if the bandwidth is within the limits
+							of the Nyquist frequency (no aliasing)</li>
+						<li class="fragment fade-in-then-semi-out">In practice, the sampling rate should be much larger than the Nyquist frequency</li>
+						<li class="fragment fade-in-then-semi-out">Anti-aliasing filters can be handy when (down-)sampling</li>
+					</ul>
+				</div>
+			</section>	
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" >
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

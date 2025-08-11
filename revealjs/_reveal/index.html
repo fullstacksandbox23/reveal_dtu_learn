@@ -1,0 +1,411 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>A real-time hearing impairment simulator based on BELA</title>
+
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dtubepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+	
+			<div class="slides">
+
+<!-- ---------------------START HERE------------------------- -->
+				<!-- INTRO -->
+				<section class="intro" id="intro">
+					<div class="logo-wrapper">
+						<div class="logo"><span class="visually-hidden">BEPP Sandbox</span></div>
+					</div>
+				</section>
+
+				<!-- TITLE -->
+				<section class="title" id="title">
+					<div class="grid-wrapper">
+						<div class="header">
+							<!-- Remove logo--full class to only show brand mark -->
+							<div class="logo logo--full"><span class="visually-hidden">Bastian Epp</span></div>
+						</div>
+						<div class="content">
+							<h1>DAGA 2021</h1>
+							<div class="description">
+								A real-time hearing impairment simulator based on BELA
+							</div>
+						</div>
+						<div class="credit">
+							<hr/>
+							<div class="label">Presented By</div>
+							<div class="name"><u>Bastian Epp</u>, Tobias Zanchetta Kock</div>
+							<div class="role">Auditory physics group <br> Hearing systems section <br> Department of Health Technology <br> Technical University of Denmark</div>
+						</div>
+					</div>
+				</section>
+
+
+<!-- ---------------------SECTIONS------------------------- -->
+<!-- ---------------------COMMENT TEMPLATES ------------------------- -->
+
+				<!-- INTRO -->
+				<section class="section color--light" id="section--light">
+					<div class="grid-wrapper">
+						<div class="logo"></div>
+						<h1>INTRODUCTION </h1>
+						<div class="description">
+							Goal and level of abstraction
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Hearing impairment and its monetary cost</div>
+						</div>
+						<div class="content">
+							<h3>Hearing impaired people are expensive</h3>
+							<center>
+							<img src="../pics/cost.jpg" style="width:55%" padding: 10px>
+						</center>
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Hearing impairment and its societal cost</div>
+						</div>
+						<div class="content">
+							<h3>Hearing impaired people are often socially excluded</h3>
+							<center>							
+							<img src="../pics/canthear.jpg" style="width:45%" padding: 10px>
+							<img src="../pics/annoyed.jpg" style="width:51%" padding: 10px>
+						</center>
+						</div>
+					</div>
+				</section>
+
+
+
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Goal of this project</div>
+						</div>
+						<div class="content">
+							<h1>
+								Build a real-time platform <b>to enable normal-hearing listeners</b> to experience <b> impact of </b>hearing impairment
+							</h1>  
+						</div>
+					</div>
+				</section>
+
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">What we ended up with</div>
+						</div>
+						<div class="content">
+							<center>
+							<img src="../pics/weirdo_cut.png" style="width:51%" padding: 10px>
+						</center>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- METHODS -->
+				<section class="section color--light" id="section--light">
+					<div class="grid-wrapper">
+						<div class="logo"></div>
+						<h1>METHODS </h1>
+						<div class="description">
+							Description, simplifications and implementation
+						</div>
+					</div>
+				</section>
+
+				
+				<!-- Signal processing model of hearing -->
+				<section class="subsection color--light" id="subsection--light">
+					<div class="grid-wrapper">
+						<div class="logo"></div>
+						<h1>Simplified signal processing model of hearing</h1>
+						<div class="description">
+							Step 1: Simulate how the hearing system processes acoustic information
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">The basic elements of an auditory (DSP) model</div>
+						</div>
+						<div class="content">
+							<center><img src="../pics/system_3.png" style="width:60%"></center>
+							<h3>Analysis</h3>
+							Frequency selectivity and frequency channels <br><br>
+							<h3>Nonlinearity</h3>
+							Compressive processing of input intensity and level-dependent tuning <br><br>
+							<h3>Synthesis</h3>
+							Combination of all frequency channels into audible sound
+						
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">The basic elements of an auditory (DSP) model</div>
+						</div>
+						<div class="content">
+							<center>
+								 <img src="../pics/compressionwLegend.png" style="width:45%" padding: 5px>
+								 <img src="../pics/compressiveIO.png" style="width:45%" padding: 5px>
+								</center>
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Some basic deficits to simulate in an auditory (DSP) model</div>
+						</div>
+						<div class="content">
+							<h3>Reduced sensitivity and compression</h3>
+							E.g.: Increased threshold (frequency dependent), hyperacusis
+							<center>
+								<figure>
+								<img src="../pics/audiogram_types.png" style="width:25%" padding: 5px>
+								<img src="../pics/brand_hohmann_loudness.png" style="width:40%" padding: 5px>
+								<figcaption>Left: Bisgaard et al. 2010; Right: Brandt & Hohmann 2002</figurecaption>
+							</figure>
+							   </center>
+							<br>
+							<h3>Effects of worsened frequency selectivity</h3>
+							E.g.: Worstened speech intelligibility in noise
+						</div>
+					</div>
+				</section>
+
+
+
+				<!-- Implementation -->
+				<section class="subsection color--light" id="subsection--light">
+					<div class="grid-wrapper">
+						<div class="logo"></div>
+						<h1>Implementation on a real-time platform</h1>
+						<div class="description">
+							Low-cost platform based on BELA
+						</div>
+					</div>
+				</section>
+
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Technical details</div>
+						</div>
+						<div class="content">
+							<center>
+							<img src="../pics/bela.png" style="width:35%" padding: 10px>
+							<img src="../pics/bela_comparison.png" style="width:35%" padding: 10px>
+						</center>
+						<h3>Specifications</h3>
+						Low latency Linux OS with high-priority audio, frame-based processing, 
+						native SIMD instructions, multichannel audio I/O, integrated IDE, low cost, power-over-USB...
+						</div>
+					</div>
+				</section>
+
+
+				<section class="dslide" style="line-height: 1;">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Implementing the basic elements of an auditory (DSP) model</div>
+						</div>
+						<div class="content">
+							<div class="side" >
+								<h3 style="margin-top: 1em; line-height: 0%;">Analysis</h3>
+								<p style="color:gray; font-size:.7em; margin: 0em;"> Frequency selectivity and frequency channels </p> 
+								<p>Gammachirp filterbank with 28 channels</p>
+								<h3 style="margin-top: 1em; line-height: 0%;">Nonlinearity</h3>
+								<p style="color:gray; font-size:.7em; margin: 0em;">Compressive processing of input intensity and level-dependent tuning</p>
+								<p>Level-estimator controlling the filter bank and gain</p><br>
+								<h3 style="margin-top: 1em; line-height: 0%;">Synthesis</h3>
+								<p style="color:gray; font-size:.7em; margin: 0em;">Combination of all frequency channels into audible sound</p>
+								<p>Time-alignment of filter channels using delay elements</p>
+							</div>
+							<div class="side">
+								<center>
+									<img src="../pics/fullSystem.png" style="width:80%">
+									<img src="../pics/FIFOalignment.png" style="width:60%">
+								</center>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Simulated deficits in the auditory (DSP) model</div>
+						</div>
+						<div class="content">
+							<h3>Level-dependent attenuation and spectral smearing</h3>
+							<center>
+								<figure>
+								<img src="../pics/hlAudiograms.png" style="width:25%" padding: 10px>
+								<img src="../pics/invCompIO.png" style="width:30%" padding: 10px>
+								<img src="../pics/SpectralSmearingv2.png" style="width:30%" padding: 10px>
+							</figure>
+							   </center>
+						</div>
+					</div>
+				</section>
+
+				<!-- RESULTS -->
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Analysis, compression and synthesis</div>
+						</div>
+						<div class="content">
+							<center>
+								 <img src="../pics/filterShapes.png" style="width:30%" padding: 5px>
+								 <img src="../pics/compressiveIO.png" style="width:30%" padding: 5px>
+								 <img src="../pics/freqResn20f100_8000.png" style="width:30%" padding: 5px>
+								</center>
+						</div>
+					</div>
+				</section>
+
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Audiograms and loudness</div>
+						</div>
+						<div class="content">
+							<center>
+								 <img src="../pics/audiogramAB.png" style="width:30%" padding: 5px>
+								 <img src="../pics/loudnessAll.png" style="width:30%" padding: 5px>
+								 <img src="../pics/smearing.png" style="width:25%" padding: 5px>
+								</center>
+						</div>
+					</div>
+				</section>
+
+
+
+				<!-- Outlook -->
+				<section class="subsection color--light" id="subsection--light">
+					<div class="grid-wrapper">
+						<div class="logo"></div>
+						<h1>Where we want to go</h1>
+						<div class="description">
+						
+						</div>
+					</div>
+				</section>
+
+
+				
+				
+				<!-- BLANK -->
+				<section id="blank">
+					<div class="grid-wrapper">
+						<div class="header">
+							<div class="logo"></div>
+							<div class="section">Raise awareness and understanding</div>
+						</div>
+						<div class="content">
+							<center>
+								<img src="../pics/restaurant.jpg" style="width:51%" padding: 10px>
+							</center>
+							<h3>A portable system to be used in everyday settings in science museums, restaurants, educational institutions, ...</h3>						
+						</div>
+					</div>
+				</section>
+
+
+
+				<section class="end color--radiant" id="end-radiant">
+					<div class="logo-wrapper">
+						<div class="logo"><span class="visually-hidden">DTU</span></div>
+					</div>
+				</section>
+
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="js/reveal-init.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

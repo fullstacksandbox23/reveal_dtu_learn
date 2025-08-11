@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/xkcd_pendulum_types.png" data-background-size="contain">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">XKCD.com</p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 9</h3>
+					<h4>Reframing: Still stable?</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Let us start with something fun...</h2>
+				<div style="padding-top: 5%;"> 
+					<video src="vid/lecture_09_drummer.mp4" controls>>	
+				</div>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 5%;"> 
+					<ul>
+						<li>Pros and cons of IIR and FIR filters</li>
+						<li>Conditions for linear phase</li>
+						<li>FIR filter design: Time domain equivalence:
+							\[\Omega \Rightarrow t \Rightarrow n \]
+						</li>
+						<li>Windowing</li>
+						<li>FIR filter design: Frequency domain equivalence:
+							\[\Omega \Rightarrow \omega \Rightarrow n \]
+						</li>
+					</ul>	
+				</div>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Symmetry of impulse response</h2>
+                <h6>Symmetric in one way...</h6>
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_even.svg" width="80%">
+				</div>
+				<p class="bottomline">...linear phase...</p>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Symmetry of impulse response</h2>
+				<h6>Symmetric in another way...</h6>
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_odd.svg" width="80%">
+				</div>
+				<p class="bottomline">...linear phase...</p>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Symmetry of impulse response</h2>
+                <h6>Non-symmetric...</h6>
+				<div>
+					<img src="pics/lecture_08_rs_time_freq_asym.svg" width="80%">
+				</div>
+				<p class="bottomline">...not linear phase...</p>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>How to reduce oscillations caused by windowing?</h2>
+				<h6>Common window functions</h6>
+				<div>
+					<img src="pics/lecture_08_windows.svg" width="60%">
+				</div>
+				<div>
+					<p>Characteristics are...</p>
+					<ul>
+						<li>Main lobe width</li>
+						<li>Main-to-sidelobe ratio</li>
+						<li>Roll-off rate</li>
+					</ul>
+				</div>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>FIR filter design</h2>
+                <h6>Cooking recipe</h6>
+				<ul>
+					<li>Define desired filter in the frequency domain (continuous or discrete)</li>
+					<li>Transform into time domain (and possible sample)</li>
+					<li>Truncate (window)</li>
+					<li>Shift in time to make causal</li>
+				</ul>
+				<div class="r-stack" style="padding-top: 3%;">
+					<img src="pics/lecture_08_filter_rect_frequency_sampled.svg" class="fragment current-visible" width="70%">
+					<img src="pics/lecture_08_filter_ir_sampled.svg" class="fragment current-visible" width="70%">
+					<img src="pics/lecture_08_filter_ir_sampled_cut.svg" class="fragment current-visible" width="70%">
+					<img src="pics/lecture_08_filter_ir_sampled_cut_shifted.svg" class="fragment current-visible" width="70%">
+				</div>				
+				<p class="bottomline">...step by step...</p>
+			</section>	
+
+			
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Filter design in a nut shell</h2>
+				<ul style="font-size: 35px;">
+                <p><b>Starting from s (IIR)</b></p>
+					<li>Laplace to continuous time to discrete time to z-domain: Impulse invariance method</li>
+					\[ s \Rightarrow t \Rightarrow n \Rightarrow z \]
+					<li>Laplace to z-domain: Bilinear transformation (TF equivalence method)</li>
+					\[ s \Rightarrow z \]
+					<p style="font-size: 30px;"></p>
+				
+				<p><b>Starting from frequency (FIR)</b></p>
+				
+					<li>Frequency to continuous time to discrete time (to z-domain): Impulse invariance method with windowing</li>
+					\[ \Omega \Rightarrow t \Rightarrow n \Rightarrow z \]
+					<li>Continuous frequency to discrete frequency to discrete time (to z-domain): Frequency domain equivalence</li>
+					\[ \Omega \Rightarrow \omega \Rightarrow n \Rightarrow z \]
+				</ul>
+			</section>
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session #9</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Stable or not...</h2>
+				<h6>Let's push the zero...</h6>
+				<div>
+					<video src="vid/lecture_09_animation_moving_zero_stability.mp4" controls loop>>
+				</div>
+				<p class="bottomline">...zeros don't tell about stability...</p>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Stable or not...</h2>
+				<h6>Let's push the pole...</h6>
+				<div>
+					<video src="vid/lecture_09_animation_moving_pole_stability.mp4" controls loop>>
+				</div>
+				<p class="bottomline">...poles reflect EIGENMODES and determine stability.... </p>
+			</section>	
+
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/bgnd_car_simulator_wiki.png" data-background-opacity=".2">
+				<h2>Quickie Nr 6</h2>
+				<h5>Take a few minutes to answer the following question:</h5>
+				You get in charge of a car simulator platform that consists of:
+				<ul style="padding-top: 4%; padding-bottom: 4%;">
+					<li>electrodynamic shakers that simulate car vibration</li>
+					<li>a number of loudspeakers that simulate car acoustic</li>
+					<li>a screen showing a simulated visual scene</li>
+				</ul>
+				<p>
+				A car manufacturer comes and wants to use the platform.  He/she comes with own recordings
+of the newest prototype and want to playback their sounds through your simulator using a
+playback device directly connected to your system.  The problem is however that their
+recordings require that the frequency response of your transducers is completely flat (which is
+not the case by default)
+</p>
+	<p class="fragment" style="font-style: italic; padding-top: 2%; color: #ad0b0b;">The representative from the car manufacturer gets a phone call. You have 8 minutes to design
+		a solution that solves this problem</p>
+			</section>
+
+		
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/xkcd_rubber_sheet.png" data-background-size="contain">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">XKCD.com</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->

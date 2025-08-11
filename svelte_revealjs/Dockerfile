@@ -12,13 +12,17 @@ RUN npm run build
 
 FROM build AS dev
 WORKDIR /app
+COPY --from=build /app/node_modules /app/node_modules
 EXPOSE 5173
 CMD ["npm", "run", "dev"]
 
 FROM node:22.10.0-alpine3.20
+WORKDIR /app
 ENV PORT=80
 COPY --from=build /app/build /app/
 COPY --from=build /app/package*.json /app/
+RUN npm ci --omit=dev
+# RUN chown -R node:node /app
 EXPOSE 80
 # USER node
 CMD ["node", "/app/index.js"]

@@ -1,0 +1,890 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: inherit;
+$mainFont: 'Arial', 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: inherit;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #42affa;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+$viewport-tiny: "max-width: 568px";
+$viewport-small: "max-width: 768px";
+$viewport-wide: "min-width: 1280px";
+
+$white: #FFFFFF;
+$light-grey: #EEEDEF;
+$grey: #66646B;
+$black: #22272B;
+$radiant: #F25930;
+$ice: #9292A8;
+$midnight: #2A2A49;
+$dtublue: #2F3EEA;
+$dtugreen: #1fd082;
+$dtunavy: #030f4f;
+$dtuyellow:#f6d04d;
+$dtuorgange: #fc7634;
+$dtupink: #f7bbb1;
+$dtugrey: #dadada;
+$dtured: #e83f48;
+$dtugreen: #008835;
+$dtupurple: #79238e;
+
+$patterns: (
+	'dtu': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #990000,
+	),
+	'black': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #990000,
+	),
+	'DTU_Background_Pattern_Black_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #990000,
+	),
+	'DTU_Background_Pattern_Blue_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Green_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Grey_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #990000,
+	),
+	'DTU_Background_Pattern_Light_Green_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Navy_Blue_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Orange_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Pink_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Purple_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Red_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Yellow_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #FFFFFF,
+	),
+	'DTU_Background_Pattern_Corporate_Red_CMYK': (
+		'intro-bg': #FFFFFF,
+		'title-bg': #990000,
+	),
+);
+
+$colors: (
+	'dark': (
+		'bg': $black,
+		'fg': $light-grey,
+		'logo': 'dtu',
+	),
+	'light': (
+		'bg': $white,
+		'fg': $grey,
+		'logo': 'dtu',
+	),
+	'blue': (
+		'bg': $white,
+		'fg': $dtublue,
+		'logo': 'blue',
+	),
+);
+
+$headerLogoHeight: 4.5vmin;
+$slidePadding: 10vmin;
+
+html {
+	font-size: 2.25vmin;
+}
+@media (#{$viewport-small}) {
+	html {
+		font-size: 16px;
+	}
+}
+@media (#{$viewport-tiny}) {
+	html {
+		font-size: 14px;
+	}
+}
+
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	word-wrap: normal;
+}
+
+.reveal[class*="pattern--"] {
+	background-position: center center;
+	background-size: 133vmax auto;
+}
+
+@each $pattern-name, $pattern-settings in $patterns {
+	.reveal.pattern--#{$pattern-name} {
+		$intro-bg: map-get($pattern-settings, 'intro-bg');
+		$title-bg: map-get($pattern-settings, 'title-bg');
+
+		background-image: url('../../lib/dtu/patterns/#{$pattern-name}/#{$pattern-name}.jpg');
+
+		.slides section.intro {
+			background-color: $intro-bg;
+
+			.logo {
+				background-image: url("../../lib/dtu/patterns/#{$pattern-name}/logo.png");
+			}
+		}
+		.slides section.title {
+			background-color: $title-bg;
+		}
+		.progress {
+			color: $title-bg;
+		}
+		.controls {
+			color: $title-bg;
+		}
+	}
+}
+
+@each $color-name, $color-settings in $colors {
+	$fg: map-get($color-settings, 'fg');
+	$bg: map-get($color-settings, 'bg');
+	$logo: map-get($color-settings, 'logo');
+
+	.reveal .slides section.color--#{$color-name} {
+		background-color: $bg;
+		color: $fg;
+
+		.logo {
+			background-image: url("../../lib/dtu/logo/dtu/#{$logo}.png");
+		}
+	}
+}
+
+.grid-wrapper {
+	display: grid;
+}
+
+.reveal .slides {
+	text-align: left;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+	padding: 0;
+}
+.reveal .slides > section.past,
+.reveal .slides > section.future,
+.reveal .slides > section > section.past,
+.reveal .slides > section > section.future {
+	opacity: 1;
+}
+.reveal .controls {
+	right: 4vmin;
+	bottom: 4vmin;
+
+	@media (#{$viewport-small}) {
+		right: 2vmin;
+		bottom: 2vmin;
+	}
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+	margin-bottom: 2.5vmin;
+	color: inherit;
+}
+
+.reveal .slides section {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+	display: block;
+}
+
+.reveal section img {
+	background: none;
+	border: none;
+	box-shadow: none;
+	margin: 0;
+}
+
+@mixin section ($margin: 0) {
+	@if ($margin == 0) {
+		height: 100vh;
+		margin: 0;
+		width: 100vw;
+	}
+	@else {
+		height: calc(100vh - #{2 * $margin});
+		margin: $margin;
+		width: calc(100vw - #{2* $margin});
+	}
+}
+
+.reveal .slides section {
+	@include section();
+
+	color: $midnight;
+
+	&:not([class*='color--']) {
+		background-color: $white;
+	}
+	&.stack {
+		background-color: transparent;
+	}
+
+	.grid-wrapper {
+		box-sizing: border-box;
+		grid-column-gap: $slidePadding;
+		grid-row-gap: $slidePadding/2;
+		grid-template-areas: "header" "content";
+		grid-template-rows: $headerLogoHeight 1fr;
+		height: 100%;
+		padding: $slidePadding;
+	}
+
+	.header {
+		align-items: center;
+		display: flex;
+		grid-area: header;
+	}
+
+	.logo {
+		background-image: url("../../lib/dtu/logo/dtu/primary_red.png");
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		display: inline-block;
+		grid-area: header;
+		height: $headerLogoHeight;
+		margin-right: $headerLogoHeight;
+		width: $headerLogoHeight;
+	}
+
+	.section {
+		text-transform: uppercase;
+		line-height: $headerLogoHeight;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+	&:not([class*="color--"]) .section {
+		color: $ice;
+	}
+
+	.content {
+		align-self: center;
+		grid-area: content;
+		font-size: 1.2em;
+	}
+
+	&.color--dark {
+		.section {
+			color: $dtugrey;
+		}
+	}
+}
+
+.reveal .slides section.intro {
+	@include section(4vmin);
+
+	@media (#{$viewport-small}) {
+		@include section(2vmin);
+	}
+
+	.logo-wrapper {
+		display: flex;
+		height: 100%;
+	}
+
+	.logo {
+		background-position: center;
+		background-size: contain;
+		height: auto;
+		margin: auto;
+		min-height: 200px;
+		min-width: 200px;
+		width: 33%;
+	}
+}
+
+.reveal .slides section.title {
+	@include section(4vmin);
+
+	color: $white;
+	margin-left: 22vw;
+	width: 70vw;
+
+	@media (#{$viewport-small}) {
+		@include section(2vmin);
+	}
+
+	.grid-wrapper {
+		grid-template-areas:
+			"header header"
+			"content content"
+			". credit";
+		grid-template-columns: auto 40%;
+		grid-template-rows: 6vmin 1fr auto;
+		grid-column-gap: $slidePadding;
+	}
+
+	.logo {
+		background-image: url("../../lib/dtu/logo/dtu/primary_white.png");
+		height: 6vmin;
+		width: 6vmin;
+	}
+
+	.logo--full {
+		background-image: url("../../lib/dtu/logo/dtu/primary_white.png");
+		width: 24vmin;
+	}
+
+	.content {
+		align-self: center;
+		grid-area: content;
+	}
+
+	h1 {
+		color: $white;
+	}
+
+	.credit {
+		align-self: end;
+		grid-area: credit;
+		line-height: 1.8em;
+
+		hr {
+			border: solid $light-grey;
+			border-width: 1px 0 0 0;
+			margin: 0 0 .8em 0;
+			width: 20%;
+		}
+		.label {
+			font-size: 60%;
+			text-transform: uppercase;
+		}
+		.name {
+			font-weight: bold;
+		}
+		.role {
+
+		}
+	}
+
+	@media (#{$viewport-tiny}) {
+		.grid-wrapper {
+			grid-template-areas: "header" "content" "credit";
+			grid-template-columns: auto;
+		}
+		.credit {
+			justify-self: end;
+		}
+	}
+
+	@media (#{$viewport-wide}) {
+		.content {
+			display: grid;
+			grid-template-areas: "title description";
+			grid-template-columns: auto 40%;
+			grid-column-gap: $slidePadding;
+		}
+		h1 {
+			grid-area: title;
+		}
+		.description {
+			grid-area: description;
+			margin-top: 0.5em;
+		}
+	}
+}
+
+.reveal .slides section.subsection {
+
+	.grid-wrapper {
+		grid-template-areas: "header" "title" "description";
+		grid-template-rows: $headerLogoHeight 3fr 1fr;
+	}
+
+	h1 {
+		align-self: center;
+		grid-area: title;
+		margin: 0;
+	}
+
+	.description {
+		color: $ice;
+		grid-area: description;
+		min-height: 4em;
+	}
+
+	&:not([class*='color--']),
+	&.color--light {
+		.logo {
+			background-image: url('../../lib/dtu/patterns/dtu/dtu.png');
+		}
+	}
+	&.color--midnight,
+	&.color--ice,
+	&.color--radiant {
+		.description {
+			color: $dtugrey;
+		}
+	}
+}
+
+.reveal .slides section.quote {
+
+	blockquote {
+		align-self: center;
+		background: none;
+		color: $grey;
+		border: none;
+		box-shadow: none;
+		font-size: 2em;
+		font-style: normal;
+		margin: 0;
+		max-width: 42ex;
+		padding: 0;
+		width: 100%;
+	}
+	hr {
+		border: solid $ice;
+		border-width: 1px 0 0 0;
+		margin: .8em 0;
+		width: 10%;
+	}
+	cite {
+		color: $ice;
+		display: block;
+		font-size: 1rem;
+	}
+
+	&.color--midnight,
+	&.color--ice,
+	&.color--radiant {
+		blockquote {
+			color: $dtugrey;
+		}
+		hr {
+			border-color: $light-grey;
+		}
+		cite {
+			color: $dtugrey;
+		}
+	}
+}
+
+
+.reveal .slides section.dslide {
+
+	.content {
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 1fr;
+		grid-auto-flow: column;
+		grid-column-gap: $slidePadding;
+		grid-row-gap: $slidePadding/2;
+	}
+
+	.side {
+		display: grid;
+		grid-column-gap: $slidePadding/2;
+		grid-template-columns: 1fr;
+	}
+
+	img {
+		display: grid;
+		float: none;
+		height: auto;
+		margin-right: $slidePadding/2;
+		width: auto;
+		max-height: 60vmin;
+		max-width: 40vmin;
+	}
+}
+
+
+.reveal .slides section.team {
+
+	.content {
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 1fr;
+		grid-auto-flow: column;
+		grid-column-gap: $slidePadding;
+		grid-row-gap: $slidePadding/2;
+	}
+
+	.profile {
+		display: grid;
+		grid-column-gap: $slidePadding/2;
+		grid-template-rows: 15vmin 1fr;
+	}
+
+	h2 {
+		color: $ice;
+		font-size: inherit;
+		margin-bottom: 0.5em;
+	}
+	p:first-of-type {
+		margin-top: 0;
+	}
+	p:last-of-type {
+		margin-bottom: 0;
+	};
+
+	img {
+		display: block;
+		float: left;
+		height: auto;
+		margin-right: $slidePadding/2;
+		width: auto;
+	}
+	.name {
+		margin: 0.6em 0;
+	}
+
+	.role {
+		color: $ice;
+		font-size: 0.8em;
+		margin: 0.6em 0;
+	}
+
+	.supplement {
+		font-size: .8em;
+		color: $ice;
+	}
+
+	// When only one profile.
+	@media not all and ($viewport-small) {
+		.profile:first-child:nth-last-child(1) {
+			grid-template-rows: auto;
+			grid-template-columns: 1fr 4fr;
+
+			img {
+				float: none;
+				max-width: none;
+				max-height: none;
+				width: 100%;
+			}
+		}
+	}
+
+	@media ($viewport-wide) {
+		img {
+			float: none;
+			max-width: none;
+			max-height: 100%;
+			width: 100%;
+		}
+		.profile {
+			grid-template-rows: auto;
+			grid-template-columns: 1fr 3fr;
+		}
+		// When only one profile.
+		.profile:first-child:nth-last-child(1) {
+			justify-self: center;
+			padding: 0 10vmin; // Same value as slide padding.
+		}
+	}
+
+	@media ($viewport-small) {
+		.content {
+			grid-auto-flow: row;
+		}
+	}
+
+	@media ($viewport-small) and (orientation: landscape) {
+		.content {
+			grid-auto-flow: column;
+		}
+
+		.profile {
+			grid-template-rows: auto;
+			align-items: center;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-column-gap: $slidePadding/2;
+		}
+
+		.details {
+			display: none;
+		}
+
+		img {
+			float: left;
+			height: auto;
+			margin-right: $slidePadding/2;
+			max-height: 50%;
+			max-width: 40%;
+			width: auto;
+		}
+	}
+
+	@media ($viewport-tiny) {
+		.content {
+			grid-auto-flow: row;
+		}
+		.profile {
+			grid-template-rows: auto;
+			align-items: center;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-column-gap: $slidePadding/2;
+		}
+
+		.details {
+			display: none;
+		}
+
+		img {
+			float: left;
+			height: auto;
+			margin-right: $slidePadding/2;
+			max-height: 50%;
+			max-width: 40%;
+			width: auto;
+		}
+	}
+}
+
+.reveal .slides section.end {
+	@include section();
+
+	.logo-wrapper {
+		display: flex;
+		height: 100%;
+	}
+
+	.logo {
+		background-image: url("../../lib/dtu/logo/dtu/primary_white.png");
+		background-position: center;
+		background-size: contain;
+		height: auto;
+		margin: auto;
+		min-height: 200px;
+		min-width: 200px;
+		width: 33%;
+	}
+
+	&.color--radiant {
+		.logo {
+			background-image: url("../../lib/dtu/logo/dtu/primary_red.png");
+		}
+	}
+}
+
+
+/*******************************************************************************
+ * Code Segments
+ ******************************************************************************/
+figure.code {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+figure.code pre {
+	box-shadow: none;
+	font-size: 1rem;
+	height: 100%;
+	line-height: 1.1rem;
+	margin: 0;
+	width: 100%;
+	overflow: hidden;
+}
+.reveal pre code {
+	background-color: #3f3f3f;
+	border: 1ex solid #3f3f3f;
+	border-width: 1ex 2ex;
+	box-sizing: border-box;
+	height: 100%;
+	max-height: none;
+	-moz-tab-size: 2;
+	tab-size: 2;
+}
+figure.code figcaption {
+	box-sizing: border-box;
+	padding: 1ex 2ex;
+	width: 100%;
+	font-size: 0.875em;
+	border: 1px solid #3f3f3f;
+	border-bottom-width: 0;
+	background-color: #333;
+	text-align: left;
+}
+figure.code pre + figcaption {
+	border-top-width: 0;
+	border-bottom-width: 1px;
+	color: $light-grey;
+}
+figure.code figcaption.path {
+	font-family: monospace;
+}
+
+
+
+
+
+
+
+//////////////////////// EO TITLE
+
+
+
+// .header img {
+//     float:left;
+//     padding-left: 1%;
+//     height: 30px;
+//     z-index: -1;
+// }
+
+// .header h1 {
+//     position: relative;
+//     top: 1%
+// }
+
+// .slides h1 {
+//     font-size: 40pt;
+//     font-weight: bold;
+// }
+
+
+
+// /* Create columns that floats next to each other */
+// .column {
+//     float: left;
+//     padding: 10px;
+//    // height: 300px; /* Should be removed. Only for demonstration */
+//   }
+  
+//   /* Left and right column */
+//   .column.side25 {
+//     width: 25%;
+//     padding: 10px;
+//   }
+  
+//   .column.side33 {
+//     width: 33%;
+//     padding: 10px;
+//   }
+
+
+//   /* Middle column */
+//   .column.middle50 {
+//     width: 50%;
+//     padding: 10px;
+//   }
+  
+//   /* Clear floats after the columns */
+//   .row:after {
+//     content: "";
+//     display: table;
+//     clear: both;
+//   }
+  
+//   /* Style the footer */
+//   .footer {
+//     background-color: #f1f1f1;
+//     padding: 10px;
+//     text-align: center;
+//   }
+
+// .title-slide{
+//   text-align:center;
+//   font-size: 48pt;
+// }
+
+
+// /* TRY GRID LAYOUT CONTAINER */
+// .reveal .slides section.title .grid-wrapper {    
+//   box-sizing: border-box;
+//   display: grid;
+//   grid-template-areas:
+//     "header header"
+//     "content content"
+//     ". credit";
+//   grid-template-columns: auto 40%;
+//   grid-template-rows: 6vmin 1fr auto;
+//   grid-column-gap: 10vmin;
+//   height: 100%;
+//   padding: 10vmin;
+// }
+// .logo {
+//    grid-area: header;
+// }
+// .content {
+//   align-self: center;
+//   grid-area: content;
+// }
+// .credit {
+//   grid-area: credit;
+// }

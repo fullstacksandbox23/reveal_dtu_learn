@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/ROV_SuBastian_SchmidtOceanInstitute_FKt240708-S0691-20240718T225253Z-0-scicam-LithodeCrab.jpg">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;"> High Seas and Seamounts of the Nazca Ridge | Bubblegum Parazonthidae | Source: ROV SuBastian; Schmidt Ocean Institute</p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 2</h3>
+					<h4>Reframing: From sampling to description</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>Some examples of signals</li>
+						<li>Signals as sums of sinusoids (real- and complex valued)</li>
+						<li>Signal periodicity</li>
+						<li>Basic system</li>
+						<li>Continuous versus discrete-time signals</li>
+						<li>Analogue-digital / digital-analogue (AD/DA) conversion</li>
+						<li>Aliasing</li>
+					</ul>
+				</div>
+			</section>			
+			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Classification of signals</h2> 
+				<img style="width: 95%;" src="pics/lecture_01_signal_classification.svg">
+				<p class="bottomline">...we will deal with discrete-time, discrete-amplitude signals...</p>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Description of signals</h2>
+				<img src="pics/lecture_01_signal_finite.png" style="width: 20%;">
+				<p>In mathematical terms as a sum of sinusoids</p>
+					\[x_a(t) = \sum_{k=0}^\infty A_k \cdot \cos(2\pi k F_0 t + \Theta _k) \]
+				<p>Or as a complex exponentials</p>
+					\[ 
+						x_a(t) = \sum_{k=0}^\infty c_k e^{j 2 \pi k F_0 t + \Theta _k}
+					\]
+				<p class="bottomline">Check out the screencast on DTU LEARN</p>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Sampling along one dimension</h2>
+				<h6>Temporal sampling</h6>
+				<ul>
+					<li>Definition of a sampling rate (or sampling frequency, e.g., in 1/s = Hz)</li>
+					<li>Samples are taken at equal intervals (sampling period)</li>
+				</ul>
+				<div class="r-stack" style="padding-top: 5%;">
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_1.png" style="width: 50%;">
+
+					
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_2.png" style="width: 50%;">
+
+
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_3.png" style="width: 50%;">
+
+
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_4.png" style="width: 50%;">
+
+	
+						<img class="fragment current-visible" src="pics/lecture_01_sampling_all.png" style="width: 50%;">
+
+				</div>
+				<p class="bottomline">How low should we go to capture the signal?</p>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>How many samples to use?</h2>
+				<h6>The Nyquist frequency</h6>
+				<blockquote>
+					The frequency limit of a discrete signal with a given sampling rate $(f_s)$ is called the Nyquist frequency $(f_N)$:
+					\[ f_s = 2 \cdot f_N \]
+				or
+					\[ f_s/2 = f_N \]	
+				</blockquote>
+				<h6 style="padding-top: 2%;">Implications for sampling of continuous signals</h6>
+				<blockquote>
+					A frequency of $f_{sig}$ to be sampled with a sampling frequency of $f_s$ must be smaller than the Nyquist frequency:
+					\[ f_{sig} < f_N  \leftrightarrow f_s > 2 \cdot f_{signal}  \]
+				</blockquote>
+				
+			</section>		
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<img class="icon" src="pics/00_elearning.png">
+				</div>
+				<h2>Let's do the math! Sampling!</h2>
+				<div class="fragment">
+					<p>The sampled signal and its Fourier transform:</p>
+					<p> 
+						\[
+						\frac{1}{T} [x(t) + \sum_{n=1}^\infty x(t) \cdot 2 \cos (n\Omega_s t)] \leftrightarrow 	\frac{1}{T} [ \sum_{-\infty}^{\infty} X(\Omega - n\Omega_s) ]
+						\]
+					</p>
+				</div>
+				<div class="fragment current-visible">
+					<img src="pics/lecture_01_sampling_t_omega.svg" style="width: 70%;">
+				</div>
+			</section>
+			
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Aliasing</h2>
+					<h3>...frequencies that are (not) there... </h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Frequencies that are (not) there: Aliasing</h2>
+				<ul>
+					<li> At a given sampling frequency $F_s$, the Nyquist frequency $F_N$ is $F_s/2$ </li>
+					<li> Any component $[-F_s/2, F_s/2]$ gets 'folded back' into the interval $[-F_s/2, F_s/2]$</li>
+				</ul>
+				<p>&#8680; The frequency outside the interval gets identified as a lower frequency - it gets an 'alias'</p>
+				<img src="pics/lecture_01_aliasing.svg" style="width: 90%; padding-top: 3%;">
+				<p></p>
+			</section>		
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Quickies!</h2>
+					<h3>...let's see where we stand...</h3>
+				</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Quickie Nr 1</h2>
+				<h5>Take a few minutes to answer the following questions:</h5>
+				<div>
+				<ul style="font-size: 32px;">
+					<li class="fragment" data-fragment-index="1"> What determines the minimum sampling frequency you have to choose to sample an
+						analogue signal? </li>
+					<p class="fragment" data-fragment-index="2" style="color: #820000;" >The maximum frequency contained in the signal </p>
+					<li class="fragment" data-fragment-index="1">  Why is a digital spectrum periodic?</li>
+					<p class="fragment" data-fragment-index="3" style="color: #820000;" >It is a consequence of multiplication with a delta pulse train in the time domain, leading
+						to a convolution of the spectrum with a delta pulse train in the frequency domain.</p>
+					<li class="fragment" data-fragment-index="1">How do you reconstruct a digital signal into an analogue one?  </li>
+					<p class="fragment" data-fragment-index="4" style="color: #820000;" >Bandpass filtering in the frequency domain (same as convolution of all samples with a sinc
+						function in the time domain)</p>
+					<li class="fragment" data-fragment-index="1"> How many samples does a time signal of duration T = 1 s have when sampled at
+						fs = 44100 Hz? </li>
+					<p class="fragment" data-fragment-index="5" style="color: #820000;" >N = T · fs = 44100</p>
+					<li class="fragment" data-fragment-index="1">What do you do to avoid aliasing when digitizing an analogue signal?  </li>
+					<p class="fragment" data-fragment-index="6" style="color: #820000;" >Low-pass filter the analogue signal (anti-alias filtering)</p>
+				</ul>
+				</div>
+			</section>	
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 2?</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 5%;"> 
+					<ul>
+						<li><b>Repetition (?): Continuous domain:</b></li>
+							<ul style="padding-top: 2%;">
+								<li class="fragment fade-in">(Continuous) Linear time-invariant systems (LTIC)</li>
+								<li class="fragment fade-in">Impulse response</li>
+								<li class="fragment fade-in">Convolution</li>
+							</ul>
+						<li style="padding-top: 4%;"><b>Discrete domain:</b></li>
+							<ul style="padding-top: 2%;">
+								<li class="fragment fade-in">(Discrete) Linear time-invariant systems (LTID)</li>
+								<li class="fragment fade-in">Impulse response</li>
+								<li class="fragment fade-in">Convolution</li>
+								<li class="fragment fade-in">Difference equations</li>
+							</ul>
+					</ul>	
+				</div>
+				<p class="bottomline">Small-group discussions!</p>
+			</section>	
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/ROV_SuBastian_SchmidtOceanInstitute_FKt240708-S0700-20240803T004722Z-0-scicam-bubblegum_Parazoanthidae.jpg">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;"> High Seas and Seamounts of the Nazca Ridge | Bubblegum Parazonthidae | Source: ROV SuBastian; Schmidt Ocean Institute</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

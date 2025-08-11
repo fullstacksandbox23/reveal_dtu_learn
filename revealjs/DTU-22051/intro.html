@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+
+			<!-- 
+			<section data-transition="slide" data-background-iframe="https://www.youtube.com/embed/xRPjKQtRXR8?si=IZEu-XfwydP-ACS3" data-background-interactive>
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+			--> 
+
+
+
+			<section data-transition="slide" data-background-iframe="https://images-assets.nasa.gov/video/The-Earth-4K-Extended-Edition_MP4/The-Earth-4K-Extended-Edition_MP4~orig.mp4" data-background-color="black" data-background-size="cover">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source">https://images.nasa.gov/details/The-Earth-4K-Extended-Edition_MP4</p>
+			</section>
+
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h1>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3 style="color: #ff9500;">Introduction - great to see you!</h3>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<section data-transition="slide">
+			<div style="padding-top: 30%;">	
+				<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Welcome to 22051</h1>
+				<h3>I am looking forward to being your "more experienced colleague"</h3>
+			</div>
+			</section>
+
+			<section data-transition="slide">
+				<div style="padding-top: 20%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;"><s>Who?</s></h1>
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Why?</h1>
+				</div>
+				</section>
+
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Some best practices</h1>
+					<h3>...to make it more fun...</h3>
+				</div>
+			</section>			
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Would it be an idea that...</h1>
+				<h2>There are some things that I would like us all to adhere to:</h2>
+				<p>
+					<ul>
+						<li>...we are all prepared when meeting up</li>
+						<li>...we help and support each other</li>
+						<li>...we use clear names in communication (e.g., ZOOM, CHAT, ...)</li>
+						<li>...we use camera when participating in an online meeting</li>
+						<li>...we all make good use of the resources (TAs, LEARN, sparring, ....)</li>
+						<li>...being together in such a heterogeneous group is challenging - that is OK!</li>
+					</ul>
+				</p>
+				<p style="color: #ff4000;" class="bottomline">You are always welcome to get in touch with me/the TAs if there is a challenge!</p>
+			</section>
+
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Admin</h1>
+					<h3>See also the general information on DTU LEARN</h3>
+				</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Who's the crew</h1>
+				<div class="image-row" style="padding-top:10%;">
+					<img src="pics/lecture_01_ta_mudabbir.jpg" style="width: 20%;">
+					<img src="pics/lecture_01_ta_isak.png" style="width: 20%;">
+					<img src="pics/lecture_01_ta_sixten.jpeg" style="width: 20%;">
+					<img src="pics/lecture_01_bastian.jpg" style="width: 20%;">				
+				</div>
+				<div class="image-row">
+					<h5>Mudabbir</h5>
+					<h5>Isak</h5>
+					<h5>Sixten</h5>
+					<h5>Bastian</h5>				
+				</div>
+				<p class="bottomline">...we are all highly motivated to support you...</p>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>Some administrative things</h1>
+				<img src="pics/lecture_01_stu_timeline.svg" style="width: 70%;">
+				<div>
+					<p>Suggested reading:</p>
+					<p>Holton “Digital Signal Processing” - Digital Signal Processing: Principles and Applications</p>
+				</div>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>The recap/prep spiral</h1>
+				<img src="pics/lecture_01_prep_recap_spiral.svg" style="width: 70%;">
+			</section>			
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>The assessment</h1>
+				<h4>Part 1</h4>
+				<img src="pics/project_flow.png" style="width: 90%;">
+				<div class="bottomline">Show you competence as a team player</div>
+			</section>			
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>The assessment</h1>
+				<h4>Parts 2&3</h4>
+				<div style="padding-top:0%;">
+					<img src="pics/assign_1.png" style="height: 40vh;">
+					<img src="pics/assign_2.png" style="height: 40vh;">
+				</div>
+				<div class="bottomline">Show how deep you can go!</div>
+			</section>
+
+
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Clarifications...?</h1>
+					<h3>...or open questions?</h3>
+				</div>
+			</section>
+
+			<!-- full video slide -->
+			<section data-transition="slide" data-background-iframe="https://images-assets.nasa.gov/video/NHQ_2020_1221_Earth Views/NHQ_2020_1221_Earth Views~orig.mp4" data-background-color="black" data-background-size="cover">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">..let's have a short break and then get rollin'!</h1>
+				</div>
+				<p class="source">https://images-assets.nasa.gov/video/NHQ_2020_1221_Earth Views/NHQ_2020_1221_Earth Views~orig.mp4</p>
+			</section>
+
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		AutoPlayMedia: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

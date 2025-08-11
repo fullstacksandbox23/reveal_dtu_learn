@@ -1,0 +1,434 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>ISH 2025 - Epp et al. - Entrainment in hearing</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+
+			.vl {
+				border: 2px solid #ffffff;
+				border-top: 0px;
+				border-bottom: 0px;
+				border-style: outset;
+				width: 0px;
+				flex:1px;
+				}
+				
+			.column {
+				display: flex;
+			}	
+
+			.tworow {
+
+				flex:49%;
+			}
+
+			.threerow {
+
+				flex:33%;
+			}
+
+
+
+
+		</style>
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" >
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">Information processing from acoustics to spike trains</h1>
+					<h2 style="color: #c4c4c4;">A modeling study of the inner ear</h2>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp, Pauline Schreich, Mikkel Berrig Rasmussen (+Emilie Nyholm-Christensen)</h3>
+				</div>					
+			</section>
+
+
+			<!-- section slide -->
+			<section  data-transition="slide">
+				<div style="margin-top: 40%;" >
+					<p>Speaking time at ISH is precious...but this is more important</p>
+					<h1 style="color: #ff9500;"> A quick word to our friends </h1>
+				</div>
+			</section>
+
+
+			<!-- section slide -->
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 3px #ffffff;"> The what and the why </h1>
+				</div>
+			</section>
+
+<!--
+			<section data-transition="fade">
+				<div style="margin: auto; margin-top: 20%; width: 50%;">
+					<p style="color: #ffffff; font-size: 100pt;"> $\pi \approx 3$ </p>
+				</div>
+			</section>
+
+			
+			<section data-transition="fade">
+				<div style="margin: auto; margin-top: 20%; width: 50%;">
+					<p class="r-fit-text" style="color: #ffffff;">Can mechanisms unique to </p>
+					<p class="r-fit-text" style="color: #ff9500;">non-linear dynamic behaviour</p>
+					<p class="r-fit-text" style="color: #ffffff;"> provide a "common base" for a broad variety of </p>
+					<p class="r-fit-text" style="color: #ff9500;"> hearing-related phenomena?</p>
+				</div>
+			</section>
+-->
+<!--
+
+			<section data-transition="fade">
+				<div style="margin: auto; margin-top: 00%; width: 70%;">
+					<div>
+						<p style="color: #ffffff66; font-size: 100pt;"> $\pi \approx 3$ </p>
+					</div>
+					<div style="margin: auto; margin-top: 0%; width: 80%;">
+					<p class="r-fit-text" style="color: #ffffff;">Can mechanisms unique to </p>
+					<p class="r-fit-text" style="color: #ff9500;">non-linear dynamic behaviour</p>
+					<p class="r-fit-text" style="color: #ffffff;"> provide a "common base" for a broad variety of </p>
+					<p class="r-fit-text" style="color: #ff9500;"> hearing-related phenomena?</p>
+					</div>
+					<div>
+						<p style="color: #ffffff; font-size: 100pt;"> $\pi \approx 3.14$ </p>
+					</div>
+				</div>
+			</section>
+-->
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>(Some) Cornerstones of hearing models</h2>
+				<h3 style="padding: 15px;">The auditory system is...</h3>
+				<div class="column">
+					<div class="threerow">
+						<h6>Active</h6>
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/Ku_2009_Nonlinear-growth-and-compression-of-the-BM-response-Redrawn-after-Pickles-JO-An.png">
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/soae_human_bergevin_salerno_2015.png">
+					</div>
+					<div class="vl"></div>
+					<div class="threerow">
+						<h6>Selective</h6>
+						<img style="width: 75%; box-shadow: 3px 3px 3px #000;" src="pics/Jurado_2007_Notched-noise-method-schematic-illustration.png">
+						<img style="width: 75%; box-shadow: 3px 3px 3px #000;" src="pics/gtfb.png">
+					</div>
+					<div class="vl"></div>
+					<div class="threerow">
+						<h6>Sensitive</h6>
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/Ku_2009_Nonlinear-growth-and-compression-of-the-BM-response-Redrawn-after-Pickles-JO-An.png">
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/zwicker1984_fig8.png">
+					</div>
+				</div>
+				<div class="source">Ku (2009); Bergevin & Salerno (2015); Jurado (2007); Zwicker & Schloth (1984)</div>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>(Some) Cornerstones of non-linear dynamic systems</h2>
+				<h3 style="padding: 15px;">Nonlinear dynamic systems can be...</h3>
+				<div class="column">
+					<div class="threerow">
+						<h6>Active</h6>
+						<img style=" box-shadow: 3px 3px 3px #000;" src="vids/van_der_pol_animation.gif">
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/SpontOscHB_Barral_etal_2018_BiophysJ.jpg">
+					</div>
+					<div class="vl"></div>
+					<div class="threerow">
+						<h6>Selective (and "adaptive")</h6>
+						<img style=" box-shadow: 3px 3px 3px #000;" src="vids/van_der_pol_entrainment.gif">
+						<img style="width: 100%; box-shadow: 3px 3px 3px #000;" src="pics/Levy_etal_2016_SciRep_SyncHB.png">
+					</div>
+					<div class="vl"></div>
+					<div class="threerow">
+						<h6>Sensitive</h6>
+						<img style=" box-shadow: 3px 3px 3px #000;" src="pics/Lenk_etal_2023_Fig1a.png">
+						<img style="width: 70%; box-shadow: 3px 3px 3px #000;" src="pics/zwicker1984_fig8.png">
+					</div>
+				</div>
+				<p class="source">Lenk et al. (2023); Barral (2018); Levy et al. (2016)</p>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4>Entrainment as phenomenon</h4>
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 50%; box-shadow: 3px 3px 3px #000;">
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 50%;box-shadow: 3px 3px 3px #000;"> 
+				</div>
+			</section>	
+
+
+
+
+			<section data-transition="fade">
+				<div style="margin: auto; margin-top: 10%; width: 50%;">
+					<p class="r-fit-text" style="color: #ffffff;">Are effects of entrainment consistent with</p>
+					<p class="r-fit-text" style="color: #ff9500;">self-sustained activity,</p>
+					<p class="r-fit-text" style="color: #ff9500;">selectivity, and</p>
+					<p class="r-fit-text" style="color: #ff9500;">high sensitivity</p>
+					<p class="r-fit-text" style="color: #ffffff;">as observed in the auditory system?</p>
+				</div>
+			</section>
+
+
+
+			<!-- section slide -->
+			<section  data-transition="slide">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500;"> The abstract </h1>
+					<h3 style="color: #ff9500;"> Oscillations, tonotopy, coupling, nonlinearity and an active process </h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4 style="color: #ff9500;">The abstract:</h4>
+				<h4>Methods</h4>
+				<div style="background-color: #ffffff; box-shadow: 3px 3px 3px #000;">
+					<img style="width: 100%;" src="pics/oscillator_scheme.svg">
+				</div>
+			</section>	
+
+			<section data-background-opacity=".5" data-background-image="pics/oscillator_scheme.svg" data-background-size="contain" data-background="rgba(255,255,255)" style="color: #000;">
+				<h4 style="color: #ff9500;">The abstract: Methods (1-3)</h4>
+				<div class="fragment" style="background-color: #ffffff; height: 60%; width: 50%; box-shadow: 0px 0px 8px #000; margin-inline: auto;">
+					<p>Instantaneous periodicity</p>
+					<img src="pics/phase_space_inst_periodicity.svg" style="height: 80%;">
+				</div>
+				<div class="fragment" style="background-color: #ffffff; box-shadow: 0px 0px 8px #000;">
+					<p>Mutual information</p>
+					<p style="font-size: 30px;">$ I(x_n(t),x_m(t)) = H(x_n(t)) + H(x_m(t)) - H(x_n(t),x_m(t))$</p>
+					<p>  <span style="color: #570000;">Spontaneous: $I(x_n,x_{n+1})$ </span> and driven: $I(p, x_{n})$</p>
+				</div>
+			</section>	
+
+
+			<section data-background-video="vids/moh2024_plateaus_distr.mp4"  data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4 style="color: #ff9500;">The abstract: Results (1)</h4>
+				<h6>The effect of coupling - no driving force: Self-sustained activity</h6>
+				<img class="r-stretch" src="pics/moh2024_plateaus_distr.svg">
+				<p style="font-size: 20px;"> (A-C) van der Pol; (D-F) Ginzburg-Landau; No (A,D), dissipative (B,E), reactive (C,F) coupling.</p>
+				<p class="source">Epp et al. (in prep)</p>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4 style="color: #ff9500;">The abstract: Results (2-3)</h4>
+				<h6>The effect of coupling - with driving force: Self-sustained activity, selectivity, information</h6>
+				<p style="font-size: 15pt;">$F_{d_n}(t) = a \sin (2\pi f_d t)$ <span style="color: #8c0000;"> &nbsp&nbsp $I(x_n,x_{n+1})$ </span>&nbsp&nbsp $I(p, x_{n})$ </p>
+				<div class="r-stretch">
+					<img  src="pics/fig2_moh2024_plateaus_driven.svg" style="height: 100%;">	
+					<img  src="pics/fig3_moh2024_MI_driven.svg" style="height: 100%;">
+				</div>
+				<p style="font-size: 20px;"> (A-C) van der Pol; (D-I) Ginzburg-Landau; No (A,D,G) a = 1; (B,E,H) a=3; (C,F,I) a=5;</p>
+				<p class="source">Epp et al. (in prep)</p>
+			</section>
+
+
+
+			<!-- section slide -->
+			<section  data-transition="slide">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500;"> The outside </h1>
+					<h3 style="color: #ff9500;"> Otoacoustic emissions and interaction with external tones </h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background-opacity=".5" data-background-image="pics/oscillator_scheme.svg" data-background-size="contain" data-background="rgba(255,255,255)" style="color: #000;">
+				<h4 style="color: #ff9500;">The outside: Methods (4)</h4>
+				<div class="fragment" style="background-color: #ffffff; width: fit-content; margin-inline: auto;">
+					<img src="pics/Ear-anatomy-with-probe-inserted.jpg">
+				</div>
+				<div class="fragment" style="background-color: #ffffff; width: 70%; margin-inline: auto; box-shadow: 0px 0px 8px #000;">
+					<h6>"SOAE" - no stimulation</h6>
+					<p> $p_{in}(t) = 0 \qquad p_{out}(t) = \mathcal{F}\{ \sum\limits_{n} x_n(t) \}$ </p>
+				</div>
+				<div class="fragment" style="background-color: #ffffff; width: 70%; margin-inline: auto;box-shadow: 0px 0px 8px #000;">
+					<h6>"SOAE suppression" - stimulation with pure tone</h6>
+					<p> $p_{in}(t) = a_{supp} \cdot \sin(2\pi f_{supp}t) \qquad p_{out}(t) = \mathcal{F}\{ \sum\limits_{n} x_n(t) \}$ </p>
+				</div>
+			</section>	
+
+
+			<section data-background-image="pics/moh2024_spectrum.svg" data-background-size="contain" data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4 style="color: #ff9500; text-shadow: 2px 2px 0px #ffffff;">The outside: Results - "SOAE" (- suppression)</h4>
+				<h4 style="text-shadow: 2px 2px 0px #ffffff;"></h4>			
+				<p class="source">Epp et al. (in prep); Rabinowitz (1984)</p>
+				<div style="opacity: 100%; padding-top: 0%; padding-right: 30%; " >
+					<div class="r-stack">
+					<img class="fragment current-visible" src="pics/fig2_moh2024_plateaus_driven.svg" style="width: 70%; box-shadow: 3px 3px 3px 3px #000;" >
+					<img class="fragment current-visible" src="pics/Rabinowitz_Windin_1984_Fig4.png" style="width: 70%; box-shadow: 3px 3px 3px 3px #006e0f;" >
+				</div>
+				</div>
+			</section>
+
+
+			<!-- section slide -->
+			<section  data-transition="slide">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500;"> The inside </h1>
+					<h3 style="color: #ff9500;"> Suppression, audiogram, microstructure and a thought on tonotopy </h3>
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background-opacity=".5" data-background-image="pics/oscillator_scheme.svg" data-background-size="contain" data-background="rgba(255,255,255)" style="color: #000;">
+				<h4 style="color: #ff9500;">The inside: Methods (5-6)</h4>
+				<div class="fragment" style="background-color: #ffffff;box-shadow: 0px 0px 8px #000; width: 60%; margin-inline: auto;">
+					<h6>Two-tone suppression</h6>
+					<img src="pics/suppression_scheme.svg" style="width: 100%;">
+				</div>
+				<div class="fragment" style="background-color: #ffffff;box-shadow: 0px 0px 8px #000; width: 60%; margin-inline: auto;">
+					<h6>The "audiogram"</h6>
+					<img src="pics/audiogram_scheme.svg" style="width: 100%;">
+				</div>
+			</section>	
+
+
+			<section data-background-size="contain" data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h4 style="color: #ff9500; text-shadow: 2px 2px 0px #ffffff;">The inside: Results two-tone suppression</h4>
+				<p class="source">Epp et al. (in prep); Ruggero et al. (1992)</p>
+				<img src="pics/emilie_VD_2ts_fp2p5_a5_0_100.png" style="width: 70%; box-shadow: 3px 3px 3px #000;" >
+				<div style="opacity: 100%; margin-top: -50%; padding-right: 40%; margin-left: -10%; " >
+					<div class="r-stack">
+					<img class="fragment" src="pics/emilie_VD_2ts_low_probe_intensity.png" style="width:80%; opacity: 90%;  box-shadow: 3px 3px 3px #000;">	
+					<img class="fragment" src="pics/emilie_VD_2ts_high_probe_intensity.png" style="  box-shadow: 3px 3px 3px 3px #000; width:80%; opacity: 90%; margin-left: 20%; margin-top: 10%;">
+					<img class="fragment current-visible" src="pics/Ruggero_etal_1992_fig3_2ts.png" style="opacity: 90%; width: 70%; box-shadow: 3px 3px 3px 3px #006e0f; margin-left: 80%;" >
+				</div>
+				</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			<!-- <section data-background-image="pics/emilie_VD_audiogram_dis.png" data-background-size="contain" data-background="rgba(255,255,255,.8)" style="color: #000;"> -->
+				<h4 style="color: #ff9500; text-shadow: 2px 2px 0px #ffffff;">The inside: Results - threshold microstructure</h4>	
+				<p class="source">Epp et al. (in prep); Zwicker & Schloth (1984)</p>
+				<img src="pics/emilie_VD_audiogram_dis.png" style="width: 100%; box-shadow: 3px 3px 3px 3px #000;" >
+				<div style="opacity: 100%; margin-top: -40%; padding-right: 40%; margin-left: -20%; " >
+					<div class="r-stack">
+					<img class="fragment" src="pics/emilie_VD_audiogram_reactive.png" style="width: 70%; box-shadow: 3px 3px 3px 3px #000; opacity: 90%; padding-top: 0%;" >
+					<img class="fragment current-visible" src="pics/zwicker1984_fig8.png" style="width: 80%; box-shadow: 3px 3px 3px 3px #006e0f; margin-left: 70%; opacity: 90%;" >
+				</div>
+				</div>
+			</section>
+
+
+			<!-- section slide -->
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene_nh.jpg" data-background-size="contain">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500;"> What does that mean? </h1>
+					<h6>What if entrainment if cruicial for fun at the cocktail party?</h6>
+				</div>
+			</section>
+
+			<!-- section slide -->
+			<section data-background="#ffffff" data-transition="slide" data-background-video="vids/VD_coupling_100-2000_Ext_1_amp_5.mp4" data-background-size="contain" data-background-video-loop="true">
+				<h4 style="color: rgba(93, 0, 0, 1); text-shadow: 3px 3px 3px #fff; ">Discussion and conclusion</h4>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 10%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+					<h2 style="color: #fff;">What we found</h2>
+					<p>Entrainment and clustering pheonmena affect the "collective response" of the system</p>
+					<p>Interaction with driving force affects the system as a whole</p>
+					<p>Behaviour is similar for high driving force amplitudes across oscillator types</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 38%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+						<h2 style="color: #fff;">(Some) cornerstones of hearing models</h2>
+						<p>Systems of coupled nonlinear oscillators show collective pheonema compatible with hearing</p>
+						<p>Interaction with extrnal stimuli "plausible" with respect to data</p>
+						<p>Same basic behaviour for both investigated oscillator types</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 80%; top: 64%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 28px;">
+					<h2 style="color: #fff;">WIP - the neural domain</h2>
+					<p>Oscillators coupled to hair cell model provide spike trains</p>
+					<p>Established metrics allow comparison to data</p>
+					<p>Access to all oscillators allows development of novel sensitive metrics</p>
+				</div>
+			</section>
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-video="../_library/vids/psychodelic_oil_medium.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">YEAH OH YEAH [royalty free]</p>
+			</section>
+
+
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

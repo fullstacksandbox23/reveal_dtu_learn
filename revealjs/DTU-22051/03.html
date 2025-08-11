@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/NASA_JPL-Caltech_Water.jpg">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">NASA's Europa Clipper spacecraft will carry a special message when it launches in October 2024 and heads toward Jupiter's moon Europa. The moon shows strong evidence of an ocean under its icy crust, with more than twice the amount of water of all of Earth's oceans combined. A triangular metal plate, seen here, will honor that connection to Earth. The plate is made of tantalum metal and is about 7 by 11 inches (18 by 28 centimeters). It is engraved on both sides and seals an opening in the electronics vault, which houses the spacecraft's sensitive electronics. The art on this side of the plate features waveforms that are visual representations of the sound waves formed by the word "water" in 103 languages. The waveforms radiate out from a symbol representing the American Sign Language sign for "water."
+                    | Source: https://www.nasa.gov/image-detail/pia26063orig/</p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 3</h3>
+					<h4>Reframing: From continuous to discrete in time and frequency</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>Repetition LTIC systems</li>
+						<li>Transition to LTID system ’essentially replacing integrals by sums’</li>
+						<li>Difference equations are used to describe system properties</li>
+						<li>Transfer function relates system input to system output</li>
+					</ul>
+				</div>
+			</section>			
+				
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Continuous case</h2>
+                <p class="fragment fade-in-then-semi-out">
+                    The Dirac delta distribution $\delta(t)$ is defined by:
+                    \[ \int_{-\infty}^{\infty} \delta(t)x(t) dt = x(0) , \ \ \text{ or time delayed:} \ \int_{-\infty}^{\infty} \delta(t-t_0)x(t) dt = x(t_0) \]
+                </p>
+                <p class="fragment fade-in-then-semi-out">Integration of any function $x$ with the Dirac deta distribution results in the value of the function at point 0 (or, where the argument of $\delta(\bullet = 0)$)</p>
+                <p class="fragment fade-in-then-semi-out">When exciting the system $S\! \lt  \! \bullet \! \gt$ with a "perfect pulse" (the delta distribution), the system responds with its impulse response: 
+                    \[ S\! \lt \! \delta (t)\! \gt = h(t) \]
+                </p>
+                <div  class="fragment fade-in-then-semi-out">
+                    <p>What could be an example of an impulse response?</p>
+                    <div class="image-row" style="padding-left: 8%; padding-right: 8%;">
+                    <img src="pics/lecture_02_sound_bath.jpg" style="height: 50px;">
+                    <img src="pics/lecture_02_sound_bucket.jpg" style="height: 50px;">
+                    <img src="pics/lecture_02_sound_factoryhall.jpg" style="height: 50px;">
+                    <img src="pics/lecture_02_sound_smallspeaker.jpg" style="height: 50px;">
+                    <img src="pics/lecture_02_sound_vacuumcleanertube.jpg" style="height: 50px;">
+                    </div>
+                    <div class="image-row" style="padding-left: 2%; padding-right: 2%;">   
+                    <audio src="wav/lecture_02_bath.wav" controls> </audio>
+                    <audio src="wav/lecture_02_bucket.wav" controls> </audio>
+                    <audio src="wav/lecture_02_factoryhall.wav" controls> </audio>
+                    <audio src="wav/lecture_02_smallspeaker.wav" controls> </audio>
+                    <audio src="wav/lecture_02_vaccuumcleaner.wav" controls> </audio>
+                    </div>
+                </div>
+			</section>	
+
+
+            <!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Continuous case</h2>
+				<h6>Linear time-invariant system</h6>
+                <div style="padding-top: 5%;">
+                    <img src="pics/lecture_02_ltic.svg" style="width: 80%;">
+                </div> 
+			</section>	
+
+            <!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Continuous case</h2>
+				<h6>The convolution operation "$\ast$"</h6>
+                <div class="fragment fade-in">
+                    <p>The convolution integral of two functions is defined as:
+                        \[ x_1(t) \ast x_2(t) = \int_{-\infty}^{\infty} x_1(\tau)x_2(t-\tau) d\tau \]
+                    </p>
+                </div>
+                <div class="fragment fade-in">
+                    <p>The convolution of the input $x(t)$ with the impulse response $h(t)$ results in the output $y(t)$: 
+                        \[ x(t) \ast h(t) = y(t) \]
+                    </p>
+                    <img src="pics/lecture_02_ltic.svg" style="width: 700px;">
+                </div>
+			</section>
+            
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2><span style="color: darkred;">Discrete</span> case</h2>
+				<h6>The convolution operation "$\ast$"</h6>
+                <div class="fragment fade-in">
+                    <p>The convolution <span style="color: darkred;">sum</span> of two <span style="color: darkred;">sequences</span> is defined as:
+                        \[ x(n) \ast h(n) = \sum_{m=-\infty}^{\infty} x(m)h(n-m) \]
+                    </p>
+                </div>
+                <div class="fragment fade-in">
+					<p class="r-fit-text">The convolution of the input $x(n)$ with the impulse response $h(n)$ results in the output $y(n)$: </p>
+					<p>
+                        \[ x(n) \ast h(n) = y(n) \]
+					</p>
+                    <img src="pics/lecture_02_ltid.svg" style="width: 700px;">
+                </div>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" data-background-image="../_library/pic/xkcd_the_data_so_far.png" 
+					data-background-opacity=".3" data-background-size="contain" style="color: #000;">
+				<h2>Discrete case</h2>
+				<h6>A physical interpretation</h6>
+                <div class="fragment fade-in">
+                    <p>A digitized signal can be interpreted as a sum of differently scaled pulses:
+                        \[ x(n) \rightarrow a_n \cdot \delta(t-nT) \ , \ n \in \mathbb{Z} \]
+                    </p>
+                </div>
+				<div class="r-stack">
+					<div class="fragment current-visible" style="background-color: rgba(255, 255, 255, 0.7);">
+						<img src="pics/lecture_02_simple_conv_0.png" style="width: 500px;">
+					</div>
+					<div class="fragment current-visible"  style="background-color: rgba(255, 255, 255, 0.7);">
+						<div class="image-row">
+							<img src="pics/lecture_02_simple_conv_1.png" style="padding: 0px;">
+							<img src="pics/lecture_02_simple_conv_2.png" style="padding: 0px;">
+							<img src="pics/lecture_02_simple_conv_3.png" style="padding: 0px;">
+						</div>
+					</div>
+					<div class="fragment current-visible" style="background-color: rgba(255, 255, 255, 0.7);">
+						<img src="pics/lecture_02_simple_conv_3.png" style="width: 500px;">
+						<img src="pics/lecture_02_simple_conv_4.png" style="width: 500px;">
+					</div>
+				</div>
+			</section>
+
+			<section data-background="rgba(255,255,255,.8)" data-background-image="../_library/pic/xkcd_the_data_so_far.png" 
+				data-background-opacity=".3" data-background-size="contain" style="color: #000;">
+				<h2>Discrete case</h2>
+				<h6>A physical interpretation </h6>
+				<div>
+					<p>A (somewhat) real example : Glass $x(n)$ and echo $h(n)$
+						\[ y(n) = \sum_{m=0}^{N-1} x(m)h(n-m) \]
+					</p>
+				</div>
+				<div class="image-row"  style="background-color: rgba(255, 255, 255, 0.7); height: 400px;">
+					<img src="pics/lecture_02_demo_audio_convolution_1000ms.png" style="padding: 0px;">
+					<img src="pics/lecture_02_demo_audio_convolution_200ms.png" style="padding: 0px;">
+					<img src="pics/lecture_02_demo_audio_convolution_10ms.png" style="padding: 0px;"> 
+				</div>
+				<div class="image-row"  style="background-color: rgba(255, 255, 255, 0.7);">
+					<audio src="wav/lecture_02_demo_audio_convolution_1000ms.wav" controls></audio> 
+					<audio src="wav/lecture_02_demo_audio_convolution_200ms.wav" controls></audio> 
+					<audio src="wav/lecture_02_demo_audio_convolution_10ms.wav" controls></audio> 
+				</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/lecture_02_bepp_bucket.jpeg" 
+				data-background-opacity="1" data-background-size="contain" style="color: #000;">
+				<h2 style="color: #ff9500; text-shadow: 3px 3px 3px #000;">Discrete case</h2>
+				<h6 style="color: #ff9500; text-shadow: 3px 3px 3px #000;">A physical interpretation </h6>
+				<div style="color: #ff9500; text-shadow: 3px 3px 3px #000;">
+					<p>A (totally) real example : Bastian $x(n)$ in a bucket $h(n)$
+						\[ y(n) = \sum_{m=0}^{N-1} x(m)h(n-m) \]
+					</p>
+				</div>
+			</section>
+
+
+            <!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Difference equations</h2>
+				<h6>the moving average order $N$ difference equation...</h6>
+				<p class="fragment">
+					\[
+					y(n) =  \frac{1}{(N+1)} \bigl( x(n) + x(n-1) + x(n-2) + \dots + x(n-N) \bigr)
+					\]
+				</p>
+				<h6>...is a specific case of the general difference equation:</h6>
+				<p class="fragment">
+					\[
+					\begin{aligned}
+					y(n) = b_0 x(n) &amp; + b_1 x(n-1) + \dots + b_n x(n-N) \\
+					&amp; -a_1 y(n-1) - \dots - a_m y(n-M)
+					\end{aligned}
+					\]
+				</p>
+				<div class="fragment">
+					<h6>Let us dissect:</h6>
+					<ul>
+						<li>The moving average uses only delayed input</li>
+						<li>We see that $a_n = 0 \ \forall \ n > 0$</li>
+						<li style="list-style-type: '&#8658' ;">The $b_n$ represent the coefficients for the delayed input ('feed-forward')</li>
+						<li style="list-style-type: '&#8658' ;">The $a_n$ represent the coefficients for the delayed output ('feed-back')</li>
+					</ul>
+				</div>
+			</section>
+
+           <!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">Quickies!</h2>
+					<h3>...let's see where we stand...</h3>
+				</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Quickie Nr 2</h2>
+				<h5>Take a few minutes to answer the following questions:</h5>
+				<div>
+				<ul style="font-size: 32px;">
+					<li class="fragment" data-fragment-index="1"> Which properties does a system need to fulfill in order to qualify as linear? </li>
+					<p class="fragment" data-fragment-index="2" style="color: #820000;" > 
+						Scaling invariance:  $S\! \lt \! \alpha x(t)\! \gt = \alpha y(t)$  <br>
+						Additivity: $S\! \lt \! x_1(t) + x_2(t)\! \gt = S\! \lt \! x_(1t)\! \gt + S\! \lt \! x_2(t)\! \gt$
+					</p>
+					<li class="fragment" data-fragment-index="1">  Why is the output of a system the convolution of the input with the impulse response?</li>
+					<p class="fragment" data-fragment-index="3" style="color: #820000;" >Because every “sample” can be regarded as an impulse which evokes a (scaled) impulse
+						response which then overlaps with upcoming samples (and their evoked impulse responses)</p>
+					<li class="fragment" data-fragment-index="1">What does a moving average do?  </li>
+					<p class="fragment" data-fragment-index="4" style="color: #820000;" >It takes N samples and adds them up with equal weight 1/N.</p>
+					<li class="fragment" data-fragment-index="1"> How do you get the transfer function of a system once you have the impulse response? </li>
+					<p class="fragment" data-fragment-index="5" style="color: #820000;" >You can Fourier transform to get the frequency transfer function.</p>
+					<li class="fragment" data-fragment-index="1">How do you get the impulse response of a system once you have the transfer function? </li>
+					<p class="fragment" data-fragment-index="6" style="color: #820000;" >You can inverse-transform into the time domain.</p>
+				</ul>
+				</div>
+			</section>	
+
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 3?</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/lecture_03_piano_in_ableton.png"
+				data-background-opacity=".8">
+				<h2 style="color: #ff9500; text-shadow: 1px 1px 1px #000;">What is going to happen today</h2>
+				<div style="padding-top: 5%; text-shadow: 1px 1px 1px #000; color: #ff9500;"> 
+					<ul>
+						<li>Repetition Fourier transform</li>
+						<li>Fourier transform for infinitely long, sampled signals (DTFT)</li>
+						<li>Fourier transform for periodic, sampled signals (DFT)</li>
+						<li>(Frequency) transfer function</li>
+					</ul>	
+				</div>
+				<p class="source" style="color: #ff9500; text-shadow: 1px 1px 1px #000;">The sound file "piano.wav" in ABLETON</p>
+				<p class="bottomline" style="color: #ff9500; text-shadow: 1px 1px 1px #000;">Small-group discussions!</p>
+			</section>	
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/NASA_JPL-Caltech_Maze.jpg">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">This labyrinth – with a silhouette of the fictional detective Sherlock Holmes at its center – is used as a calibration target for the cameras and laser that are part of SHERLOC (Scanning Habitable Environments with Raman & Luminescence for Organics and Chemicals), one of the instruments aboard NASA's Perseverance Mars rover. The image was captured by the Autofocus and Context Imager on SHERLOC on May 11, 2024, the 1,147th day, or sol, of the mission, as the rover team sought to confirm it had successfully addressed an issue with a stuck lens cover.
+                    | Source: https://www.nasa.gov/image-detail/pia26337orig/</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

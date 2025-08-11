@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>DTU-22051: Signals and Systems in Discrete Time</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/NATURE_pado_trees.webp">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #d80000f4;">Pando consists of a vast root system with nearly 50,000 cloned stems, spread over an area of more than 40 hectares. Credit: George Rose/Getty
+					https://www.nature.com/articles/d41586-024-03570-4 </p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 60%; top: 30%; right: 10%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.7); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">22051</h2>
+					<h2 style="color: #c4c4c4;">Signals and Systems in Discrete Time</h2>
+					<h3>Lecture 10</h3>
+					<h4>Reframing: Cheese AND desert</h4>
+					<br>
+					<h3 style="color: #fff;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What happened last week</h2>
+				<div style="padding-top: 10%;">
+					<ul>
+						<li>Systems can be unstable, stable, marginally stable</li>
+						<li>Total response is superposition of zero-input and zero-state response</li>
+						<li>Impulse response reflects modes of the system</li>
+					</ul>
+				</div>
+			</section>			
+				
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Push - and hands-off!</h2>
+                \[ y(n) = a_1 y(n-1) + \dots + a_L y(n-L) = 0 \quad \forall \quad n \]
+                <ul>
+                    <li>No input into system</li>
+                    <li>Only the characteristic modes "survive"</li>
+                    <li>Implication for impulse input</li>
+                    \[ 
+					\delta(n)  = \left\{ \begin{array}{lll}
+					1 & {\rm for} ~ n = 0 \\
+					0 & {\rm else}   \end{array} \right.
+					\]
+
+
+
+
+                   $\Rightarrow$ Impulse response is composed of normal modes of system! 
+                   <li style="padding-top: 5%;">Some terminology</li>
+                    <li style="list-style: none;"> $\gamma_i \ $ Characteristic roots/values (eigenvalues) </li>
+                    <li style="list-style: none;"> $\gamma_i^n \ $ Characteristic/natural nodes of system</li>
+                </ul>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Stable or not...</h2>
+				<h6>Let's push the pole...</h6>
+				<div>
+					<video src="vid/lecture_09_animation_moving_pole_stability.mp4" controls loop>>
+				</div>
+				<p class="bottomline">...poles reflect EIGENMODES and determine stability.... </p>
+			</section>
+
+
+			<!-- SECTION SLIDE -->
+			<section data-transition="slide">
+				<div style="padding-top: 30%;">	
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 4px #ffffff;">What happens in session 10?</h2>
+					<h3>...let's dig deeper...</h3>
+				</div>
+			</section>
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>What is going to happen today</h2>
+				<div style="padding-top: 5%;">
+                <h6>Time-frequency analysis</h6>     
+                    <ul>
+                        <li>A closer look on frequency analysis</li>
+                        <li>Short-time Fourier Analysis (STFT)</li>
+                        <li>Time-frequency representation of signals</li>
+                        <li>Interpretation of STFT as a filter bank</li>
+                    </ul>	
+				</div>
+				<p class="bottomline">See supplementary material</p>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>The spectrum - always helpful?</h2>
+				<h6>From time to frequency</h6>
+				<div>
+					<p>Pure tone</p>
+					<audio src="wav/lecture_10_tone.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_tone.svg" width="80%" style="box-shadow: 3px 3px 3px #000;">
+				</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>The spectrum - always helpful?</h2>
+				<h6>From time to frequency</h6>
+				<div>
+					<p>Sweep upwards</p>
+					<audio src="wav/lecture_10_upward_sweep.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_sweep_up.svg" width="80%" style="box-shadow: 3px 3px 3px #000;">
+				</div>
+			</section>
+			
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>The spectrum - always helpful?</h2>
+				<h6>From time to frequency</h6>
+				<div>
+					<p>Sweep downwards</p>
+					<audio src="wav/lecture_10_downward_sweep.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_sweep_down.svg" width="80%" style="box-shadow: 3px 3px 3px #000;">
+				</div>
+			</section>			
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>The spectrum - always helpful?</h2>
+				<h6>From time to frequency</h6>
+				<div>
+					<p>Speech signal</p>
+					<audio src="wav/lecture_01_railroad.wav" controls></audio> <br>
+					<img src="pics/lecture_10_time_freq_wav.svg" width="80%" style="box-shadow: 3px 3px 3px #000;">
+				</div>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6  style="color: #ff9500;">Time AND frequency</h6>
+					<video src="vid/lecture_10_animation_windowed_signal_spectrum.mp4" controls loop style="box-shadow: 5px 5px 5px #ff9500;"></video>
+			</section>
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6  style="color: #ff9500;">Time AND frequency</h6>
+					<div style="width: 100%;" class="fragment">
+						<p style="color: #ff9500;">Pure tone</p>
+						<audio src="wav/lecture_10_tone.wav" controls></audio> <br>
+						<img src="pics/lecture_10_time_freq_tone_specgram.svg" width="80%" style="box-shadow: 8px 8px 8px #ff9500;">
+					</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6  style="color: #ff9500;">Time AND frequency</h6>
+					<div style="width: 100%;">
+						<p style="color: #ff9500;">Sweep upwards</p>
+						<audio src="wav/lecture_10_upward_sweep.wav" controls></audio> <br>
+						<img src="pics/lecture_10_time_freq_sweep_up_specgram.svg" width="80%" style="box-shadow: 8px 8px 8px #ff9500;">
+					</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6  style="color: #ff9500;">Time AND frequency</h6>
+					<div style="width: 100%;">
+						<p style="color: #ff9500;">Sweep downwards</p>
+						<audio src="wav/lecture_10_downward_sweep.wav" controls></audio> <br>
+						<img src="pics/lecture_10_time_freq_sweep_down_specgram.svg" width="80%" style="box-shadow: 8px 8px 8px #ff9500;">
+					</div>
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-background-image="pics/hands_on_11_cover.jpg">
+				<h2 style="color: #ff9500;">The spectrogram - a bit of both</h2>
+				<h6  style="color: #ff9500;">Time AND frequency</h6>
+					<div style="width: 100%;">
+						<p style="color: #ff9500;">Speech signal</p>
+						<audio src="wav/lecture_01_railroad.wav" controls></audio> <br>
+						<img src="pics/lecture_10_time_freq_wav_specgram.svg" width="80%" style="box-shadow: 8px 8px 8px #ff9500;">
+					</div>
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>Quickie Nr #7</h2>
+				<h5>Take a few minutes to answer the following questions:</h5>
+				<div>
+				<ul style="font-size: 32px;">
+					<li class="fragment" data-fragment-index="1">
+						What are the characteristics of Butterworth/Chebychev/Elliptic filters?
+					</li>
+					<p class="fragment" data-fragment-index="2" style="color: #820000;" > 
+						Butterworth filters are maximally flat in the passband, Chebychev I/II filters have ripples in
+the pass/stopband, Elliptic filters have ripples in both pass- and stopband. At given order,
+Butterworth filters have the shallowest, Chebychev filters the steepest transition band.	
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						What is a prerequisite of FIR filters to be linear phase?
+					</li>
+					<p class="fragment" data-fragment-index="3" style="color: #820000;" >
+						The impulse response needs to be symmetric around the temporal centre of the impulse
+response.
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						Explain how the overlap-add algorithm works. 
+					</li>
+					<p class="fragment" data-fragment-index="4" style="color: #820000;" >
+						The signal is cut into small chunks (frames) and processed frame-by-frame. The resulting
+“tails” from previous frames are added to the subsequent frames.
+					</p>
+					<li class="fragment" data-fragment-index="1">
+						Why is a signal with a purely real-valued spectrum symmetric around t=0 in the time
+domain?
+					</li>
+					<p class="fragment" data-fragment-index="5" style="color: #820000;" >
+						A purely real spectrum corresponds to a signal in the time domain constructed as a sum of
+						cosines - which are symmetric around t=0.
+					</p>
+				</ul>
+				</div>
+			</section>	
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" data-background-image="../_library/pic/bgnd/CAM_Lost_maya_city.png">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+				<p class="source" style="color: #fff;">Detail of Valeriana site core, in the north-east corner of Block 2 (LIDAR image) <br>
+					Auld-Thomas, L., Canuto, M. A., Morlet, A. V., Estrada-Belli, F., Chatelain, D., Matadamas, D., … Fernández Díaz, J. C. (2024). Running out of empty space: environmental lidar and the crowded ancient landscape of Campeche, Mexico. Antiquity, 98(401), 1340–1358. <br> doi:10.15184/aqy.2024.148</p>
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>
+
+
+
+<!-- 
+  !-- standard slide --
+  <section data-background="rgba(255,255,255,.8)" style="color: #000;">
+	<h2></h2>
+	<h6></h6>
+	<p></p>
+	<img src="pics/lecture_03_running_sum_tf.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<img src="pics/lecture_03_running_sum_tf10.png" style="height: 300px; background-color: rgba(255, 255, 255, 0.4);">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>> 
+</section>
+
+-->

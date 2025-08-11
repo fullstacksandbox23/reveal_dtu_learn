@@ -1,0 +1,82 @@
+NASA_Shane_Kimbrough_Aurora.jpg
+A vivid aurora streams over the Earth as the International Space Station orbited 273 miles above the southern Indian Ocean in between Australia and Antarctica.https://www.nasa.gov/image-detail/gmt284_16_02_shane-kimbrough_1068_great-aurora/
+
+NASA_MatthewDominick_Sunrise.jpg
+The International Space Station was orbiting on a northeast track 261 miles above the Pacific Ocean when this photograph captured the first rays of an orbital sunrise illuminating Earth's atmosphere.
+https://www.nasa.gov/image-detail/iss071e487194/
+
+NASA_EarthCrest.jpg
+This view of the Earth's crest over the lunar horizon was taken during the Apollo 15 lunar landing mission. Apollo 15 launched from NASA's Kennedy Space Center on July 26, 1971. Aboard was a crew of three astronauts: David R. Scott, James B. Irwin, and Alfred M. Worden. The primary scientific objectives were to observe the lunar surface, survey and sample material and surface features in a preselected area of the Hadley-Apennine region, setup and activation of surface experiments and conduct in-flight experiments and photographic tasks from lunar orbit.
+https://www.nasa.gov/image-detail/5052744416-353f737db7-o/
+
+NASA_JPL-Caltech_Maze.jpg
+This labyrinth – with a silhouette of the fictional detective Sherlock Holmes at its center – is used as a calibration target for the cameras and laser that are part of SHERLOC (Scanning Habitable Environments with Raman & Luminescence for Organics and Chemicals), one of the instruments aboard NASA's Perseverance Mars rover. The image was captured by the Autofocus and Context Imager on SHERLOC on May 11, 2024, the 1,147th day, or sol, of the mission, as the rover team sought to confirm it had successfully addressed an issue with a stuck lens cover.
+https://www.nasa.gov/image-detail/pia26337orig/
+
+NASA_Woody_Hoburg_Carving.jpg
+What looks like highways going through a metropolitan area are actually a series of glaciers carving their way through the Karakoram mountain range north of the Himalayas. This photograph was taken from the International Space Station as it orbited 263 miles above.
+https://www.nasa.gov/image-detail/iss069e060266-2/
+
+NASA_JPL-Caltech_Water.jpg
+NASA's Europa Clipper spacecraft will carry a special message when it launches in October 2024 and heads toward Jupiter's moon Europa. The moon shows strong evidence of an ocean under its icy crust, with more than twice the amount of water of all of Earth's oceans combined. A triangular metal plate, seen here, will honor that connection to Earth. The plate is made of tantalum metal and is about 7 by 11 inches (18 by 28 centimeters). It is engraved on both sides and seals an opening in the electronics vault, which houses the spacecraft's sensitive electronics. The art on this side of the plate features waveforms that are visual representations of the sound waves formed by the word "water" in 103 languages. The waveforms radiate out from a symbol representing the American Sign Language sign for "water."
+https://www.nasa.gov/image-detail/pia26063orig/
+
+DESCHANDOL_walking_dead.png
+Curculionoidea parasitized by Ophiocordyceps curculionum (Iquitos, Peru)
+https://www.flickr.com/photos/frank-deschandol/14567896732/in/album-72157711738413247
+
+DESCHANDOL_microgekko.png
+Microgecko (Tropiocolotes) latifi (?)
+https://www.flickr.com/photos/frank-deschandol/42116895964/in/album-72157645500443585
+
+cochlea_surface_SickKids.jpg
+High magnification image of outer hair cells at the apex of the (chinchilla) cochlea. 
+https://lab.research.sickkids.ca/harrison/electron-microscopy/
+
+
+cochlea_turn_SickKids.jpg
+Part of the mid-turn of the chinchilla cochlea revealing the orderly rows of inner and outer hair cells.
+https://lab.research.sickkids.ca/harrison/electron-microscopy/
+
+
+SCIENCE_Shapson-Coe_etal_2024_cortex.jpg
+A range of histological features in 1 mm3 of human brain were rendered, including neuropil (A) and its segmentation (B) at nanometer resolution, annotated synapses (C), excitatory neurons (D), inhibitory neurons (E), astrocytes (F), oligodendrocytes (G), myelin (H), and blood vessels (I). A previously unrecognized neuronal class (J) and multisynaptic connections (K) were also identified.
+https://www.science.org/doi/full/10.1126/science.adk4858
+
+SCIENCE_Shapson-Coe_etal_2024_separated.jpg
+White lines indicate layer boundaries based on cell clustering. (A) All 49,080 cell bodies of neurons and glia in the sample colored by soma volume. (B) Blood vessels and the nuclei of the 8136 associated cells; 3D renderings of all blood vessels can be viewed in Neuroglancer (https://h01-dot-neuroglancer-demo.appspot.com/#!gs://h01-release/assets/neuroglancer_states/20240424/fig4b.json). Inset shows a magnified view of the location of the individual cell types. (C) Spiny neurons (n = 10531; putatively excitatory) colored by soma volume. (D) Interneurons (n = 4688; few spines, putatively inhibitory) colored by soma volume. (E) Astrocytes (n = 5474). (F) Most of the oligodendrocytes (n = 20,139) in the volume. (G) Cell bodies (n = 6702) of microglia and OPCs. (H) Myelinated axons in the volume color coded by topological orientation. Most axons in white matter run in the perpendicular direction. Images and scale bar are without correction for ultrathin sectioning compression.
+https://www.science.org/doi/full/10.1126/science.adk4858
+
+UWO_sugar.jpg
+Crystals of white sugar, imaged with 50x in the FIB-SEM. Kindly provided by Todd Simpson, UWO Nanofabrication Facility nanofab.uwo.ca/
+https://www.flickr.com/photos/zeissmicro/12791798123/in/photostream/
+
+UWO_salt.jpg
+Crystals of fine salt, imaged with 150x in the FIB-SEM. Kindly provided by Todd Simpson, UWO Nanofabrication Facility nanofab.uwo.ca/
+https://www.flickr.com/photos/zeissmicro/12791798223/in/photostream/
+
+NSO_umbral_fragments.jpg
+Umbral Fragments Suggest the “End Phase” of a Sunspot
+https://nso.edu/gallery/gallery-images-from-the-inouye/
+
+NATURE_2022_clown-fish.jpg
+An embryonic clownfish (Amphiprion percula) grows inside its egg. These remarkably detailed pictures were captured on days one, three, five and nine of its development; the first was taken hours after fertilization. Credit: Daniel Knop/Nikon Small World
+https://www.nature.com/immersive/d41586-020-03436-5/index.html
+
+NATURE_pado_trees.webp
+Pando consists of a vast root system with nearly 50,000 cloned stems, spread over an area of more than 40 hectares. Credit: George Rose/Getty
+https://www.nature.com/articles/d41586-024-03570-4
+
+CAM_Lost_maya_city.png
+Detail of Valeriana site core, in the north-east corner of Block 2 (LIDAR image)
+Auld-Thomas, L., Canuto, M. A., Morlet, A. V., Estrada-Belli, F., Chatelain, D., Matadamas, D., … Fernández Díaz, J. C. (2024). Running out of empty space: environmental lidar and the crowded ancient landscape of Campeche, Mexico. Antiquity, 98(401), 1340–1358. doi:10.15184/aqy.2024.148
+
+
+DESCHANDOL_owl_with_prey.png
+Athene noctua in flight with a prey (Lissotriton vulgaris)
+https://www.flickr.com/photos/frank-deschandol/46792606655/in/album-72157708119666275
+
+DESCHANDOL_bat.png
+Myotis nattereri above the water (France)
+https://www.flickr.com/photos/frank-deschandol/46792606495/in/album-72157708119666275
+
