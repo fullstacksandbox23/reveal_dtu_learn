@@ -40,6 +40,7 @@ resource "azurerm_container_app" "RevealSlides" {
       cpu    = 0.25    # 0.5
       memory = "0.5Gi" # "1Gi"
     }
+    min_replicas = terraform.workspace == "dev" || terraform.workspace == "stage" ? 0 : 1
   }
 
   ingress {
