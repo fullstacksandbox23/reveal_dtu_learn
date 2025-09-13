@@ -51,5 +51,5 @@ conv_result = conv_result / np.max(np.abs(conv_result)) * 32767
 conv_result = conv_result.astype(np.int16)
 
 # Save the result
-resname = path2wav + "conv_" + hname + "_" + fname + "wav"
+resname = path2wav + "conv_" + hname + "_" + fname + ".wav"
 wavfile.write(resname, rate_sig, conv_result)
