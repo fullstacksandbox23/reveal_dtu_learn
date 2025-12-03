@@ -29,7 +29,7 @@ resource "azurerm_container_app" "RevealSlides" {
 
   # Never change the image of the container, as this is done in github actions!
   lifecycle {
-    ignore_changes = [template[0].container[0], secret, revision_mode] #  ingress
+    ignore_changes = [template[0].container[0]] #  secret, revision_mode, ingress
   }
 
   template {
@@ -73,7 +73,7 @@ resource "azurerm_container_app" "SvelteRevealJS" {
 
   # Never change the image of the container, as this is done in github actions!
   lifecycle {
-    ignore_changes = [template[0].container[0], secret, revision_mode] #  ingress
+    ignore_changes = [template[0].container[0]] #  secret, revision_mode, ingress
   }
 
   template {
