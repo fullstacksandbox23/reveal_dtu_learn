@@ -18,6 +18,15 @@
 
 
 		<style>
+
+			.fragment.blur {
+				filter: blur(5px);
+			}
+			.fragment.blur.visible {
+				filter: blur(0px);
+			}
+
+
 			figure {
 			  border: 0px #cccccc solid;
 			  padding: 4px;
@@ -32,11 +41,14 @@
 			  padding: 2px;
 			  text-align: center;
 			}
+			
 			</style>
+
 
 
 	</head>
 	<body>
+
 		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
 			<div class="slides">
 <!-- ---------------------START HERE------------------------- -->
@@ -78,7 +90,7 @@
 						<audio controls style="margin-left: 10%;"class="fragment" data-fragment-index="2" src="snd/music_hi.wav"> Audo </audio>
 						<audio controls style="margin-left: 0%;"class="fragment" data-fragment-index="2" src="snd/babble_hi.wav"> Audo </audio>
 					</figure>
-				<p class="fragment">Our auditory system is excellent in processing and separation of acoustic information</p>	
+				<p>Our auditory system is excellent in processing and separation of acoustic information</p>	
 				<div class="source">Source: Epp (2023), Akustik Journal; HI simulator: Kock & Epp (2021) </div>
 			</section>
 
@@ -99,9 +111,11 @@
 				<h4>Here: Tonotopic organization. Is it helpful for encoding of information?</h4>
 				<p>The cochlea (and beyond) is a dynamic information processing system</p>
 				<div class="r-stack">
-					<img class="fragment" style="width: 60%;" src="pics/Cochlea-Frequency-Map-scaled.webp">
-					<div class="fragment" style="background-color: #ff8000d5;">
-						<h4 style="color: #fff;">The question in focus:</h4>
+					<img style="width: 60%;" src="pics/Cochlea-Frequency-Map-scaled.webp">
+					<div class="fragment" style="background-color: #ff8000d5; box-shadow: 3px 3px 3px #000;">
+						<h4 style="color: #fff;">Previous work:</h4>
+						<p style="color: #fff; padding-bottom: 5%;">Entrainment enabled by coupling of oscillating elements is beneficial to encode a stimulus (Epp & Berrig-Rasmussen, CHAOS (in press))</p>
+						<h4 style="color: #fff;">The questions in focus:</h4>
 						<p style="color: #fff;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
 					</div>
 				</div>
@@ -176,7 +190,7 @@
 				<h3 style="color: #a00000; padding-top: 2%;">Transformation/encoding</h3>
 				<p style="color: #818181; font-size: 20pt;"> Filtering effect, high "spatial" resolution / number of channels </p>
 				<p style="color: #818181; font-size: 20pt;"> Oscillators, different tuning, nonlinear and coupled </p>
-				<p style="color: #000000;"> System of HOPF oscillators with tunable nonlinearity </p>
+				<p style="color: #000000;"> System of HOPF oscillators with tunable nonlinearity and periodicity </p>
 				<h3 style="color: #a00000; padding-top: 2%;">Evaluation/decoding</h3>
 				<p style="color: #818181; font-size: 20pt;"> Evaluate amount of "information" with as few as possible restrictions on metric </p>
 				<p style="color: #818181; font-size: 20pt;"> Reservoir computer </p>
@@ -188,14 +202,18 @@
 
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,1)" style="color: #000;" data-background-video="vid/VD_sweep_trajectories.mp4" data-background-size="contain" data-background-video-loop="true">
-				<h2 style="text-shadow: 3px 3px 1px #000;">A very basic inner ear</h2>
-				<h4 style="text-shadow: 3px 3px 1px #000;   padding-bottom:10%;">Not necessarily a beast alive</h4>
-					<div class="fragment" style="background-color: #ff8000d5;" >
-						<h4 style="color: #fff;">The approach:</h4>
-						<p style="color: #fff;">Let a system of coupled oscillators do the information processing</p>
+				<div class="r-stack">
+					<div style="padding-top: 18%;">
+						<h2 style="text-shadow: 3px 3px 1px #ffffff; padding-top: 30%;">The type of system used</h2>
+						<h4 style="text-shadow: 3px 3px 1px #ffffff;   padding-bottom:10%;">A very basic inner ear - Not necessarily a beast alive</h4>
 					</div>
-				<p class="bottomline"  style="background-color: #ffffffe0;">Information processing depends on "global" (coupled) dynamics rather than local dynamics</p>
-				<div class="source">Epp & Berrig-Rasmussen (CHAOS, in press)</div>
+						<div class="fragment" style="background-color: #ff8000d5; box-shadow: 3px 3px 3px #000;" >
+							<h4 style="color: #fff;">The approach:</h4>
+							<p style="color: #fff; ">Let a system of coupled oscillators do the information processing</p>
+						</div>
+					<p class="bottomline"  style="background-color: #ffffffe0;">Information processing depends on "global" (coupled) dynamics rather than local dynamics</p>
+				</div>
+				<div class="source">Epp & Berrig-Rasmussen (DAGA2025; CHAOS, in press)</div>
 			</section>
 
 
@@ -203,32 +221,117 @@
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>An "inner ear" as a reservoir </h2>
 				<h4>A basic classification task - keyword spotting</h4>
-
-				<p>P</p>
-				<p class="bottomline">Some memory, but not too much</p>
-				<p class="source">SOURCE</p>
+				<div style="background-color: #ffffffa6;">
+					<img style="width: 100%;" src="pics/reservoir_scheme.svg"></img>
+				</div>
+				<p class="bottomline">Assumption: Classification performance $\propto$ information contents </p>
+				<p class="source">see corresponding DAGA proceedings</p>
 			</section>
 
-
-
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-audto-animate>
-				<h2>An "inner ear" as a reservoir - uncoupled</h2>
-				<img src="pics/reservoir_anim_UN.svg">
+<!-- ANiMATIONS -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="840">
+					<!-- Circle -->
+					<circle id="circ" cx="200" cy="192" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim1">
+					</animate>
+					</svg>
+					</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
 			</section>
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-audto-animate>
-				<h2>An "inner ear" as a reservoir - nearest-neighbour </h2>
-				<img src="pics/reservoir_anim_NN.svg">
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="850">
+					<!-- Circle -->
+					<circle id="circ2" cx="815" cy="192" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ2" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim2">
+					</animate>
+					</svg>
+					</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
 			</section>
-
-
-			<section data-auto-animate>
-			<h1>Auto-Animate</h1>
-			<img src="pics/reservoir_anim_UN.svg">
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="840">
+					<!-- Circle -->
+					<circle id="circ3" cx="200" cy="645" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 1" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ3" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim3">
+					</animate>
+				</svg>
+				</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
 			</section>
-			
-			<section data-auto-animate>
-			<h1 style="margin-top: 100px; color: red;">Auto-Animate</h1>
-			<img src="pics/reservoir_anim_NN.svg" style="width: 50%;">
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="850">
+					<!-- Circle -->
+					<circle id="circ4" cx="815" cy="645" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ4" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim4">
+					</animate>
+				</svg>
+				</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
 			</section>
 
 
@@ -244,83 +347,80 @@
 			
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2>H2</h2>
-				<h4>H4</h4>
-
-				<p>P</p>
-				<p class="bottomline">Bottomline</p>
-				<p class="source">SOURCE</p>
+				<h2>Coupling conditions and degrees of nonlinearity</h2>
+				<h4>Find effects of coupling and nonlinear dynamic phenomena</h4>
+				<div class="r-stack">
+					<img src="pics/TMP_matrix_VD.png">
+					<img src="pics/TMP_VD_accuracy_curve.png" class="fragment">
+				</div>
 			</section>
 
 
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2>H2</h2>
-				<h4>H4</h4>
-
-				<p>P</p>
-				<p class="bottomline">Bottomline</p>
-				<p class="source">SOURCE</p>
+				<h2>The difference - driven systems</h2>
+				<h4>Consistent with entrainment effects</h4>
+				<div>
+					<img style="width: 60%;" src="pics/TMP_PLV_VD.png">
+				</div>
+				<p class="bottomline">High phase-locking across nodes</p>
 			</section>
 
 
 			<!-- standard slide -->
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2>H2</h2>
-				<h4>H4</h4>
-
-				<p>P</p>
-				<p class="bottomline">Bottomline</p>
-				<p class="source">SOURCE</p>
+				<h2>Maybe just some artifact?</h2>
+				<h4>Same for another type of oscillator</h4>
+				<div class="r-stack">
+					<img src="pics/TMP_HOPF_curve.png">
+					<img src="pics/TMP_HOPF_confusion.png" class="fragment">
+				</div>
+				<p class="bottomline">Crticial is "critical" and coupling helps!</p>
 			</section>
 
 
 <!--DISCUSSION/SUMMARY-->
 
 			<!-- section slide -->
-		<section data-transition="slide">
+			<section data-transition="slide">
 				<div style="margin-top: 40%;" >
-					<h1 style="color: #ff9500">DISCUSSION AND SUMMARY</h1>
+					<h1 style="color: #ff9500">SUMMARY AND DISCUSSION</h1>
 				</div>	
 			</section>
 
 
 			<!-- standard slide -->
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h1>H1</h1>
-				<h2>H2</h2>
-				<h3>H3</h3>
-				<h4>H4</h4>
-				<h5>H5</h5>
-				<p>P</p>
+			<section data-background="rgba(255,255,255,.2)" style="color: #ffffff;" data-background-image="pics/reservoir_scheme.svg" data-background-size="contain">
+				<div>
+				<div class="fragment" style="box-shadow: 0px 5px 30px #ffffff; background-color: #a00000; margin-bottom: 3%; " >
+					<h4 style="text-shadow: 1px 1px 1px #000; color: #ffffff;">
+						The auditory system in abstract form
+					</h4>
+					<p>Systems of coupled nonlinear oscillators show plausibe phenomena and key properties</p>
+					<p>Coupling enables global phenomena </p>
+					<p>Collective response of system affects information encoding </p>
+				</div>
+				<div class="fragment" style=" box-shadow: 0px 5px 15px #ffffff; background-color: #a00000; margin-bottom: 3%;">
+					<h4 style="text-shadow: 1px 1px 1px #000; color: #fff;">
+						Tonotopy is better then no tonotopy
+					</h4>
+					<p>Degree of nonlinearity affects performance </p>
+					<p>Tonotopic structure leads to better performance than uncoupled and random </p>
+					<p>Analysis of node dynamics allows to identify mechanisms underlying information encoding</p>
+				</div>
+				<div class="fragment"  style=" box-shadow: 0px 5px 5px #ffffff; background-color: #a00000;">
+					<h4  style="text-shadow: 1px 1px 1px #000; color: #fff;">
+						Can we push this further?
+					</h4>
+					<p>Reservoir with plausible frequency interval</p>
+					<p>Cochlea model as reservoir </p>
+					<p>Multiplex model to link to neural dynamics </p>
+				</div>
 			</section>			
-
-			<!--- slide with library image -->
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h1>TITLE</h1>
-				<img src="../_library/pic/generic.jpeg" style="width: 50%;">
-			</section>
-
-			<!--- slide with specific image -->
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h1>TITLE</h1>
-				<img src="pics/specific.svg" style="width: 50%;">
-			</section>
-
-			<!-- section slide -->
-			<section data-transition="slide">
-				<h1 style="color: #ff9500">SECTION</h1>
-			</section>
-
-
-			<!-- full video slide -->
-			<section data-transition="slide" data-background-video="../_library/vids/rain.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
-				<h1 style="color: #c4c4c4;">A slide with full screen video</h1>
-			</section>
 
 
 			<!-- BACKCOVER -->
-			<section data-transition="slide" >
+			<section data-transition="slide" data-background-video="../_library/vids/dronning_louises_bro.mp4">
 				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
 
 			</section>
