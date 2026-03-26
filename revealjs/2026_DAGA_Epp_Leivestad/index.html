@@ -62,7 +62,7 @@
 			<section data-transition="slide">
 				<div style="position: absolute; width: 60%; top: 30%; right: 10%; padding: 20px; font-size: 20px; text-align: right;">
 					<h1 style="color: #ffffff; text-shadow: 0px 0px 25px #ff9500;">The inner ear as a reservoir computer</h1>
-					<h2 style="color: #c4c4c4;">The role of tonotopy on classification performance</h2>
+					<h2 style="color: #c4c4c4;">The role of tonotopy in classification performance</h2>
 					<br>
 					<h3 style="color: #fff;"><u>Bastian Epp</u>, Nicolai Ege-Leivestad</h3>
 				</div>					
@@ -221,9 +221,22 @@
 			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
 				<h2>An "inner ear" as a reservoir </h2>
 				<h4>A basic classification task - keyword spotting</h4>
-				<div style="background-color: #ffffffa6;">
-					<img style="width: 100%;" src="pics/reservoir_scheme.svg"></img>
-				</div>
+					<div style="background-color: #ffffffa6;" class="r-stack">
+						<img style="width: 100%;" src="pics/reservoir_scheme.svg"></img>
+							<svg width="100%" height="600">
+							<!-- Circle -->
+							<circle id=mcirc cx="31.7%" cy="55%" r="18%" stroke="#ff8000d5" stroke-width="5" pathLength="360" stroke-dasharray="5" fill="#ffffff30"/>
+							<animate
+								xlink:href="#mcirc" 
+								attributeName="pathLength"
+								begin="0s"
+								dur="100s"
+								from="0"
+								to="360"
+								repeatCount="indefinite">
+							</animate>	
+							</svg>
+					</div>
 				<p class="bottomline">Assumption: Classification performance $\propto$ information contents </p>
 				<p class="source">see corresponding DAGA proceedings</p>
 			</section>
@@ -326,14 +339,13 @@
 						repeatcount="indefinite" 
 						id="rect-anim4">
 					</animate>
-				</svg>
+					</svg>
 				</div>
 					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
 						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
 					</div>
 				</div>
 			</section>
-
 
 
 <!--RESULTS-->
@@ -402,7 +414,7 @@
 				</div>
 				<div class="fragment" style=" box-shadow: 0px 5px 15px #ffffff; background-color: #a00000; margin-bottom: 3%;">
 					<h4 style="text-shadow: 1px 1px 1px #000; color: #fff;">
-						Tonotopy is better then no tonotopy
+						Tonotopy is better than no tonotopy
 					</h4>
 					<p>Degree of nonlinearity affects performance </p>
 					<p>Tonotopic structure leads to better performance than uncoupled and random </p>
