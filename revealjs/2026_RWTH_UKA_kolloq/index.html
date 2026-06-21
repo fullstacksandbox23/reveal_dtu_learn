@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>Entrainment in hearing - Assoc. Prof. Dr. rer. nat. Bastian Epp</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+						
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-iframe="pics/spiralling_2.html" data-background-size="cover">
+			<p class="bottomline" style="color: #0067a6; text-shadow:  0px 0px 0px#ffffff;">"Ever tried. Ever failed. No matter. Try again. Fail again. Fail better." Samuel Backett (1983) </p>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide">
+				<div style="position: absolute; width: 70%; top: 30%; right: 10%; box-shadow: 8px 8px 20px 10px #779fc9; background-color: rgb(255, 255, 255); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #0067a6;">Understanding hearing as a dynamic system</h1>
+					<h2 style="color: #779ec9;"> linking cochlear mechanics, neural encoding and perception</h2>
+					<h2 style="color: #779ec9;"> towards predictive diagnostics</h2>
+					<br>
+					<h3 style="color: #182c42;">Assoc. Prof. Dr. rer. nat. Bastian Epp</h3>
+				</div>					
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2><span style="color: #5f5f5f;"> Understanding </span> hearing <span style="color: #5f5f5f;"> as a dynamic system </span></h2>
+					<figure>
+						<img class="fragment" data-fragment-index="1" src="pics/complex_scene_nh.jpg" width="40%" style="margin-right: 5%;"><img> 
+						<img class="fragment" data-fragment-index="2" src="pics/complex_scene.jpg" width="40%" style="margin-left: 5%;"><img>
+						<audio controls style="margin-right: 0%;" class="fragment" data-fragment-index="1" src="snd/music.wav"> Audo </audio>
+						<audio controls style="margin-right: 10%;" class="fragment" data-fragment-index="1" src="snd/babble.wav"> Audo </audio>
+						<audio controls style="margin-left: 10%;"class="fragment" data-fragment-index="2" src="snd/music_hi.wav"> Audo </audio>
+						<audio controls style="margin-left: 0%;"class="fragment" data-fragment-index="2" src="snd/babble_hi.wav"> Audo </audio>
+					</figure>
+
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We can not fully restore impaired hearing. What are we missing?</p>
+				</div>	
+					
+				<div class="source">Source: Epp (2023), Akustik Journal; HI simulator: Kock & Epp (2021) </div>
+			</section>
+
+
+
+
+
+			<section data-background-size="scale" data-background-image="../_library/pic/SUND_healthtechnology.jpg" data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"> <span style="color: #5f5f5f;"> Understanding hearing as a </span> dynamic system </h2>
+				<section data-background="rgba(255,255,255,.8)" style="color: #000;">	
+					<p>Den klassiske måde at modellere hørelsen på</p>
+					<div>
+						<img src="pics/pendulum_damped_1.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_1p25.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_1p5.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_1p75.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_2.svg" style="box-shadow: none;">
+					</div>
+					<p>En lidt mere fysiologisk motiveret måde at gøre det på</p>
+					<div>
+						<img src="pics/pendulum_damped_reverse_1.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_reverse_1p25.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_reverse_1p5.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_reverse_1p75.svg" style="box-shadow: none;">
+						<img src="pics/pendulum_damped_reverse_2.svg" style="box-shadow: none;">
+					</div>
+					<div class="fragment">
+						<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, .2); box-shadow: 0px 0px 10px #000000;"> Spontan, periodisk aktivitet er "naturligt" og plausibelt i et fysiologisk system. </p>
+					</div>	
+				</section>
+
+			</section>		
+
+
+
+
+
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
+				<div style="margin: auto; margin-top: 10%; width: 50%; -webkit-filter: drop-shadow(1px 5px 2px #222);">
+					<p class="r-fit-text" style="color: #ff9500;">Kan vi bruge "entrainment" til at forklare</p>
+					<p class="r-fit-text" style="color: #ff9500;">spontant aktivitet,</p>
+					<p class="r-fit-text" style="color: #ff9500;">selektivitet, og</p>
+					<p class="r-fit-text" style="color: #ff9500;">høj sensitivitet</p>
+					<p class="r-fit-text" style="color: #ff9500;">som er karakteristisk for hørelsen?</p>
+				</div>
+			</section>
+
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="../_library/pic/HEA_audiometry.jpg" style="color: #ffffff;">
+				<h2 style="color: #ffffff;">Noget kendt: Audiogram</h2>
+				<h4 style="color: #ffffff;">"Hvad er den mindste intensitet lytteren kan høre?"</h4>
+				<div class="r-stack">
+					<img class="fragment" src="../_library/pic/audiogram_prototype.svg" style="width: 60%; box-shadow: 3px 3px 3px #000; background-color: hsla(0, 0%, 100%, 0.729);">
+					<img class="fragment current-visible" src="pics/LUMENLEARNING_COM_Frequency_Coding_in_The_Cochlea.jpg" style="width: 70%; box-shadow: 3px 3px 3px #000; background-color: rgba(255, 255, 255, 0.7); opacity: 90%;">
+					<img class="fragment" src="pics/zwicker1984_fig8.png" style="width: 70%; opacity: 80%; background-color: rgba(255, 255, 255, 0.8);">
+				</div>
+				<p class="source" style="color: #ffffff;">lumenlearning.com; Zwicker & Schloth (1984)</p>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Sensitivitet er meget "lokalt"</p>
+				</div>	
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/Kondziella_etal_2018_FrontNeurol_DPOAE_example.jpg" data-background-opacity=".5" style="color: #8d0000;">
+				<h2 style="color: #176300; text-shadow: 2px 2px 5px #ffffff;">Noget også kendt: Otoakustiske emissioner</h2>
+				<h4 style="color: #176300; text-shadow: 2px 2px 5px #ffffff;">"Der kommer lyd ud af øret!"</h4>
+				<div class="fragment">
+					<img src="pics/OTOTOX_COM_scheme_DPOAE.png" style="margin-top: 10%; width: 70%; background-color: rgba(255, 255, 255, 0.7);">
+				</div>
+				<p class="source">Kondziella et al. (2018);</p>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Når vi afspiller toner, opstår der oscillationer i det indre øre.</p>
+				</div>
+			</section>	
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/sound_out.png" data-background-opacity=".5" style="color: #000;">
+				<h2 style="color: #770000;">Noget lidt mindre kendt: Spontane otoakustiske emissioner</h2>
+				<h4 style="color: #770000;">"Der kommer lyd ud af øret - også uden stimuli!"</h4>
+				<div class="r-stack" style="padding-top: 100px;">
+					<div class="fragment current-visible">
+						<img src="pics/Ear-anatomy-with-probe-inserted_transparent.png" style="scale: 2; background-color: rgba(255, 255, 255, 0.7); transform: rotateY(-180deg);" >
+					</div>	
+					<div class="fragment current-visible">
+						<div class="r-stack">		
+							<img src="pics/soae_bergevin_salerno_2015.png" style="box-shadow: 3px 3px 3px#000; width: 100%;">
+							<img src="../_library/pic/BIORENDER_torso_gender_neutral_icon.png" style="box-shadow: none; width: 15%; opacity: 70%; margin-right: 50%; margin-bottom: 20%;">
+							<img src="../_library/pic/BIORENDER_Lizard_individual.png" style="box-shadow: none; width: 10%; opacity: 70%; margin-right: 3%; margin-bottom: 20%;">
+						</div>	
+						<audio src="snd/soae_demo.wav" controls></audio>
+					</div>
+					<div class="fragment">
+						<div class="r-stack">
+							<img src="pics/soae_bergevin_salerno_2015.png" style="box-shadow: 3px 3px 3px#000; width: 100%;">
+							<img src="../_library/pic/BIORENDER_torso_gender_neutral_icon.png" style="box-shadow: none; width: 15%; opacity: 70%; margin-right: 50%; margin-bottom: 20%;">
+							<img src="../_library/pic/BIORENDER_Lizard_individual.png" style="box-shadow: none; width: 10%; opacity: 70%; margin-right: 3%; margin-bottom: 20%;">
+							<img src="pics/zwicker1984_fig8.png" style="width: 70%; opacity: 80%; background-color: rgba(255, 255, 255, 0.8);">
+						</div>							
+					</div>
+				</div>
+				<p class="source" style="color: rgb(255, 154, 154);">Bergevin & Salerno (2015); Uppenkamp (personal communication); Levy et al. (2016); Zwicker & Schloth (1984)</p>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Der svinger noget i det indre øre - helt af sig selv!</p>
+				</div>
+			</section>	
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/sound_out.png" data-background-opacity=".5" style="color: #000;">
+				<h2 style="color: #770000;">Noget set før (og ikke)</h2>
+				<div>
+					<h4 style="color: #770000;">Noget som svinger: En "normal" oscillator</h4>
+						<img src="pics/pendulum_damped.svg" style="box-shadow: none;">
+				</div>
+				<div>
+					<h4 style="color: #770000; margin-top: 30px;">Noget som svinger af sig selv: En "selvkørende" oscillator</h4>
+						<img src="pics/pendulum_damped_reverse.svg" style="box-shadow: none;">
+				</div>
+			<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Lige nu tænker vi i "normale" oscillatorer - misser vi noget ved ikke at se på "selvkørende" oscillatorer?</p>
+				</div>	
+			</section>	
+
+
+
+			<!-- section slide LITERATUR -->
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
+				<div style="margin-top: 40%;" >
+					<h1 style="color: #ff9500; text-shadow: 3px 3px 3px #ffffff;"> Hvad siger litteraturen? </h1>
+				</div>
+			</section>
+
+    		<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/pancreas.jpg" data-background-opacity=".5" style="color: #ffffff;">
+				<h2 style="color: rgb(255, 255, 255);">Bugspytkirtlen - blodsukkeregulering</h2>
+					<h4 style="color: rgb(255, 255, 255);">Synchronisering i "pancreatic islets"</h4>
+					<div class="r-stack">
+					<div class="fragment current-visible">
+						<img style="width: 70%; background-color: rgba(255, 255, 255, 0.9); box-shadow: 3px 3px 3px #000;" src="pics/pancreatic_islet_scheme.png">
+					</div>
+					<div class="fragment">
+						<p>Synchronized (wildtype) and non-synchronized (knock-out) cell activity</p>
+							<img class="img" src="pics/Benninger_Piston_2014_fig1_nolegend.png" style="width:60%; max-height:60%; box-shadow: 3px 3px 3px black;">					
+						<p class="source"  style="color: rgb(255, 255, 255);">Benninger & Piston (2014, Trend Endocrin Metabol)</p>
+					</div>	
+					</div>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Synkroniserung/entrainment sker kun for "selvkørende" oscillatorer - og det sker i bugspytkirtlen!</p>
+				</div>
+			</section>			
+
+
+   			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/eeg_resting_state_Kaur_etal_2022_BehaviouralNeurology.png" data-background-opacity=".5" style="color: #000;">
+				<h2 style="color: rgb(0, 98, 68);">Hjernen - processering</h2>
+				<h4 style="color: rgb(0, 98, 68);">Manipulation af hjerneoscillationer med tACS</h4>
+				<div class="r-stack">
+					<div class="fragment current-visible">
+						<img style="width: 100%; box-shadow: 0px 0px 0px;" src="pics/eeg_tacs_scheme_restningstate.png">
+					</div>
+					<div class="fragment" style="margin-top: 0px;">
+						<img style="width: 20%; box-shadow: 0px 0px 0px;" src="pics/eeg_tacs_scheme_restningstate.png">
+						<img src="pics/Helfrich_etal_2014_fig4.png" style="box-shadow: 3px 3px 3px#000; width: 100%; margin-top: -50px;">
+					</div>
+				</div>
+				<p class="source">Bright Brain Centre (online); Helfrich et al. (2014); BioRender</p>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Hjernens "selvkørende" oscillatorer kan påvirkes (synkroniseres) udefra - og har indflydelse på lydopfattelse!</p>
+				</div>
+			</section>			
+
+   			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/hairbundle.jpg" data-background-opacity=".5" style="color: #000;">
+				<h2 style="color: rgb(212, 0, 0);">Hårceller i [bullfrogs]</h2>
+				<h4 style="color: rgb(212, 0, 0);">Entrainment i et enkelt "bundle"</h4>
+				<div class="r-stack">
+					<div class="fragment current-visible">
+						<img src="pics/BIORENDER_hair_bundle_oscillation.png" style="width: 50%;">
+					</div>	
+					<div class="fragment current-visible">
+						<img src="pics/basilarpapilla_2001_CellMolecBiol.png" style="box-shadow: 3px 3px 3px#000; width: 100%;">
+					</div>
+					<div class="fragment">
+						<img src="pics/Levy_etal_2016_SciRep_SyncHB.png" style="box-shadow: 3px 3px 3px#000; width: 100%;">
+					</div>
+				</div>
+				<p class="source" style="color: rgb(255, 154, 154);">Serrano et al. (2001); Levy et al. (2016)</p>
+				<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">Hårceller (i firben) opfører sig som "selvkørende" oscillatorer!</p>
+				</div>	
+			</section>			
+
+   			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" data-background-image="pics/sound_out.png" data-background-opacity=".5" style="color: #000;">
+				<h2 style="color: rgb(212, 0, 0);">Oto-akustiske emisioner</h2>
+				<h4 style="color: rgb(212, 0, 0);">Spontant, i mange dyr og i mennesker (SOAE)</h4>
+				<div class="r-stack" style="padding-top: 100px;">
+					<div class="fragment current-visible">
+						<img src="pics/Ear-anatomy-with-probe-inserted_transparent.png" style="scale: 2; background-color: rgba(255, 255, 255, 0.7);  transform: rotateY(-180deg);">
+					</div>	
+
+					<div class="fragment current-visible">
+						<div class="r-stack">		
+							<img src="pics/soae_bergevin_salerno_2015.png" style="box-shadow: 3px 3px 3px#000; width: 100%;">
+							<img src="../_library/pic/BIORENDER_torso_gender_neutral_icon.png" style="box-shadow: none; width: 15%; opacity: 70%; margin-right: 50%; margin-bottom: 20%;">
+							<img src="../_library/pic/BIORENDER_Lizard_individual.png" style="box-shadow: none; width: 10%; opacity: 70%; margin-right: 3%; margin-bottom: 20%;">
+						</div>	
+						<audio src="snd/soae_demo.wav" controls></audio>
+					</div>
+
+					<div class="fragment">
+							<img src="pics/soae_single_human_bergevin_salerno_2015.png" style="box-shadow: 3px 3px 3px#000; width: 45%;">
+						<img src="pics/long_tubis_oaesync.png" style="box-shadow: 3px 3px 3px#000; width: 40%;"><br>
+						<audio src="snd/oscillator_output_no_driving_force.wav" controls></audio>
+						<audio src="snd/oscillator_output_entrained_to_sweep.wav" controls></audio>
+					</div>
+				</div>
+				<p class="source" style="color: rgb(255, 154, 154);">Bergevin & Salerno (2015); Uppenkamp (personal communication); Levy et al. (2016)</p>
+			<div class="fragment">
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">SOAE tyder på "selvkørende" oscillatorer - som kan påvirkes af eksterne toner!</p>
+			</div>	
+			</section>			
+
+
+
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
+				<div style="margin: auto; margin-top: 10%; width: 50%; -webkit-filter: drop-shadow(1px 5px 2px #222);">
+					<p class="r-fit-text" style="color: #ff9500;">Kan vi bruge "entrainment" til at forklare</p>
+					<p class="r-fit-text" style="color: #ff9500;">spontant aktivitet,</p>
+					<p class="r-fit-text" style="color: #ff9500;">selektivitet, og</p>
+					<p class="r-fit-text" style="color: #ff9500;">høj sensitivitet</p>
+					<p class="r-fit-text" style="color: #ff9500;">som er karakteristisk for hørelsen?</p>
+				</div>
+			</section>
+
+
+
+
+
+
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>H1</h1>
+				<h2>H2</h2>
+				<h3>H3</h3>
+				<h4>H4</h4>
+				<h5>H5</h5>
+				<p>P</p>
+			</section>			
+
+			<!--- slide with library image -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>TITLE</h1>
+				<img src="../_library/pic/generic.jpeg" style="width: 50%;">
+			</section>
+
+			<!--- slide with specific image -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h1>TITLE</h1>
+				<img src="pics/specific.svg" style="width: 50%;">
+			</section>
+
+			<!-- full video slide -->
+			<section data-transition="slide">
+				<h1 style="color: #ff9500">SECTION</h1>
+			</section>
+
+
+			<!-- full video slide -->
+			<section data-transition="slide" data-background-video="../_library/vids/rain.mp4" type="video/mp4" data-background-video-muted="true" data-background-video-loop="true">
+				<h1 style="color: #c4c4c4;">A slide with full screen video</h1>
+			</section>
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" >
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>
