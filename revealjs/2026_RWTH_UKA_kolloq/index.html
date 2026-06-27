@@ -32,7 +32,19 @@
 			  padding: 2px;
 			  text-align: center;
 			}
-			</style>
+
+			.image-gallery {
+			display: flex;
+			justify-content: space-between; /* Spacing between images */
+			align-items: center;            /* Aligns images vertically */
+			gap: 20px;                      /* Optional: forces a minimum space */
+			}
+
+			.image-gallery img {
+			width: 20%;                     /* Adjust size to fit your needs */
+			height: auto;
+			}
+		</style>
 
 
 	</head>
@@ -47,84 +59,300 @@
 			</section>
 
 			<!-- TITLE SLIDE -->
-			<section data-transition="slide">
+			<section data-transition="slide" data-background-image="../_library/pic/SUND_healthtechnology.jpg">
 				<div style="position: absolute; width: 70%; top: 30%; right: 10%; box-shadow: 8px 8px 20px 10px #779fc9; background-color: rgb(255, 255, 255); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
-					<h1 style="color: #0067a6;">Understanding hearing as a dynamic system</h1>
-					<h2 style="color: #779ec9;"> linking cochlear mechanics, neural encoding and perception</h2>
-					<h2 style="color: #779ec9;"> towards predictive diagnostics</h2>
-					<br>
-					<h3 style="color: #182c42;">Assoc. Prof. Dr. rer. nat. Bastian Epp</h3>
+					<h1 style="color: #0067a6; text-shadow: 1px 1px 1px #000;">Understanding hearing as a dynamic system</h1>
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;"> linking cochlear mechanics, neural encoding and perception</h2>
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;"> towards predictive diagnostics</h2>
 				</div>					
+				<div style="position: absolute; width: 70%; top: 80%; right: 0%; color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h3 style="color: #182c42; text-shadow: 1px 1px 1px #0067a6;">Assoc. Prof. Dr. rer. nat. Bastian Epp</h3>
+				</div>
 			</section>
 
 
-			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2><span style="color: #5f5f5f;"> Understanding </span> hearing <span style="color: #5f5f5f;"> as a dynamic system </span></h2>
+			<section  data-background="rgba(255,255,255,1)" data-background-image="pics/GAO_ETAL_2024_EPILEPSIAONLINE_The-auditory-pathway-transmits-audio-signals-from-the-ear-to-the-brain-Once-reaching-the.png" style="color: #000" data-background-size="contain" data-background-opacity=".6">
+				<h2> Understanding <span  style="text-shadow: 2px 2px 50px #07d600;"> hearing</span>  as a dynamic system </h2>
 					<figure>
-						<img class="fragment" data-fragment-index="1" src="pics/complex_scene_nh.jpg" width="40%" style="margin-right: 5%;"><img> 
-						<img class="fragment" data-fragment-index="2" src="pics/complex_scene.jpg" width="40%" style="margin-left: 5%;"><img>
-						<audio controls style="margin-right: 0%;" class="fragment" data-fragment-index="1" src="snd/music.wav"> Audo </audio>
-						<audio controls style="margin-right: 10%;" class="fragment" data-fragment-index="1" src="snd/babble.wav"> Audo </audio>
-						<audio controls style="margin-left: 10%;"class="fragment" data-fragment-index="2" src="snd/music_hi.wav"> Audo </audio>
-						<audio controls style="margin-left: 0%;"class="fragment" data-fragment-index="2" src="snd/babble_hi.wav"> Audo </audio>
+						<img class="fragment" data-fragment-index="1" src="pics/complex_scene_nh.jpg" width="40%" style="margin-right: 5%; box-shadow: 5px 5px 50px #000;"><img> 
+						<img class="fragment" data-fragment-index="2" src="pics/complex_scene.jpg" width="40%" style="margin-left: 5%; box-shadow: 5px 5px 50px #000;"><img>
+						<audio controls style="margin-right: 0%;" class="fragment" data-fragment-index="1" src="snd/music.wav"> Audio </audio>
+						<audio controls style="margin-right: 10%;" class="fragment" data-fragment-index="1" src="snd/babble.wav"> Audio </audio>
+						<audio controls style="margin-left: 10%;"class="fragment" data-fragment-index="2" src="snd/music_hi.wav"> Audio </audio>
+						<audio controls style="margin-left: 0%;"class="fragment" data-fragment-index="2" src="snd/babble_hi.wav"> Audio </audio>
 					</figure>
+
+				<div class="fragment" style=" position: absolute; width: 50%; top: 20%; right: 50%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>"I can hear - but I don't understand..."</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 35%; right: 50%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>"My hearing aid is bad - What? Don't yell at me!"</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 50%; right: 50%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>"Half-gain is enough..."</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 65%; right: 50%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(93, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>"You are (audiologically) all healthy"</p>
+				</div>
+
+<!---				
+				<div class="fragment" style=" position: absolute; width: 50%; top: 10%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(0, 6, 93, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>Compression observed psychoacoustically does not reflect 'local' compression (Encina et al., YYYY)</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 30%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(0, 6, 93, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>Envelope encoding cna spread two octaves upwards along tonotopic axis (Encina et al. YYYY)</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 70%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(0, 6, 93, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>Objective markers of hearing do (somehow) reflect supra-threshold hearing (Kim et al. YYYY)</p>
+				</div>
+				<div class="fragment" style=" position: absolute; width: 50%; top: 50%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(255, 255, 255, 0.7); background-color: rgba(0, 6, 93, 0.9); color: #fff; padding: 20px; font-size: 35px;">
+					<p>Electrical stimulation of the auditory nerve is pulse-shape dependent (Yoshi et al. YYYY)</p>
+				</div>
+-->								
+
 
 				<div class="fragment">
 					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We can not fully restore impaired hearing. What are we missing?</p>
 				</div>	
-					
-				<div class="source">Source: Epp (2023), Akustik Journal; HI simulator: Kock & Epp (2021) </div>
+
+
+
+				<div class="source">Source: Gao et al. (2024); Epp (2023); HI simulator: Kock & Epp (2021) </div>
 			</section>
 
 
 
+			<section data-background="rgba(255,255,255,1)" data-background-image="pics/GAO_ETAL_2024_EPILEPSIAONLINE_The-auditory-pathway-transmits-audio-signals-from-the-ear-to-the-brain-Once-reaching-the.png" style="color: #000" data-background-size="contain" data-background-opacity=".6">
+				<h2> Understanding <span  style="text-shadow: 2px 2px 50px #07d600;"> hearing</span>  as a dynamic system </h2>
+				<h4 style=" text-shadow: 2px 2px 0px #ffffff; background-color: #ffffffe1;">Cornerstones of hearing - something is missing!</h4>
+				<div class="fragment fade-in-then-out" style=" position: absolute; width: 95%; top: 70%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.9); background-color: #182c42; color: #fff; padding: 20px; font-size: 35px;">
+					<p><span style="font-weight: bolder; text-shadow: 3px 3px 20px #07d600;">Compression</span> in the cochlea affects the neural representation of amplitude modulation. <br> 
+					<span style="font-size: 25px;">Behavioural (PSI) and neural (EEG) data show compression - but auditory nerve activity (model) show that compression is not local.</span> <br> (Encina et al., YYYY)</p>
+				</div>
+				<div class="fragment fade-in-then-out" style=" position: absolute; width: auto; top: 68%; right: 0%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.9); background-color: #182c42; color: #fff; padding: 20px; font-size: 35px;">
+					<p><span style="font-weight: bolder; text-shadow: 3px 3px 20px #07d600;">Envelope</span> encoding is important for speech - and can be quantified in the neural response to sound. <br> 
+					<span style="font-size: 25px;">The neural location of envelope encoding (EEG) is spatially displaced by up to 2 octaves along the tonotopic axis (model).</span> <br> (Encina et al., YYYY)</p>
+				</div>
+				<div class="fragment fade-in-then-out" style=" position: absolute; width: auto; top: 70%; right: 16%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.9); background-color: #182c42; color: #fff; padding: 20px; font-size: 35px;">
+					<p><span style="font-weight: bolder; text-shadow: 3px 3px 20px #07d600;">Release from masking</span> is reflected in objective neural markers of audibility. <br> 
+					<span style="font-size: 25px;">Transition of correlation between audibility (threshold) and physical intensity (supra-threshold).</span><br>
+					(Kim et al. YYYY)</p>
+				</div>
+				<div class="fragment fade-in-then-out" style=" position: absolute; width: auto; top: 71%; right: 10%; box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.9); background-color: #182c42; color: #fff; padding: 20px; font-size: 35px;">
+					<p><span style="font-weight: bolder; text-shadow: 3px 3px 20px #07d600;">Electrical stimulation</span> of the auditory nerve is a series of hyper- and de-polarizing pulses <br>
+						<span style="font-size: 25px;">The response (model) is generalizable, but is a complex function of polarity, order, rate, and shape </span> <br> (Yoshi et al. YYYY)</p>
+				</div>
+				<div class="fragment" style="background-color: #182c42d8; box-shadow: 2px 2px 50px #000; ">
+				<div style="margin: auto; margin-top: 0%; width: 50%; -webkit-filter: drop-shadow(5px 5px 5px #000000);">
+					<p class="r-fit-text" style="color: #fff;"> Can we overcome our limitations in</p>
+					<p class="r-fit-text" style="color: #fff;"> the understanding of hearing by</p>
+					<p class="r-fit-text" style="color: #07d600;"> generalizing </p>
+					<p class="r-fit-text" style="color: #fff;"> our models by the inclusion of </p>
+					<p class="r-fit-text" style="color: #07d600;"> biophysical principles?</p>
+				</div>
+				</div>
+			</section>
 
 
-			<section data-background-size="scale" data-background-image="../_library/pic/SUND_healthtechnology.jpg" data-background="rgba(255,255,255,.8)" style="color: #000;">
-				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"> <span style="color: #5f5f5f;"> Understanding hearing as a </span> dynamic system </h2>
-				<section data-background="rgba(255,255,255,.8)" style="color: #000;">	
-					<p>Den klassiske måde at modellere hørelsen på</p>
-					<div>
-						<img src="pics/pendulum_damped_1.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_1p25.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_1p5.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_1p75.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_2.svg" style="box-shadow: none;">
+
+			<section data-background-image="pics/GAO_ETAL_2024_EPILEPSIAONLINE_The-auditory-pathway-transmits-audio-signals-from-the-ear-to-the-brain-Once-reaching-the.png" data-background="rgba(255,255,255,1)" style="color: #000;" data-background-size="contain" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;">  Understanding hearing as a <span  style="text-shadow: 2px 2px 50px #07d600;"> dynamic system </span>  </h2>
+				<h4 style=" text-shadow: 2px 2px 0px #ffffff;"> Can we learn from nature? </h4>	
+					<div class="fragment" box-shadow: 5px 5px 50px #000;">
+						<p style="background-color: #ffffffe1; box-shadow: 5px 5px 10px #000;">The classic way to model hearing</p>
+						<div>
+							<img src="pics/pendulum_damped_1.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_1p25.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_1p5.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_1p75.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_2.svg" style="box-shadow: none;">
+						</div>
+						<p style="background-color: #ffffffe1; box-shadow: 5px 5px 10px #000;">A (physiologically) more plausible way to model hearing</p>
+						<div>
+							<img src="pics/pendulum_damped_reverse_1.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p25.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p5.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p75.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_2.svg" style="box-shadow: none;">
+						</div>
 					</div>
-					<p>En lidt mere fysiologisk motiveret måde at gøre det på</p>
-					<div>
-						<img src="pics/pendulum_damped_reverse_1.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_reverse_1p25.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_reverse_1p5.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_reverse_1p75.svg" style="box-shadow: none;">
-						<img src="pics/pendulum_damped_reverse_2.svg" style="box-shadow: none;">
-					</div>
+							
 					<div class="fragment">
-						<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, .2); box-shadow: 0px 0px 10px #000000;"> Spontan, periodisk aktivitet er "naturligt" og plausibelt i et fysiologisk system. </p>
+						<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, .2); box-shadow: 0px 0px 10px #000000;"> Spontaneous, periodic activity is natural and plausible for a physiological system. </p>
 					</div>	
-				</section>
-
+					
 			</section>		
 
 
+			<section data-background-image="../_library/pic/SUND_healthtechnology.jpg" data-background="rgba(255,255,255,1)" style="color: #000;" data-background-size="contain" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;">  Understanding hearing as a <span  style="text-shadow: 2px 2px 50px #07d600;"> dynamic system </span>  </h2>
+				<h4 style=" text-shadow: 2px 2px 0px #ffffff; background-color: #ffffffe1;"> Can we learn from nature? </h4>
+					<div class="fragment" style="margin-top: -5%;">
+						<div style="scale: .6;">
+							<img src="pics/pendulum_damped_reverse_1.svg" style="box-shadow: none; scale: 1;">
+							<img src="pics/pendulum_damped_reverse_1p25.svg" style="box-shadow: none; scale: 1;">
+							<img src="pics/pendulum_damped_reverse_1p5.svg" style="box-shadow: none; scale: 1;">
+							<img src="pics/pendulum_damped_reverse_1p75.svg" style="box-shadow: none; scale: 1;">
+							<img src="pics/pendulum_damped_reverse_2.svg" style="box-shadow: none; scale: 1;">
+						</div>
+					</div>
+						<div class="fragment fade-in-then-semi-out">
+						<p style="background-color: #ffffffe1;">Circardian rhythm (sleep), pancreatic islets (insuline), heart beat, etc.</p>	 
+					</div>
+					<div class="fragment">
+						<p style="background-color: #ffffffe1;">Auditory system: Hair cells, spontaneous OAE, brain oscillations, ...</p>	
+						<div class="image-gallery">
+						<img src="pics/hairbundle.jpg" style="box-shadow: 5px 5px 50px #000;">
+						<img src="pics/sound_out.png" style="box-shadow: 5px 5px 50px #000;">
+						<img src="pics/eeg_resting_state_Kaur_etal_2022_BehaviouralNeurology.png" style="box-shadow: 5px 5px 50px #000;">
+						</div> 
+					</div>
+					<p class="source">Canlon YYYY; Benninger & Piston (2014); Bergevin & Salerno (2015); Helfrich et al. (2014)</p>
+			</section>	
 
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide" data-background-image="../_library/pic/SUND_healthtechnology.jpg">
+				<div style="position: absolute; width: 70%; top: 30%; right: 10%; box-shadow: 8px 8px 20px 10px #779fc9; background-color: rgb(255, 255, 255); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;">Understanding hearing as a dynamic system</h2>
+					<h1 style="color: #0067a6; text-shadow: 1px 1px 1px #000;"> linking cochlear mechanics, neural encoding and perception</h1>
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;"> towards predictive diagnostics</h2>
+				</div>					
+			</section>
+			
+			
+			<section   data-background="#ffffff" data-background-image="../_library/pic/SUND_healthtechnology.jpg" data-background-size="contain" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"><span  style="text-shadow: 2px 2px 50px #07d600;">Linking</span> cochlear mechanics, neural encoding and perception</h2>
+				<h4>One example: Entrainment of a driven (self-sustained) oscillator</h4>
+				<div class="fragment">
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 40%; box-shadow: 3px 3px 20px #000;"><br>
+					<audio controls src="snd/vdp_entrained.wav"></audio><br>
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 40%;box-shadow: 3px 3px 20px #000;"> 
+				</div>
+				</div>
+			</section>
+
+
+			<section   data-background="#ffffff" data-background-image="pics/hairbundle.jpg" data-background-size="scale" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"><span  style="text-shadow: 2px 2px 50px #07d600;">Linking cochlear mechanics, neural encoding </span> and perception</h2>
+				<h4>Hearing: Entrainment of a hair cell bundle</h4>
+				<div class="fragment">
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 40%; box-shadow: 3px 3px 20px #000;"><br>
+					<audio controls src="snd/vdp_entrained.wav"></audio><br>
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 40%;box-shadow: 3px 3px 20px #000;"> 
+				</div>
+				</div>
+			</section>
+
+			<section data-background="#ffffff" data-background-image="pics/sound_out.png" data-background-size="contain" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"><span  style="text-shadow: 2px 2px 50px #07d600;">Linking cochlear mechanics</span>, neural encoding and <span  style="text-shadow: 2px 2px 50px #07d600;">perception</span></h2>
+				<h4>Hearing: entrainment of a spontaneous oto-acoustic emission</h4>
+				<div class="fragment">
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 40%; box-shadow: 3px 3px 20px #000;"><br>
+					<audio controls src="snd/vdp_entrained.wav"></audio><br>
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 40%;box-shadow: 3px 3px 20px #000;"> 
+				</div>
+				</div>
+			</section>
+
+			<section  data-background="#ffffff" data-background-image="pics/eeg_resting_state_Kaur_etal_2022_BehaviouralNeurology.png" data-background-size="scale" data-background-opacity=".6">
+				<h2 style=" text-shadow: 2px 2px 0px #ffffff;"><span  style="text-shadow: 2px 2px 50px #07d600;">Linking</span> cochlear mechanics, <span  style="text-shadow: 2px 2px 50px #07d600;">neural encoding and perception</span></h2>
+				<h4>Hearing: Entrainment of brain oscillations</h4>
+				<div class="fragment">
+				<div class="r-stretch">
+					<img src="vids/van_der_pol_entrainment.gif" style="width: 40%; box-shadow: 3px 3px 20px #000;"><br>
+					<audio controls src="snd/vdp_entrained.wav"></audio><br>
+					<img src="pics/van_der_pol_entrainment_spectrogram.png" style="width: 40%;box-shadow: 3px 3px 20px #000;"> 
+				</div>
+				</div>
+			</section>
+
+
+
+			<section data-transition="slide" data-background-image="../_library/pic/SUND_healthtechnology.jpg">
+				<div style="position: absolute; width: 70%; top: 30%; right: 10%; box-shadow: 8px 8px 20px 10px #779fc9; background-color: rgb(255, 255, 255); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;">Understanding hearing as a dynamic system</h2>
+					<h2 style="color: #779ec9; text-shadow: 1px 1px 1px #000;"> linking cochlear mechanics, neural encoding and perception</h2>
+					<h1 style="color: #0067a6; text-shadow: 1px 1px 1px #000;"> towards predictive diagnostics</h1>
+				</div>					
+			</section>
+		
+
+			<section data-background-size="scale" data-background-image="../_library/pic/HEA_audiometry.jpg" data-background="rgba(255,255,255,.8)" style="color: #ff9100;">
+				<h2 style="color: #779ec9; text-shadow: 2px 2px 1px #000;">Towards predictive diagnostics</h2>
+				<h4 style="color: #779ec9; text-shadow: 2px 2px 1px #000;">A definition of "normal hearing" based on dynamic (not static) appraoch</h4>
+				<div style="background-color: rgba(0, 0, 0, 0.7); width: 60%;">
+					<p style="margin-top: 25%; margin-left: 0%;"> </p>
+				</div>
+			</section>			
+
+			<section data-background-size="scale" data-background-image="../_library/pic/HEA_hearingtest.jpg" data-background="rgba(255,255,255,.8)" style="color: #ff9100">
+				<h2 style="color: #779ec9; text-shadow: 2px 2px 1px #000;">Towards predictive diagnostics</h2>
+				<h4 style="color: #779ec9; text-shadow: 2px 2px 1px #000;">Interaction between periphery and brain</h4>
+				<div style="background-color: rgba(0, 0, 0, 0.7); ">
+					<p style="margin-bottom: 10%; margin-top: 3%;">En mere differentieret diagnose af hvor ting går galt</p>
+				</div>
+				<div>
+					<div class="r-stack">
+						<img src="pics/GAO_ETAL_2024_EPILEPSIAONLINE_The-auditory-pathway-transmits-audio-signals-from-the-ear-to-the-brain-Once-reaching-the.png" style="width: 90%; box-shadow: 3px 3px 3px #000; ">
+						<div class="fragment">
+							<img src="pics/pendulum_damped_reverse_1.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p25.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p5.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_1p75.svg" style="box-shadow: none;">
+							<img src="pics/pendulum_damped_reverse_2.svg" style="box-shadow: none;">
+						</div>
+					</div>	
+					<p class="source">audiologyonline.com; Gao et al. (2024)</p>
+				</div>	
+<!--- 
+				<div style="width: 100%; background-color: rgba(255, 255, 255, 0.7);">
+					<div class="r-stack">
+						<img src="pics/Ear-anatomy-with-probe-inserted_transparent.png" style="width: 30%; box-shadow: 3px 3px 3px #000; margin-left: 2%;" >
+						<img src="../_library/pic/audiogram_prototype.svg" style="height: 70%; box-shadow: 3px 3px 3px #000; margin-left: 34%;" >
+						<img src="pics/aep_AUDIOLOGY_ONLINE.jpg" style="width: 35%; box-shadow: 3px 3px 3px #000; margin-right: 2%;">
+						<img src="pics/eeg_tacs_scheme.png" style="width: 40%; opacity: .9; box-shadow: none;" class="fragment">
+					</div>	
+					<p class="source">audiologyonline.com</p>
+				</div>
+-->
+			</section>	
+
+			<section data-background-size="scale" data-background-image="../_library/pic/SUND_healthtechnology.jpg" data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2 style="text-shadow: 2px 2px 1px #fff;">Towards predictive diagnostics</h2>
+				<h4 style=" text-shadow: 2px 2px 0px #ffffff;">Restorative therapy</h4>
+				<p style="margin-top: 42%; background-color: rgba(255, 255, 255, 0.9);">Mimicking of nature - and restoration (not compensation) of an impaired mechanism</p>
+			</section>	
 
 
 			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene.jpg" data-background-size="contain">
-				<div style="margin: auto; margin-top: 10%; width: 50%; -webkit-filter: drop-shadow(1px 5px 2px #222);">
-					<p class="r-fit-text" style="color: #ff9500;">Kan vi bruge "entrainment" til at forklare</p>
-					<p class="r-fit-text" style="color: #ff9500;">spontant aktivitet,</p>
-					<p class="r-fit-text" style="color: #ff9500;">selektivitet, og</p>
-					<p class="r-fit-text" style="color: #ff9500;">høj sensitivitet</p>
-					<p class="r-fit-text" style="color: #ff9500;">som er karakteristisk for hørelsen?</p>
+				<div style="margin: auto; margin-top: 10%; width: 50%; -webkit-filter: drop-shadow(5px 5px 3px #000000);">
+					<p class="r-fit-text" style="color: #fff;"> Can we overcome our limitations in</p>
+					<p class="r-fit-text" style="color: #fff;"> the understanding of hearing by</p>
+					<p class="r-fit-text" style="color: #07d600;"> generalizing </p>
+					<p class="r-fit-text" style="color: #fff;"> our models by the inclusion of </p>
+					<p class="r-fit-text" style="color: #07d600;"> biophysical principles?</p>
+				</div>
+			</section>
+
+			<section  data-transition="slide" data-background="#ffffff" data-background-image="pics/complex_scene_nh.jpg" data-background-size="contain">
+				<div style="margin: auto; margin-top: 10%; width: 50%; -webkit-filter: drop-shadow(5px 5px 3px #000000);">
+					<p class="r-fit-text" style="color: #fff;"> Maybe we need to include</p>
+					<p class="r-fit-text" style="color: #07d600;"> biophysical principles</p>
+					<p class="r-fit-text" style="color: #fff;"> to have fun at a </p>
+					<p class="r-fit-text" style="color: #07d600;"> cocktail party. </p>
 				</div>
 			</section>
 
 
 
 
+
 			<!-- standard slide -->
-			<section data-background="rgba(255,255,255,.8)" data-background-image="../_library/pic/HEA_audiometry.jpg" style="color: #ffffff;">
+			<section data-background="rgba(255,255,255,.8)" data-background-image="	rary/pic/HEA_audiometry.jpg" style="color: #ffffff;">
 				<h2 style="color: #ffffff;">Noget kendt: Audiogram</h2>
 				<h4 style="color: #ffffff;">"Hvad er den mindste intensitet lytteren kan høre?"</h4>
 				<div class="r-stack">
