@@ -5,8 +5,8 @@ from matplotlib.colors import LinearSegmentedColormap
 # --- Parameters ---
 N = 100
 r = 1.0
-PHI = 45
-v = 10
+PHI = 30
+v = 50
 
 # --- Generate random angles ---
 angles_deg = np.random.normal(PHI, v, N)
