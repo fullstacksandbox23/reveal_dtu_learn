@@ -76,6 +76,30 @@
 			border-radius: 2px;
 			box-shadow: 0px 0px 20px #ffffff99;
 			}
+
+			.vl {
+			border: 2px solid #ffffff;
+			border-top: 0px;
+			border-bottom: 0px;
+			border-style: outset;
+			width: 0px;
+			flex:1px;
+			}
+
+			.column {
+				display: flex;
+			}	
+
+			.tworow {
+
+				flex:49%;
+			}
+
+			.threerow {
+
+				flex:33%;
+			}
+
 		</style>
 
 
@@ -184,7 +208,7 @@
 						-->
 					</div>
 				<div class="fragment">
-					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We assess the sensitivity of the system for pure tones by behaviour.</p>
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We assess the sensitivity of the system for pure tones through behaviour.</p>
 				</div>	
 				<p class="source"></p>
 			</section>
@@ -204,7 +228,7 @@
 						<img src="pics/Mohammadi_etal_2015_JLaryngolOtol_fig1.gif" style="scale:60%; position:absolute; top: 10%; right: 0%;  box-shadow: 3px 3px 20px;">
 					</div>
 				<div class="fragment">
-					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We assess neural encoding "along" the auditory pathway by a click.</p>
+					<p class="bottomline" style="color: #000000; box-sizing: content-box; background-color: rgba(255, 255, 255, 8); box-shadow: 0px 0px 10px #000000;">We assess neural encoding "along" the auditory pathway through a click.</p>
 				</div>
 				<p class="source">Mohammadi et al. (2015)</p>	
 			</section>
@@ -355,8 +379,8 @@
 			<section data-background-image="pics/GAO_ETAL_2024_EPILEPSIAONLINE_The-auditory-pathway-transmits-audio-signals-from-the-ear-to-the-brain-Once-reaching-the.png" data-background="rgba(255,255,255,1)" style="color: #000;" data-background-size="contain" data-background-opacity=".6">
 				<h2 style=" text-shadow: 2px 2px 0px #ffffff;">  Understanding hearing as a <span  style="text-shadow: 2px 2px 50px #07d600;"> dynamic system </span>  </h2>
 				<h4 style=" text-shadow: 2px 2px 0px #ffffff;"> Can we learn from nature? </h4>	
-					<div class="fragment" style="background-color: #ffffffe1; box-shadow: 5px 5px 10px #000; height: 33%;">
-						<p>The classic way to model hearing</p>
+					<div class="fragment fade-in-then-semi-out" style="background-color: #ffffff00; box-shadow: none; height: 33%;">
+						<p style="background-color: #ffffff;">The classic way to model hearing</p>
 						<div class="image-gallery">
 							<img src="vids/damped_harmonic_oscillator_1.gif" style="box-shadow: 1px 1px 1px #000;">
 							<img src="vids/damped_harmonic_oscillator_2.gif" style="box-shadow: 1px 1px 1px #000;">
@@ -365,8 +389,8 @@
 							<img src="vids/damped_harmonic_oscillator_5.gif" style="box-shadow: 1px 1px 1px #000;">
 						</div>
 					</div>
-					<div class="fragment" style="background-color: #ffffffe1; box-shadow: 5px 5px 10px #000; width: 100%; height: 33%;">	
-						<p>A (physiologically) more plausible way to model hearing</p>
+					<div class="fragment" style="background-color: #ffffff00; box-shadow: none; width: 100%; height: 33%;">	
+						<p  style="background-color: #ffffff;">A (physiologically) more plausible way to model hearing</p>
 						<div class="image-gallery"">
 							<img src="vids/van_der_pol_oscillator_1.gif" style="box-shadow: 1px 1px 1px #000;">
 							<img src="vids/van_der_pol_oscillator_2.gif" style="box-shadow: 1px 1px 1px #000;">
@@ -630,13 +654,13 @@
 			<!-- COVER SLIDE -->
 			<section data-transition="slide" data-background-iframe="pics/spiralling_2.html" data-background-size="cover">
 				<p style="color: #ffffff; font-size: 80px;">Thank you for your attention!</p>
-				<p style="font-size: 80px; padding-top: 40%;">bepp@dtu.dk</p>
+				<p style="font-size: 60px; padding-top: 0%;">bepp@dtu.dk</p>
 				<div style="position: absolute; width: 30%; top: 40%; right: 0%; color: #fff; font-size: 18pt; text-shadow: 1px 1px 5px #fff; text-align: left; box-shadow: none;">
 					What just happened
 					<br>
 					<ul style="margin-left: 10%; margin-top: 3%;">
 						<li> The "cocktail party problem" is still unresolved</li>
-						<li> Standard audiological screening methods might be improved </li>
+						<li> Standard audiological screening methods could be improved </li>
 						<li>Critical oscillators are a plausible model of hearing function</li>
 					</ul>	
 				</div>
@@ -646,6 +670,190 @@
 				</div>
 				<p class="bottomline" style="color: #0067a6; text-shadow:  0px 0px 0px#ffffff;">"Ever tried. Ever failed. No matter. Try again. Fail again. Fail better." Samuel Backett (1983) </p>
 			</section>
+
+
+
+			<section data-background="rgba(255,255,255,1)" style="color: #000;" data-background-video="vids/VD_sweep_trajectories.mp4" data-background-size="contain" data-background-video-loop="true">
+
+			</section>
+
+
+			<section>
+							<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<h2>An "inner ear" as a reservoir </h2>
+				<h4>A basic classification task - keyword spotting</h4>
+					<div style="background-color: #ffffffa6;" class="r-stack">
+						<img style="width: 100%;" src="pics/reservoir_scheme.svg"></img>
+							<svg width="100%" height="600">
+							<!-- Circle -->
+							<circle id=mcirc cx="31.7%" cy="55%" r="18%" stroke="#ff8000d5" stroke-width="5" pathLength="360" stroke-dasharray="5" fill="#ffffff30"/>
+							<animate
+								xlink:href="#mcirc" 
+								attributeName="pathLength"
+								begin="0s"
+								dur="100s"
+								from="0"
+								to="360"
+								repeatCount="indefinite">
+							</animate>	
+							</svg>
+					</div>
+				<p class="bottomline">Assumption: Classification performance $\propto$ information contents </p>
+				<p class="source">see corresponding DAGA proceedings</p>
+			</section>
+
+<!-- ANiMATIONS -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="840">
+					<!-- Circle -->
+					<circle id="circ" cx="200" cy="192" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim1">
+					</animate>
+					</svg>
+					</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
+			</section>
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="850">
+					<!-- Circle -->
+					<circle id="circ2" cx="815" cy="192" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ2" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim2">
+					</animate>
+					</svg>
+					</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
+			</section>
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="840">
+					<!-- Circle -->
+					<circle id="circ3" cx="200" cy="645" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 1" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ3" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim3">
+					</animate>
+				</svg>
+				</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
+			</section>
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>An "inner ear" as a reservoir - conditions</h2>
+				<div class="r-stack">
+					<img style="width: 70%;" src="pics/reservoir_scheme_conditions.svg">
+					<div data-id="circ">
+					<svg viewbox="0 0 1100 760" width="1100" height="850">
+					<!-- Circle -->
+					<circle id="circ4" cx="815" cy="645" r="150" stroke="#ff8000d5" stroke-width="10" pathLength="360" stroke-dasharray="30 10" fill="#ffffff30"/>
+					<animate 
+						xlink:href="#circ4" 
+						attributename="r" 
+						from="150" 
+						to="160" 
+						dur="5s" 
+						begin="0s" 
+						fill="freeze"
+						repeatcount="indefinite" 
+						id="rect-anim4">
+					</animate>
+					</svg>
+				</div>
+					<div style="background-color: #ff8000d5; opacity: 1; transform: rotate(-70deg); translate: -750px; box-shadow: 3px 3px 3px #000;" >
+						<p style="font-size: 20pt;">Is tonotopic organization in a dynamic information processing system beneficial?</p>
+					</div>
+				</div>
+			</section>
+			</section>
+
+
+			<!-- section slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<h2>Methods</h2>
+					<h3>How does it move? - System of 80 oscillators</h3>
+					<p>An (driven), active, nonlinear oscillator than can be put into self-sustained activity</p>
+					<div class="column">
+						<div class="tworow">
+							<h4>van der Pol oscillator(s)</h4>
+							<img src="vids/van_der_pol_animation.gif" style="width: 70%;">
+							<p style="font-size: 20px;">$\ddot{x_n}(t) = \omega_n \mu (1-x_n^2(t))\dot{x}_n(t) - \omega_n x_n(t) +$ <br> $F_{d_n(t)} + F_{c_n}(t)$</p>
+							<p style="color: #5c5c5c;">With nearest-neighbour coupling</p>
+							<p style="font-size: 20px;">$F_{c_n}(t) = k_n \left(x_{n+1}(t)+x_{n-1}(t)-2x_{n}(t)\right) + d_n \left(\dot{x}_{n+1}(t)+\dot{x}_{n-1}(t)-2\dot{x}_{n}(t)\right) $</p>
+						</div>
+						<div class="vl"></div>
+						<div class="tworow">
+							<h4>Vilfan-Duke (Ginzburg-Landau) oscillator(s)</h4>
+							<img src="vids/ginzburg_landau_animation.gif" style="width: 70%;">
+							<p style="font-size: 20px;">$\dot z_n(t) = (\epsilon_n + j \omega_n) z_n(t) - B_n|z_n(t)|^2z_n(t) + F_{d_n(t)} + F_{c_n}(t)$</p>
+							<p style="font-size: 20px; padding-top: 5%;">$z_n(t) = x_n(t) + \frac{j}{\omega}\dot x_n(t)$</p>
+							<p style="color: #5c5c5c;">With nearest-neighbour coupling</p>
+							<p style="font-size: 20px;">$F_{c_n}(t) = (d_n + jk_n)(z_{n+1}+z_{n-1}-2z_{n})$</p>
+						</div>	
+					</div>
+				</div>	
+				<p class="source">Previously used for model of Lizard hearing organ. Same argument holds for e.g. van der Pol oscillator.</p>
+			</section>
+
+
+			<!-- section slide -->
+			<section data-background="#ffffff" data-transition="slide" data-background-video="vids/VD_coupling_100-2000_Ext_1_amp_5.mp4" data-background-size="contain" data-background-video-loop="true">
+				
+			</section>
+
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+					<h2>First steps towards a (more) generalized approach</h2>
+					<img height="700" src="pics/inner_ear_schematic.svg" style="background-color:rgba(255,255,255,0.8)">
+					<p>
+						A concept that might be "simpler" and more general with fewer intrinsic assumptions
+					</p>
+			</section>			
+
 
 
 		
