@@ -18,10 +18,10 @@ services:
         build:
             target: dev
         ports:
-            - "5173:80"
+            - "5173:5173"
         volumes:
             - ./svelte_revealjs:/app
-        # - /app/node_modules
+            - svelte_revealjs_node_modules:/app/node_modules
 
         networks:
             - slides_dev
