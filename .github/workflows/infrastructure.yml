@@ -56,7 +56,7 @@ jobs:
         working-directory: infrastructure
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
 
       - name: Install Azure CLI
@@ -146,7 +146,7 @@ jobs:
 
       # commit the lock file to the repository - if changed?
       - name: Commit .terraform.lock.hcl file
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10
         with:
             add: 'infrastructure/.terraform.lock.hcl'
             fetch: false
@@ -210,7 +210,7 @@ jobs:
         working-directory: infrastructure
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Azure CLI
         run: |
@@ -258,7 +258,7 @@ jobs:
       # --subscription ${ARM_SUBSCRIPTION_ID} \
 
       - name: Setup OpenTofu
-        uses: opentofu/setup-opentofu@v1
+        uses: opentofu/setup-opentofu@v2
         with:
           tofu_version: ${{ env.TOFU_VERSION }}
 
