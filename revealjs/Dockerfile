@@ -53,5 +53,6 @@ COPY --from=build /app/DTU-22051 ./DTU-22051
 COPY --from=build /app/ISH_2025_Epp_etal ./ISH_2025_Epp_etal
 COPY --from=build /app/MOH_2024_Epp_etal ./MOH_2024_Epp_etal
 COPY --from=build /app/2025_TUH_Riget_f_undervisning ./2025_TUH_Riget_f_undervisning
+COPY --from=build /app/2026_RWTH_UKA_kolloq ./2026_RWTH_UKA_kolloq
 EXPOSE 80
 CMD ["npx", "http-server", "-p", "80"]
