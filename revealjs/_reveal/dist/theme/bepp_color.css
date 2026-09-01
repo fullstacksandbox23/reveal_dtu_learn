@@ -351,3 +351,14 @@ li:first-child {
   opacity: .1;
 }
 
+
+
+.cl {
+  list-style: none;
+}
+
+.cl li:before {
+  content: '✓';
+  font-size: larger;
+}
+
