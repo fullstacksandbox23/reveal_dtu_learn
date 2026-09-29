@@ -22,13 +22,13 @@
     <script>
         // Configuration constants
         const svg = document.getElementById('svg');
-        const N = 143;           // Total particles
-        const SUBSET = 10;       // Particles selected for grouping
+        const N = 2000;           // Total particles
+        const SUBSET = 50;       // Particles selected for grouping
         const CENTER_X = 500;    // SVG center X
         const CENTER_Y = 350;    // SVG center Y
         const PARTICLE_RADIUS = 2;      // Normal particle size
-        const SELECTED_RADIUS = 10;     // Selected particle size
-        const SWARM_RADIUS = 100;       // Main swarm radius
+        const SELECTED_RADIUS = 4;     // Selected particle size
+        const SWARM_RADIUS = 200;       // Main swarm radius
         const GROUP_RADIUS = 50;        // Group circle radius
         const GROUP_DISTANCE = 200;     // Distance of group from center
 
@@ -81,8 +81,8 @@
                 d.vy += rand(-0.02, 0.02);
 
                 // Center attraction force
-                d.vx += (CENTER_X - d.x) * 0.00005;
-                d.vy += (CENTER_Y - d.y) * 0.00005;
+                d.vx += (CENTER_X - d.x) * 0.00001;
+                d.vy += (CENTER_Y - d.y) * 0.00001;
 
                 // Damping
                 d.vx *= 0.998;
