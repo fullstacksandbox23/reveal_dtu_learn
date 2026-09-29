@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- ---------------------TITLE OF THE PRESENTATION------------------------- --> 
+		<title>Socratic dialogue in larger classes - Bastian Epp</title>
+
+
+		<link rel="stylesheet" href="../_reveal/dist/reset.css">
+		<link rel="stylesheet" href="../_reveal/dist/reveal.css">
+		<link rel="stylesheet" href="../_reveal/dist/theme/bepp.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../_reveal/plugin/highlight/monokai.css" id="highlight-theme">
+
+
+		<style>
+			figure {
+			  border: 0px #cccccc solid;
+			  padding: 4px;
+			  margin: auto;
+			}
+			
+			figcaption {
+			  background-color: white;
+			  color: gray;
+			  font-style: italic;
+			  font-size: .7em;
+			  padding: 2px;
+			  text-align: center;
+			}
+			</style>
+
+
+	</head>
+	<body>
+		<div class="reveal pattern--DTU_Background_Pattern_Black_CMYK">
+			<div class="slides">
+<!-- ---------------------START HERE------------------------- -->
+			<!-- COVER SLIDE -->
+			<section data-transition="slide" data-background-iframe="../_library/vids/particle_swarm_animation.html">
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide"  data-background-iframe="../_library/vids/particle_swarm_animation.html">
+				<div style="position: absolute; width: 60%; top: 65%; right: 0%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.0); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">From many to few</h1>
+					<h2 style="color: #ff8800;">Large groups in a Socratic dialogue</h2>
+					<br>
+					<h3 style="color: #ff8800;">Bastian Epp</h3>
+				</div>					
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide"  data-background-iframe="../_library/vids/particle_swarm_animation_single.html">
+				<div style="position: absolute; width: 60%; top: 65%; right: 0%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.0); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">From many to few</h1>
+					<h2 style="color: #ff8800;">Large groups in a Socratic dialogue</h2>
+					<br>
+					<h3 style="color: #ff8800;">[The group of colleagues and students that value teaching]</h3>
+				</div>					
+			</section>
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+				<div>
+					<h3>Digital signal processing (22051, 3rd year)</h3>
+					<h5>Using mathematical concepts to acquire and process information</h5>
+				</div>
+					<p style="padding-top: 20pt;">Examples of signals</p>
+				<div class="image-row" style="height: 20vh; max-height: 25%;">
+					<img src="pics/lecture_01_signal_finite.png" style="size: auto; max-height: 90%; height: auto; margin:auto;">
+					<img src="pics/lecture_01_specgram_noisy.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_01_specgram_denoised.png" style="size: auto; max-width: 30%; margin:auto;">
+					<img src="pics/lecture_02_sound_factoryhall.jpg" style="size: auto; max-width: 30%; margin:auto;">
+				</div>
+				<div class="image-row">
+					<audio controls src="wav/lecture_01_mini-me_short.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/lecture_11_noisy_signal.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+					<audio controls src="wav/lecture_11_sig_denoised_3.wav" style="margin: auto; padding-top: 1%;">Audio</audio>
+					<audio controls src="wav/conv_lecture_02_factoryhall_lecture_01_mini-me_short.wav" style="margin: auto; padding-top: 1%;">Audio</audio>	
+				</div>
+				<div class="fragment">
+					<p style="padding-top: 80pt;">Some mathematical tools for precise description</p>
+					\[
+					X_L(\omega,m) = \sum_{n=-\infty}^\infty(x[n]w_L[n-mD]) e^{-j \omega n}  = \mathcal{F}\{x[n]w_L[n-mD] \}
+					\]
+				</div>
+				<div>
+					<p class="bottomline">In time, frequency, time-frequency, manipulated...</p>
+				</div>
+			</section>			
+
+
+			<!-- standard slide -->
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			<h3> The challenge </h3>
+				<div>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 15%; left: 0%; background-color: #990000; color: #fff; box-shadow: 3px 3px 3px #000;">Five different study lines + international students (heterogeneity)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 30%; left: 10%; background-color: #990000; color: #fff; box-shadow: 3px 3px 3px #000;">Growing student numbers (32 -> 143)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 45%; left: 20%; background-color: #990000; color: #fff; box-shadow: 3px 3px 3px #000;">Little contact time per student (trust)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 60%; left: 30%; background-color: #990000; color: #fff; box-shadow: 3px 3px 3px #000;">One size fits all is a dead end</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 75%; left: 40%; background-color: #990000; color: #fff; box-shadow: 3px 3px 3px #000;">Heterogeneous prerequisites lead to misconceptions</p>		
+				</div>
+
+				<div class="fragment" style="position: absolute; top: 5%;">
+					<img src="../_library/pic/mosaic_elephant.png" style="box-shadow: none; height: 100%;">
+				</div>	
+			</section>			
+
+			<section data-background="rgba(255,255,255,.8)" style="color: #000;">
+			<h3> The solution (approach) </h3>
+				<div class="fragment fade-in-then-semi-out" style="position: absolute; top: 5%; left: 0%;  color: #fff; box-shadow: none;">
+					<img src="pics/manuscript_correction.jpg"> 
+				</div>
+				<div>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 15%; left: 0%; background-color: #096700; color: #fff; box-shadow: 3px 3px 3px #000;">Provide modular material on-demand (tackles heterogeneity)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 30%; left: 10%; background-color: #096700; color: #fff; box-shadow: 3px 3px 3px #000;">Clear structure and expectations / transparency (individual challenges)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 45%; left: 20%; background-color: #096700; color: #fff; box-shadow: 3px 3px 3px #000;">Create support at various time scales (safe space)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 60%; left: 30%; background-color: #096700; color: #fff; box-shadow: 3px 3px 3px #000;">Utilize misconceptions (individualization/ownership)</p>
+					<p class="fragment fade-in-then-semi-out" style="position: absolute; top: 75%; left: 40%; background-color: #096700; color: #fff; box-shadow: 3px 3px 3px #000;">Create a small class within a large class (acknowledgement)</p>
+				</div>
+
+				<div class="fragment" style="position: absolute; top: 20%; right: 20%;">
+					<img src="pics/socrates-quotes-elearning.jpg" style="box-shadow: none; height: 100%;">
+				</div>	
+			</section>
+
+
+			<!-- full video slide -->
+			<section data-transition="slide" data-background-iframe="../_library/vids/particle_swarm_animation.html" style="color: #fff;">
+				<div class="fragment" style="background-color: #00000085; box-shadow: 3px 3px 3px #096700;"> 
+					<p style="margin-top: 10%;"> ”Really really really like the short videos that you can go and see before the lecture, gives a solid overview and leaves time at the lecture to go into depth.”</p>
+				</div>
+					
+				<div class="fragment" style="background-color: #00000085; box-shadow: 3px 3px 3px #096700;""> 
+					<p  style="margin-top: 10%;">
+					”I was positively surprised... even my impostor syndrome gave up and I was not
+					afraid to ask stupid questions.”
+					</p>	
+				</div>
+					
+				<div class="fragment" style="background-color: #00000085; box-shadow: 3px 3px 3px #096700;""> 
+					<p  style="margin-top: 10%;">
+						”This is the first large course where I genuinely felt seen as an individual student.”
+					</p>
+				</div>
+			</section>
+
+			<!-- TITLE SLIDE -->
+			<section data-transition="slide"  data-background-iframe="../_library/vids/particle_swarm_animation_many.html">
+				<div style="position: absolute; width: 60%; top: 65%; right: 0%; box-shadow: 0 1px 4px rgba(77, 77, 77, 0.7), 0 5px 25px rgba(77, 77, 77, 0.7); background-color: rgba(100, 100, 100, 0.0); color: #fff; padding: 20px; font-size: 20px; text-align: right;">
+					<h1 style="color: #fff;">From few to many</h1>
+					<h2 style="color: #ff8800;">Only a collective effort can tackle the modern challenges</h2>
+					<br>
+					<h3 style="color: #ff8800;">...if we had the frame, we could draw the picture...</h3>
+				</div>					
+			</section>
+
+
+
+			<!-- BACKCOVER -->
+			<section data-transition="slide" >
+				<img src="../_reveal/lib/dtu/logo/dtu/primary_red.png" style="scale: 20%; margin: 0%; box-shadow: none; margin-top: 0%;-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #ffffff); box-shadow: none;">
+
+			</section>
+
+		
+<!-- ---------------------FOOTER------------------------- -->
+
+<script src="../_reveal/dist/reveal.js"></script>
+<script src="../_reveal/plugin/zoom/zoom.js"></script>
+<script src="../_reveal/plugin/notes/notes.js"></script>
+<script src="../_reveal/plugin/search/search.js"></script>
+<script src="../_reveal/plugin/markdown/markdown.js"></script>
+<script src="../_reveal/plugin/highlight/highlight.js"></script>
+<script src="../_reveal/plugin/math/math.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		margin: 0.0,
+		height: 1000,
+		width: 1600,
+		disableLayout: false,
+		controls: true,
+		progress: true,
+		center: false,
+		hash: true,
+		parallaxBackgroundImage: '../_reveal/lib/dtu/patterns/black/background.jpg',
+		parallaxBackgroundSize: 'scale',
+		transition: 'fade',
+		//parallaxBackgroundRepeat: 'no-repeat',
+		parallaxBackgroundPosition: 'center',
+		parallaxBackgroundHorizontal: 20,
+		  parallaxBackgroundVertical: 50,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+	});
+		</script>
+	</body>
+</html>

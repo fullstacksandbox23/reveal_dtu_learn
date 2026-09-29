@@ -55,7 +55,7 @@ body {
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: uppercase;
-  text-shadow: 2px 2px 3px #fff;
+  text-shadow: 1px 1px 2px #fff;
   word-wrap: break-word; }
 
 .reveal h1 {

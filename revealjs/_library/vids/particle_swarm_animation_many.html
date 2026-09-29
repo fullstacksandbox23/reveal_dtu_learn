@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Particle Swarm</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            overflow: hidden;
+        }
+        svg {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <svg id="svg" viewBox="0 0 1000 700"></svg>
+    <script>
+        // Configuration constants
+        const svg = document.getElementById('svg');
+        const N = 2000;           // Total particles
+        const SUBSET = 50;       // Particles selected for grouping
+        const CENTER_X = 500;    // SVG center X
+        const CENTER_Y = 350;    // SVG center Y
+        const PARTICLE_RADIUS = 2;      // Normal particle size
+        const SELECTED_RADIUS = 4;     // Selected particle size
+        const SWARM_RADIUS = 200;       // Main swarm radius
+        const GROUP_RADIUS = 50;        // Group circle radius
+        const GROUP_DISTANCE = 200;     // Distance of group from center
+
+        const dots = [];
+
+        // Helper functions
+        function rand(a, b) {
+            return a + Math.random() * (b - a);
+        }
+
+        function shuffle(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+
+        // Initialize particles in circular swarm around center
+        for (let i = 0; i < N; i++) {
+            const angle = Math.random() * 2 * Math.PI;
+            const radius = SWARM_RADIUS * Math.sqrt(Math.random());
+            const x = CENTER_X + radius * Math.cos(angle);
+            const y = CENTER_Y + radius * Math.sin(angle);
+
+            const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            c.setAttribute('cx', x);
+            c.setAttribute('cy', y);
+            c.setAttribute('r', PARTICLE_RADIUS);
+            c.setAttribute('fill', 'white');
+            c.setAttribute('opacity', '0.5');
+
+            svg.appendChild(c);
+
+            dots.push({
+                el: c,
+                x, y,
+                vx: rand(-0.5, 0.5),
+                vy: rand(-0.5, 0.5),
+                selected: false
+            });
+        }
+
+        // Animation loop - physics update
+        function animate() {
+            dots.forEach(d => {
+                if (d.selected) return;
+
+                // Random perturbation
+                d.vx += rand(-0.02, 0.02);
+                d.vy += rand(-0.02, 0.02);
+
+                // Center attraction force
+                d.vx += (CENTER_X - d.x) * 0.00001;
+                d.vy += (CENTER_Y - d.y) * 0.00001;
+
+                // Damping
+                d.vx *= 0.998;
+                d.vy *= 0.998;
+
+                // Speed limit
+                const speed = Math.hypot(d.vx, d.vy);
+                if (speed > 1.5) {
+                    d.vx *= 1.5 / speed;
+                    d.vy *= 1.5 / speed;
+                }
+
+                // Apply velocity
+                d.x += d.vx;
+                d.y += d.vy;
+
+                // Update DOM
+                d.el.setAttribute('cx', d.x);
+                d.el.setAttribute('cy', d.y);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Select a group of particles and arrange them in a circle
+        function selectGroup() {
+            const candidates = dots.filter(d => !d.selected);
+            shuffle(candidates);
+            const selected = candidates.slice(0, SUBSET);
+
+            // Random position for the group circle
+            const phi = Math.random() * 2 * Math.PI;
+            const groupX = CENTER_X + GROUP_DISTANCE * Math.cos(phi);
+            const groupY = CENTER_Y + GROUP_DISTANCE * Math.sin(phi);
+
+            // Animate selected particles into formation
+            selected.forEach((d, i) => {
+                d.selected = true;
+                const a = i * 2 * Math.PI / SUBSET;
+                const tx = groupX + GROUP_RADIUS * Math.cos(a);
+                const ty = groupY + GROUP_RADIUS * Math.sin(a);
+
+                d.el.style.transition = 'all 2s ease';
+                d.el.setAttribute('cx', tx);
+                d.el.setAttribute('cy', ty);
+                d.el.setAttribute('fill', '#990000');
+                d.el.setAttribute('opacity', '1');
+                d.el.setAttribute('r', SELECTED_RADIUS);
+
+                d.x = tx;
+                d.y = ty;
+            });
+
+            // Return particles to swarm after delay
+            setTimeout(() => {
+                selected.forEach(d => {
+                    const a = Math.random() * 2 * Math.PI;
+                    const r = SWARM_RADIUS * Math.sqrt(Math.random());
+                    const tx = CENTER_X + r * Math.cos(a);
+                    const ty = CENTER_Y + r * Math.sin(a);
+
+                    d.el.style.transition = 'all 1.2s ease';
+                    d.el.setAttribute('cx', tx);
+                    d.el.setAttribute('cy', ty);
+                    d.el.setAttribute('fill', 'white');
+                    d.el.setAttribute('opacity', '0.5');
+                    d.el.setAttribute('r', PARTICLE_RADIUS);
+
+                    d.x = tx;
+                    d.y = ty;
+                    d.vx = rand(-0.5, 0.5);
+                    d.vy = rand(-0.5, 0.5);
+
+                    setTimeout(() => {
+                        d.selected = false;
+                    }, 3000);
+                });
+            }, 3000);
+        }
+
+        // Start animation
+        animate();
+        
+        // Schedule group selection cycles
+        setInterval(selectGroup, 5000);
+        setTimeout(selectGroup, 1000);
+    </script>
+</body>
+</html>
