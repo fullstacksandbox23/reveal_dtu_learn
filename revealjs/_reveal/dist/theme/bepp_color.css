@@ -49,7 +49,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #000741;
+  color: #1f266b;
   font-family: "League Gothic", Impact, sans-serif;
   font-weight: normal;
   line-height: 1.2;
@@ -304,6 +304,24 @@ body {
 /*********************************************
  * CUSTOMS
  *********************************************/
+
+ .sectionslide h1,
+ .sectionslide h2 
+ {
+      color: #ff9500;
+      text-shadow: 2px 2px 5px #fff;
+ }
+
+.sectionslide h3, 
+.sectionslide h4, 
+.sectionslide h5, 
+.sectionslide h6
+{
+      color: #ff9500;
+      text-shadow: none;  
+} 
+
+
 
  .source{
       font-size: small;
