@@ -65,7 +65,7 @@ ax2.set_zlabel('Magnitude (dB)')
 ax2.set_zlim([-65, 75])
 
 # Change the view of the 3D plot
-ax2.view_init(elev=30., azim=60)
+ax2.view_init(elev=30., azim=240)
 
 plt.tight_layout()
 plt.savefig("../pics/lecture_12_spectral_subtraction_org_combined.svg")
